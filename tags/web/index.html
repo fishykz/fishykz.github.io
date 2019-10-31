@@ -346,29 +346,20 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/phpwxy/" >
+        <a class="abstract-title" href = "/2019/11/01/CVE-2018-12613/" >
             
-                <span>php伪协议实现命令执行</span>
+                <span>CVE-2018-12613 phpadmin文件包含漏洞</span>
         </a>
         <div class="abstract-content">
-            
-单纯的从URL判断的话，URL中path、dir、file、pag、page、archive、p、eng、语言文件等相关关键字眼的时候,可能存在文件包含漏洞航舰的文件包含函数:
-include
-require
-include_once
-hightlight_file
-show_sourcce
-readfile
-file_get_contents
-fopen
-file封装协议:
-file://
-php://filter
-php://input
-zip://
-compress.bzip2://
-compress.zlib://
-data://环境概要:php.ini:allow_url_f...
+            网址:
+
+https://www.phpmyadmin.net/security/PMASA-2018-4/
+
+摘要文件包含和远程执行代码攻击
+描述发现了一个漏洞，攻击者可以在该漏洞中包含（查看并可能执行）服务器上的文件。该漏洞来自代码的一部分，其中页面在phpMyAdmin中重定向和加载，以及对白名单页面的不正确测试。除以下情况外，必须对攻击者进行身份验证：
+
+$ cfg [‘AllowArbitraryServer’] = true：攻击者可以指定他/她已控制的任何主机，并在phpMyAdmin上执行任意代码
+$ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -392,20 +383,29 @@ data://环境概要:php.ini:allow_url_f...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/CVE-2018-12613/" >
+        <a class="abstract-title" href = "/2019/11/01/phpwxy/" >
             
-                <span>CVE-2018-12613 phpadmin文件包含漏洞</span>
+                <span>php伪协议实现命令执行</span>
         </a>
         <div class="abstract-content">
-            网址:
-
-https://www.phpmyadmin.net/security/PMASA-2018-4/
-
-摘要文件包含和远程执行代码攻击
-描述发现了一个漏洞，攻击者可以在该漏洞中包含（查看并可能执行）服务器上的文件。该漏洞来自代码的一部分，其中页面在phpMyAdmin中重定向和加载，以及对白名单页面的不正确测试。除以下情况外，必须对攻击者进行身份验证：
-
-$ cfg [‘AllowArbitraryServer’] = true：攻击者可以指定他/她已控制的任何主机，并在phpMyAdmin上执行任意代码
-$ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
+            
+单纯的从URL判断的话，URL中path、dir、file、pag、page、archive、p、eng、语言文件等相关关键字眼的时候,可能存在文件包含漏洞航舰的文件包含函数:
+include
+require
+include_once
+hightlight_file
+show_sourcce
+readfile
+file_get_contents
+fopen
+file封装协议:
+file://
+php://filter
+php://input
+zip://
+compress.bzip2://
+compress.zlib://
+data://环境概要:php.ini:allow_url_f...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -562,22 +562,22 @@ $ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     </div>

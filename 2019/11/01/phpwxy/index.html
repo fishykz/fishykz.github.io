@@ -464,17 +464,12 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/11/01/cbcsafety-md/" title= "CBC安全问题">
-                    <div class="nextTitle">CBC安全问题</div>
+                <a href= "/2019/11/01/CVE-2018-12613/" title= "CVE-2018-12613 phpadmin文件包含漏洞">
+                    <div class="nextTitle">CVE-2018-12613 phpadmin文件包含漏洞</div>
                 </a>
             
         </li>
         <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/11/01/CVE-2018-12613/" title= "CVE-2018-12613 phpadmin文件包含漏洞">
-                    <div class="prevTitle">CVE-2018-12613 phpadmin文件包含漏洞</div>
-                </a>
             
         </li>
     </ul>
@@ -484,6 +479,23 @@ height:50vh;
 <!-- City版安装代码已完成 -->
     
     
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        // id: "php伪协议实现命令执行", // 可选。默认为 location.href
+        owner: 'fishykz',
+        repo: 'https://github.com/fishykz/blog-commit',
+        oauth: {
+            client_id: '3da3d2692204b85c3406',
+            client_secret: 'b77cedb5c63e9ab8fdd5efa5b7434eaf81ee8e01',
+        },
+    })
+    gitment.render('container')
+
+</script>
+
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -647,22 +659,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     </div>
