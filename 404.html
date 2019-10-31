@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>(ECB,CBC)分组密码的算法类型及模式 · Yk2&#39;s Blog</title>
+    <title>[404] · Yk2&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="post-body">
+        <body class="four-zero-four-body">
     
     
 <header class="header">
@@ -211,15 +211,6 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Yk2&#39;s Blog.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">(ECB,CBC)分组密码的算法类型及模式</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Yk2's Blog.</a>
 </header>
@@ -231,74 +222,32 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- 404页  -->
+    <!-- about页 -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/404-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            (ECB,CBC)分组密码的算法类型及模式
-            <!-- 404 -->
+            [404]
+            <!-- about -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
+                May the Force be with you :&#41;
             
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/11/01</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,62 +348,8 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h2 id="电子密码本-ECB"><a href="#电子密码本-ECB" class="headerlink" title="电子密码本(ECB)"></a>电子密码本(ECB)</h2><p>使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为<strong>相同的明文分组永远被加密成相同的密文分组</strong>,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.<br>    每个明文分组可被独立地进行加密.不必按次序进行.<em>ECB的问题在于</em>:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.<br>    如果密码分析者知道明文A对应密文B,那么无论什么时候这段密文出现在另一段消息中,他都能将其解密.<br>    消息的开头和结尾是致命之处.那里一般规定了消息头和消息尾,会有固定格式.</p>
-<h3 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h3><p>将非64位的密码填充至64位.前面用0,1等有规律的模式填充,最后标记共填充了多少位.</p>
-<h3 id="分组重放"><a href="#分组重放" class="headerlink" title="分组重放"></a>分组重放</h3><p>ECB最严重的问题在敌人可以在不知道密钥的前提下修改加密过的消息,用这种方法可以欺骗指定的接收者,如双花攻击.<br>解决方法:加时间戳<br>新攻击方法:截取时间戳正确的消息,然后更换对应的账户和名称,即可产生一条时间戳正确的恶意明文.</p>
-<p>比特币系统解决方法:<br>UTXO(Unspent Transaction Outpu),即未花费交易输出，它在区块链系统中用以记算钱包账户中的余额。对于货币玩家们而言，UTXO就像是你的余额宝，它会随时计算你的仅剩资产。同时由于编码的存在，UXTO的优越性也在于<code>资产的销毁和产生过程都是便于追溯的</code>。时间戳和UTXO的存在标志着，当某个用户意图用同一笔资金进行两次付款的时候，时间戳会自动选择承认最先发出的那笔交易。而UTXO则会确认并验证用于每一笔交易的资产是否存在、是否被花费。如果要在区块链中发起双花攻击，就势必会令系统产生分叉，而多出来的这条岔道，通常不会被系统所承认。<br>DES解决方法:密码分组连链接模式(CBC)<br>采用多次分组加密,每一次分组加密用来修改下一次分组的加密.</p>
-<h2 id="密码分组连链接模式-CBC"><a href="#密码分组连链接模式-CBC" class="headerlink" title="密码分组连链接模式(CBC)"></a>密码分组连链接模式(CBC)</h2><ul>
-<li>采用多次分组加密,每一次分组加密用来修改下一次分组的加密.<br>CBC模式仅在前面的明文分组不同时,才能将完全相同的明文分组加密成不同的密文分组.因此两个相同的信息仍被加密成相同的密文.更糟糕的是:<strong>两组信息在它们第一个不同之处出现之前,会被加密成相同的结果</strong><br>  有些信息(如发件人,信头)有相同的开头,虽然不能进行分组重放,但这些相同开头的确给分析者提供了帮助.<br>   防止这种情况发生的办法是用加密随机数据作为第一个分组,这个随机数据被称为初始化向量(IV),它的唯一作用是让信息唯一化.接收者进行解密时,只是用它来填充反馈寄存器.时间标记是一个好的IV.使用IV后相同信息可以被加密乘不同的密文内容.这样窃听者就无法进行分组重放攻击.</li>
-<li>IV不需要保密<h3 id="错误扩散"><a href="#错误扩散" class="headerlink" title="错误扩散"></a>错误扩散</h3>CBC模式具有 <em>在加密端是密文反馈,在解密端是密文前馈</em> 的性质,这意味着要对错误进行处理.明文分组的单独一位出错将影响密文分以及后面的密文分组.<br>密文的小错误能够转变为明文的更大错误,这就叫错误扩散.在CBC中,出错的分组后的第二分组不会受到影响.尽管CBC能将位错误恢复,但不能回复同步错误.所以CBC必须保证分组结构的完整.</li>
-</ul>
+            <!-- 不可以删除，否则会调用post的layout  -->
 
-    </article>
-    <!-- license  -->
-    
-        <div class="license-wrapper">
-            <p>原文作者：<a href="http://www.yk2.work">Yk2</a>
-            <p>原文链接：<a href="http://www.yk2.work/2019/11/01/ecbcbc-md/">http://www.yk2.work/2019/11/01/ecbcbc-md/</a>
-            <p>发表日期：<a href="http://www.yk2.work/2019/11/01/ecbcbc-md/">November 1st 2019, 12:35:11 am</a>
-            <p>更新日期：<a href="http://www.yk2.work/2019/11/01/ecbcbc-md/">November 1st 2019, 12:36:56 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
-        </div>
-    
-    <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/11/01/des/" title= "DES加密步骤详解">
-                    <div class="nextTitle">DES加密步骤详解</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/11/01/cbcsafety-md/" title= "CBC安全问题">
-                    <div class="prevTitle">CBC安全问题</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
-    
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
-</main>
             <!-- profile -->
             
         </div>
@@ -518,24 +413,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#电子密码本-ECB"><span class="toc-number">1.</span> <span class="toc-text">电子密码本(ECB)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#填充"><span class="toc-number">1.1.</span> <span class="toc-text">填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组重放"><span class="toc-number">1.2.</span> <span class="toc-text">分组重放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密码分组连链接模式-CBC"><span class="toc-number">2.</span> <span class="toc-text">密码分组连链接模式(CBC)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误扩散"><span class="toc-number">2.1.</span> <span class="toc-text">错误扩散</span></a></li></ol></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -701,8 +578,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
