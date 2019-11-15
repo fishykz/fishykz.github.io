@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Yk2&#39;s Blog</title>
+    <title>c1 · Yk2&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yk2&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">c1</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Yk2's Blog.</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Yk2's Blog.
-            <!-- 文章页  -->
+            c1
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,49 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                Thank you for clicking me in this hurried world
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "C">C</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.5k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/11/11</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,317 +399,98 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/11/c1/" >
-            
-                <span>c1</span>
-        </a>
-        <div class="abstract-content">
-            数值最大存储
-short int:有符号类型,一般16位.-32767-32767
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="数值最大存储"><a href="#数值最大存储" class="headerlink" title="数值最大存储"></a>数值最大存储</h3><ul>
+<li><p>short int:有符号类型,一般16位.-32767-32767</p>
+</li>
+<li><p>long int 可能占用比Int更大的存储类型,有符号,一般32位.-2147483647-2147483647</p>
+<ul>
+<li>long long int:有符号,一般64位.-9e18-+9e18</li>
+</ul>
+</li>
+<li><p>unsigned int:无符号.0-65534</p>
+<h3 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h3><p>如果整数太大,超出了整数类型的范围:</p>
+</li>
+<li><p>unsigned会溢出到起始点0</p>
+</li>
+<li><p>如果希望把一个较小的常量作为long类型对待,可以使用l(小写的L)或L后缀.例如020L,0X10L</p>
+</li>
+<li><p>与之类似,用LL代表LONG LONG 类型,u或U来表示unsigned long long类型</p>
+<h4 id="打印short-long-long-long-unsigned类型数"><a href="#打印short-long-long-long-unsigned类型数" class="headerlink" title="打印short,long,long long,unsigned类型数"></a>打印short,long,long long,unsigned类型数</h4><p>要打印unsigned int 数字,可以使用%u</p>
+<pre><code>long                          %ld,(本机可用%d</code></pre></li>
+<li><p>char grade=65;//将grade赋予为ASCII码为65的值</p>
+</li>
+<li><p><code>\a</code>为蜂鸣(C90新增)</p>
+</li>
+<li><p>如果想用一个字符的八进制ASCII码代表它,可以在编码值前面加上一个反斜杠()并用单一好引起来<br>:<code>beep=&#39;\007&#39;</code>可以省去前面的0,即’\7’也会被解释为八进制</p>
+</li>
+</ul>
+<h5 id="如何声明变量"><a href="#如何声明变量" class="headerlink" title="如何声明变量"></a>如何声明变量</h5><ul>
+<li><p>可以在同一类型后声明多个变量,之间用逗号分隔.可以在声明语句初始化变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> ch, init,ans;</span><br><span class="line"><span class="keyword">float</span> mass = <span class="number">6.0e24</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="刷新输出"><a href="#刷新输出" class="headerlink" title="刷新输出"></a>刷新输出</h5><p>printf函数什么时候真正把输出传递给屏幕?<br>首先,printf()语句将输出传递给一个被称为buffer的中介存储区域,buffer的内容再不断传送给屏幕;当缓冲区满的时候,遇到换行或需要输入时,将缓冲区内容传送给屏幕湖泊文件.这个操作称为刷新缓冲区.<br>或者使用fflush()函数</p>
+</li>
+<li><p>C没有为字符串设定专门的变量类型,而是把它存储在char数组中,每个字符占用一个单元,最后以\0结尾</p>
+</li>
+<li><p>键入大写的自定义量为常量是传统</p>
+<blockquote>
+<p>#define PI 3.14</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>const可以将一个变量声明转换为一个常量声明.<br>const int MONTHS = 12; </p>
+</blockquote>
+<h4 id="系统定义的一些符号常量"><a href="#系统定义的一些符号常量" class="headerlink" title="系统定义的一些符号常量:"></a>系统定义的一些符号常量:</h4><blockquote>
+<p>CHAR_BIT 一个char的位数<br>CHAR_MAX char类型的最大值<br>CHAR_MIN char类型的最小值<br>SCHAR_MAX signed char类型的最大值 SCHAR_MIN signed char类型的最小值 UCHAR_MAX unsigned char类型的最大值 SHRT_MAX short类型的最大值<br>SHRT_MIN short类型的最小值<br>USHRT_MAX unsigned short类型的最大值 INT_MAX int类型的最大值<br>INT_MIN int类型的最小值<br>UINT_MAX unsigned int类型的最大值 LONG_MAX long类型的最大值<br>LONG_MIN long类型的最小值<br>ULONG_MAX unsigned long类型的最大值 LLONG_MAX long long类型的最大值 LLONG_MIN long long类型的最小值 ULLONG_MAX unsigned long long类型的最大值<br>FLT_MANT_DIG float类型的尾数位数<br>FLT_DIG float类型的最少有效数字位数（十进制） FLT_MIN_10_EXP 带有全部有效数字的float类型的负指数的最小值（以10为底）<br>FLT_MAX_10_EXP float类型的正指数的最大值（以10为底）<br>FLT_MIN 保留全部精度的float类型正数的最小值 FLT_MAX float类型正数的最大值</p>
+</blockquote>
+<h4 id="转换说明"><a href="#转换说明" class="headerlink" title="转换说明"></a>转换说明</h4><blockquote>
+<p>%a 浮点数、十六进制数字和p-记数法（C99)<br>%A 浮点数、十六进制数字和P-记数法（C99)<br>%c 一个字符<br>%d 有符号十进制整数<br>%e 浮点数、e-记数法<br>%E 浮点数、E-记数法<br>%f 浮点数、十进制记数法<br>%g 根据数值不同自动选择％f或％e。%e格式在指数小于-4或者大于等于精度时使用<br>%G 根据数值不同自动选择％f或％E。％E格式在指数小于-4或者大于等于精度时使用<br>%i 有符号十进制整数（与％d相同）<br>%o 无符号八进制整数<br>%p 指针<br>%s 字符串<br>%u 无符号十进制整数<br>%x 使用十六进制数字0f的无符号十六进制整数<br>%X 使用十六进制数字0F的无符号十六进制整数<br>%% 打印一个百分号</p>
+</blockquote>
+<h4 id="printf修饰符"><a href="#printf修饰符" class="headerlink" title="printf修饰符"></a>printf修饰符</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">digit（s） 字段宽度的最小值。如果该字段不能容纳要打印的数或者字符串，系统就会使用更宽的字段 示例：“％<span class="number">4</span>d”</span><br><span class="line">.digit（s） 精度。对于％e、％E和％f转换，是将要在小数点的右边打印的数字的位数。对于％g和％G转换，是有效数 字的最大位数。对于％s转换，是将要打印的字符的最大数目。对于整数转换，是将要打印的数字的最小位数； 如果必要，要使用前导零来达到这个位数。只使用“.”表示其后跟随一个零，所以％.f与％<span class="number">.0</span>f相同 示例；“％<span class="number">5.2f</span>”打印一个浮点数，它的字段宽度为<span class="number">5</span>个字符，小数点后有两个数字 </span><br><span class="line">h 和整数转换说明符一起使用，表示一个<span class="keyword">short</span> <span class="keyword">int</span>或<span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span>类型数值 示例：“%hu”、 “%hx”和“％<span class="number">6.4</span>hd” </span><br><span class="line">hh 和整数转换说明符一起使用，表示一个<span class="keyword">signed</span> <span class="keyword">char</span>或<span class="keyword">unsigned</span> <span class="keyword">char</span>类型数值 示例：“%hhu”、“%hhx”和“％<span class="number">6.4</span>hhd”</span><br><span class="line">j 和整数转换说明符一起使用，表示一个<span class="keyword">intmax_t</span>或<span class="keyword">uintmax_t</span>值 示例：“%jd”和“％<span class="number">8</span>jX”</span><br><span class="line">l 和整数转换说明符一起使用，表示一个<span class="keyword">long</span> <span class="keyword">int</span>或<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span>类型值 示例：“％ld”和“％<span class="number">81u</span>” </span><br><span class="line">ll 和整数转换说明符一起使用，表示一个<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span>或<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span>类型值（C99） 示例；“％lld”和“％<span class="number">8l</span>lu” </span><br><span class="line">L 和浮点转换说明符一起使用，表示一个<span class="keyword">long</span> <span class="keyword">double</span>值 示例；“%Lf”和“％<span class="number">10.4L</span>e” </span><br><span class="line">t 和整数转换说明符一起使用，表示一个<span class="keyword">ptrdiff_t</span>值（与两个指针之间的差相对应的类型）（C99） 示例：“％td”和“％<span class="number">12</span>ti” </span><br><span class="line">z 和整数转换说明符一起使用，表示一个<span class="keyword">size_t</span>值（<span class="keyword">sizeof</span>返回的类型）（C99） 示例：“％zd”和“％<span class="number">12</span>zx”</span><br><span class="line"># 使用转换说明的可选形式。若为％o格式，则以<span class="number">0</span>开始；若为%x和%X格式，则以<span class="number">0</span>x或<span class="number">0</span>X开始。 对于所有的浮点形式，#保证了即使不跟任何数字，也打印一个小数点字符。对于%g和％G格式， 它防止尾随零被删除 示例：“％<span class="meta">#o”、“％#8.0f”和“％+#10.3E”</span></span><br></pre></td></tr></table></figure>
 
-long int 可能占用比Int更大的存储类型,有符号,一般32位.-2147483647-2147483647
-
-long long int:有符号,一般64位.-9e18-+9e18
-
-
-unsigned int:无符号.0-65534
-整数溢出如果整数太大,超出了整数类型的范围:
-
-unsigned会溢出到起始点0
-
-如果希望把一个较小的常量作为long类型对待,可以使用l(小写的L)或L后缀.例如020L,0X10L
-
-与之类似,用LL代表LONG LONG 类型,u或U来表示unsigned...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C">C</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/des/" >
-            
-                <span>DES加密步骤详解</span>
-        </a>
-        <div class="abstract-content">
-            
-DES是一个分组加密算法.以64为为分组对数据加密.64为一组明文从算法的一段输入,64位密文输出.
-DES是对称算法
-密钥长度为56位(数字长度为64位,但每个第8位都做奇偶校验数)初始置换把明文输入块分为64份.然后排列成下面所示密文(IP)输出:
-
-58,50,42,34,26,18,10,2,60,52,44,36,28,20,12,4,62,54,46,38,30,22,14,6,64,56,48,40,32,24,16,8,57,49,41,33,25,17, 9,1,59,51,43,35,27,19,11,3,61,53,45,37,29,21,13,5,63,55,4...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://www.yk2.work">Yk2</a>
+            <p>原文链接：<a href="http://www.yk2.work/2019/11/11/c1/">http://www.yk2.work/2019/11/11/c1/</a>
+            <p>发表日期：<a href="http://www.yk2.work/2019/11/11/c1/">November 11th 2019, 9:22:28 pm</a>
+            <p>更新日期：<a href="http://www.yk2.work/2019/11/11/c1/">November 16th 2019, 12:41:47 am</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/ecbcbc-md/" >
-            
-                <span>(ECB,CBC)分组密码的算法类型及模式</span>
-        </a>
-        <div class="abstract-content">
-            电子密码本(ECB)使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为相同的明文分组永远被加密成相同的密文分组,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.    每个明文分组可被独立地进行加密.不必按次序进行.ECB的问题在于:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.    如果密码分析者知道明文A对应密文B,那么无...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/cbcsafety-md/" >
-            
-                <span>CBC安全问题</span>
-        </a>
-        <div class="abstract-content">
-            安全问题CBC比特翻转攻击
-已知明文攻击
-如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
-经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
-加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
-攻击流程简述:
-
-①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
-CBC选择密文攻击
-通过CBC...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/CVE-2018-12613/" >
-            
-                <span>CVE-2018-12613 phpadmin文件包含漏洞</span>
-        </a>
-        <div class="abstract-content">
-            网址:
-
-https://www.phpmyadmin.net/security/PMASA-2018-4/
-
-摘要文件包含和远程执行代码攻击
-描述发现了一个漏洞，攻击者可以在该漏洞中包含（查看并可能执行）服务器上的文件。该漏洞来自代码的一部分，其中页面在phpMyAdmin中重定向和加载，以及对白名单页面的不正确测试。除以下情况外，必须对攻击者进行身份验证：
-
-$ cfg [‘AllowArbitraryServer’] = true：攻击者可以指定他/她已控制的任何主机，并在phpMyAdmin上执行任意代码
-$ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/phpwxy/" >
-            
-                <span>php伪协议实现命令执行</span>
-        </a>
-        <div class="abstract-content">
-            
-单纯的从URL判断的话，URL中path、dir、file、pag、page、archive、p、eng、语言文件等相关关键字眼的时候,可能存在文件包含漏洞航舰的文件包含函数:
-include
-require
-include_once
-hightlight_file
-show_sourcce
-readfile
-file_get_contents
-fopen
-file封装协议:
-file://
-php://filter
-php://input
-zip://
-compress.bzip2://
-compress.zlib://
-data://环境概要:php.ini:allow_url_f...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/auther.jpg >
-    <div class="profile-name">Yk2</div>
-    
-    <div class="profile-signature">
-        the 0n1y Five of 0xfa
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:yukaizzz@qq.com@qq.com" target="_blank" rel="noopener" class="iconfont-archer email" title=email ></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/11/01/des/" title= "DES加密步骤详解">
+                    <div class="prevTitle">DES加密步骤详解</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <a href="//github.com/fishykz" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
     
-        
-            
-                <span class="iconfont-archer qq" title=qq>
-                  
-                  <img class="profile-qr" src="/assets/QQ.jpg" />
-                </span>
-            
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-            
-                <a href="https://space.bilibili.com/347245431?share_medium=android&share_source=copy_link&bbid=XY2FED62DB4F7E324FA9ED94194EF11017031&ts=1572495457266" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //https://blog.sajo.fun target="_black">王八运维</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //http://misty.moe/ target="_black">Misty</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -724,6 +553,24 @@ data://环境概要:php.ini:allow_url_f...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数值最大存储"><span class="toc-number">1.</span> <span class="toc-text">数值最大存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整数溢出"><span class="toc-number">2.</span> <span class="toc-text">整数溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打印short-long-long-long-unsigned类型数"><span class="toc-number">2.1.</span> <span class="toc-text">打印short,long,long long,unsigned类型数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何声明变量"><span class="toc-number">2.1.1.</span> <span class="toc-text">如何声明变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#刷新输出"><span class="toc-number">2.1.2.</span> <span class="toc-text">刷新输出</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统定义的一些符号常量"><span class="toc-number">2.2.</span> <span class="toc-text">系统定义的一些符号常量:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转换说明"><span class="toc-number">2.3.</span> <span class="toc-text">转换说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#printf修饰符"><span class="toc-number">2.4.</span> <span class="toc-text">printf修饰符</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -911,6 +758,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
