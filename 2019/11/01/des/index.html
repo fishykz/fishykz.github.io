@@ -417,7 +417,7 @@ height:50vh;
 <ul>
 <li>C1和D1再次经过循环左移,生成C2和D2,合并后通过PC-2生成子密钥K2.</li>
 <li>C2和D2再次经过循环左移,生成C3和D3,合并后通过PC-2生成子密钥K3……</li>
-<li>以此类推得到子密钥K1-K16.<h4 id="扩展替换"><a href="#扩展替换" class="headerlink" title="扩展替换"></a>扩展替换</h4><img src="https://img-blog.csdnimg.cn/20190922101201792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg3NDgzOQ==,size_16,color_FFFFFF,t_70" alt=""><br>将数据的右边部分Ri按照上图所示扩展.</li>
+<li>以此类推得到子密钥K1-K16.<h4 id="扩展替换"><a href="#扩展替换" class="headerlink" title="扩展替换"></a>扩展替换</h4><img src="https://img-blog.csdnimg.cn/20190922101201792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg3NDgzOQ==,size_16,color_FFFFFF,t_70" alt><br>将数据的右边部分Ri按照上图所示扩展.</li>
 <li>思路为首位互换,数据段之间交叉填充.</li>
 <li>尽管输出分组大于输入分组,但每个输入分组产生唯一的输出分组.<h4 id="S盒代替"><a href="#S盒代替" class="headerlink" title="S盒代替"></a>S盒代替</h4>将S盒的六位数(binary)输入每一位标记为b1,b2,b3,b4,b5,b6.<br>b1和b6构成一个2位的数yi,range(1,5)b2,b3,b4,b5构成一个4位的数xi.range(1,17).确定了一个坐标(xi,yi)<br>压缩后的密钥和扩展分组异或后,将48位结果送入S盒进行代替运算.</li>
 <li>每一个S盒有六位输入,四位输出.且这八个S盒是不同的.</li>
@@ -669,17 +669,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
@@ -692,18 +687,23 @@ top:50vh;
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+        </li>
+    
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
-        <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
-    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
