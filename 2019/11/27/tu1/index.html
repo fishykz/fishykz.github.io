@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>(ECB,CBC)分组密码的算法类型及模式 · Yk2&#39;s Blog</title>
+    <title>图论一 · Yk2&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Yk2&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">(ECB,CBC)分组密码的算法类型及模式</a>
+                <a href="#" class="post-name">图论一</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            (ECB,CBC)分组密码的算法类型及模式
+            图论一
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "离散数学">离散数学</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.8k</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/11/01</span>
+                    <span class="post-intro-time">2019/11/27</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,13 +401,104 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="电子密码本-ECB"><a href="#电子密码本-ECB" class="headerlink" title="电子密码本(ECB)"></a>电子密码本(ECB)</h2><p>使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为<strong>相同的明文分组永远被加密成相同的密文分组</strong>,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.<br>    每个明文分组可被独立地进行加密.不必按次序进行.<em>ECB的问题在于</em>:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.<br>    如果密码分析者知道明文A对应密文B,那么无论什么时候这段密文出现在另一段消息中,他都能将其解密.<br>    消息的开头和结尾是致命之处.那里一般规定了消息头和消息尾,会有固定格式.</p>
-<h3 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h3><p>将非64位的密码填充至64位.前面用0,1等有规律的模式填充,最后标记共填充了多少位.</p>
-<h3 id="分组重放"><a href="#分组重放" class="headerlink" title="分组重放"></a>分组重放</h3><p>ECB最严重的问题在敌人可以在不知道密钥的前提下修改加密过的消息,用这种方法可以欺骗指定的接收者,如双花攻击.<br>解决方法:加时间戳<br>新攻击方法:截取时间戳正确的消息,然后更换对应的账户和名称,即可产生一条时间戳正确的恶意明文.</p>
-<p>比特币系统解决方法:<br>UTXO(Unspent Transaction Outpu),即未花费交易输出，它在区块链系统中用以记算钱包账户中的余额。对于货币玩家们而言，UTXO就像是你的余额宝，它会随时计算你的仅剩资产。同时由于编码的存在，UXTO的优越性也在于<code>资产的销毁和产生过程都是便于追溯的</code>。时间戳和UTXO的存在标志着，当某个用户意图用同一笔资金进行两次付款的时候，时间戳会自动选择承认最先发出的那笔交易。而UTXO则会确认并验证用于每一笔交易的资产是否存在、是否被花费。如果要在区块链中发起双花攻击，就势必会令系统产生分叉，而多出来的这条岔道，通常不会被系统所承认。<br>DES解决方法:密码分组连链接模式(CBC)<br>采用多次分组加密,每一次分组加密用来修改下一次分组的加密.</p>
-<h2 id="密码分组连链接模式-CBC"><a href="#密码分组连链接模式-CBC" class="headerlink" title="密码分组连链接模式(CBC)"></a>密码分组连链接模式(CBC)</h2><ul>
-<li>采用多次分组加密,每一次分组加密用来修改下一次分组的加密.<br>CBC模式仅在前面的明文分组不同时,才能将完全相同的明文分组加密成不同的密文分组.因此两个相同的信息仍被加密成相同的密文.更糟糕的是:<strong>两组信息在它们第一个不同之处出现之前,会被加密成相同的结果</strong><br>  有些信息(如发件人,信头)有相同的开头,虽然不能进行分组重放,但这些相同开头的确给分析者提供了帮助.<br>   防止这种情况发生的办法是用加密随机数据作为第一个分组,这个随机数据被称为初始化向量(IV),它的唯一作用是让信息唯一化.接收者进行解密时,只是用它来填充反馈寄存器.时间标记是一个好的IV.使用IV后相同信息可以被加密乘不同的密文内容.这样窃听者就无法进行分组重放攻击.</li>
-<li>IV不需要保密<h3 id="错误扩散"><a href="#错误扩散" class="headerlink" title="错误扩散"></a>错误扩散</h3>CBC模式具有 <em>在加密端是密文反馈,在解密端是密文前馈</em> 的性质,这意味着要对错误进行处理.明文分组的单独一位出错将影响密文分以及后面的密文分组.<br>密文的小错误能够转变为明文的更大错误,这就叫错误扩散.在CBC中,出错的分组后的第二分组不会受到影响.尽管CBC能将位错误恢复,但不能回复同步错误.所以CBC必须保证分组结构的完整.</li>
+        <h1 id="图的定义"><a href="#图的定义" class="headerlink" title="图的定义"></a>图的定义</h1><ul>
+<li><p>无向图（undirected graph）：边是没有方向的；一个无向图G是一个有序二元组&lt;V,E&gt;,记作G=&lt;V,E&gt;,其中V是一个非空集合，V中的<strong>元素</strong>称为节点或顶点;E是无序积V&amp;V的多重子集（元素可重复出现），称E为G的边集，E中的元素称为无向边或简称边（代表元素间的一种状态）例如社交网络中一个点代表一个人，无方向的边连接两个点。</p>
+</li>
+<li><p>有向图(directedd graph)：边是有方向的；一个有向图G是一个有序二元组&lt;V,E&gt;,,记作G=&lt;V,E&gt;,齐总V是一个非空的节点集；E是笛卡尔积V×V的多重子集，其元素为有向边，简称边或弧。例如一连串有因果关系的事件集。<br><img src="/2019/11/27/tu1/tulun1..png" alt></p>
+</li>
+<li><p>无权图(unweighted graph):基于布尔值的图，例如社交网络，只有’认识’和’不认识’两种状态。</p>
+</li>
+<li><p>有权图(weighted graph)每条:链接顶点和顶点的边都有一个固定的值对应。例如顶点代表地点的图中，每条边代表两地之间距离。</p>
+</li>
+<li><p>如果图的结点集V和边集E都是有限集则称图为有限图</p>
+</li>
+<li><p>若|V|=1,|E|=0,称G为平凡图.</p>
+</li>
+<li><p>不含平行边和环的图叫做简单图</p>
+</li>
+<li><p>完全图:设G=&lt;V,E&gt;是无向简单图,若任意两个节结点都有边相连,则称G为<strong>完全图</strong>,具有n个结点的完全图记作Kn</p>
+</li>
+<li><p>有向完全图:①:有向简单图,②:每队结点之间有一对方向相反的边相连.</p>
+</li>
+<li><p>正则图:在一个无向简单图中,如果每个节点度数均为K,则称这个图为K-正则图.完全图Kn为(n-1)-正则图.</p>
+<ul>
+<li>彼得森图<br><img src="/2019/11/27/tu1/tulun2.png" alt></li>
+</ul>
+</li>
+<li><p>补图:给定一个图G,以G为中心的所有结点为结点集,以所有能使G成为完全图所添加边为边集所组成的图,称为图G相对于完全图的补图,简称G的补图.<br>性质:G补图的补图等于其自身;若G为N阶图,则E(G)∪它的补图=E(k),且E(G)∩它的补图=空集.</p>
+</li>
+<li><p>子图和母图:设G=&lt;V,E&gt;,G’=&lt;V’,E’&gt;是两个图.若V’包含于V,且E’包含于E,则称G’为G的子图.G为G’的母图.</p>
+</li>
+<li><p>生成子图:如果G’包含于G,V=V’,E’包含于E,则称G’是G的生成子图</p>
+</li>
+<li><p>真子图: V’真包含于V,E’真包含于E,则称G’是G的真子图.</p>
+<ul>
+<li>导出子图:V’包含于V,且V’不是空集,以V1为结点集,以G中两个端点均在V1中的边为边集的子图称为由V1导出的导出子图.记作G[V1]</li>
+<li>导出<strong>的</strong>子图:若E1包含于E,且E≠空集,以E1为边集,以E1的边关联节点为结点集的图称为由E1导出的子图,记作G[E1]</li>
+</ul>
+<h1 id="图的性质"><a href="#图的性质" class="headerlink" title="图的性质"></a>图的性质</h1><p><img src="/2019/11/27/tu1/tulun3.png" alt></p>
+</li>
+</ul>
+<ul>
+<li>设G=&lt;V,E&gt;为无向图，ek=&lt;vi,vj&gt;∈E,则称 vi,vj为ek的端点，ek与vi或ek与vj是<strong>彼此关联</strong>的。<ul>
+<li>无边关联的结点称为孤立点。若一条边所 关联的两个顶点重合，则称此边为<strong>环</strong>。 </li>
+</ul>
+</li>
+<li>孤立结点: 不与任何结点相连接的结点. <ul>
+<li>环: 两端点相同的边称为环或自回路.</li>
+<li>vi≠vj ，则称ek与vi或ek与vj的关联次数为1， 若vi=vj，则称ek与vi的关联次数为2；若vi不是 ek的端点，则称ek与vi的关联次数0。</li>
+<li>自环边：一个顶点到自身的边(e1)</li>
+<li>V、E分别表示G的顶点集、边集，|V|、 |E|分别表示G的顶点数、边数。若|V|=n, 则称G为n阶图。 若|V|=1，则称 G 为平凡图。(只有一个孤立节点的图)<h1 id="节点的度"><a href="#节点的度" class="headerlink" title="节点的度"></a>节点的度</h1></li>
+<li>设G=&lt;V,E&gt;为一无向图， vi∈V ,称与vi关联 的边的条数（一条环要计算两次）为vi的<strong>度数(degree)</strong>， 简称为度，记作deg(vi) （或d(vi) ）。</li>
+</ul>
+</li>
+<li>设D=&lt;V,E&gt;为一有向图， vj∈V ,称以vj作为 边的始点的边数, 为vj的<strong>出度</strong>，记作d+(vj);称以vj 作为边的终点的边数, 为vj的<strong>入度</strong>，记作d-(vj);称 d+(vj)+ d-(vj)为vj的度数，记作d(vj)。</li>
+<li>称度数为1的顶点为悬挂顶点,它所对应的边 为悬挂边。</li>
+<li>在无向图G中,令<br>△(G)=max{d(v)|v∈V(G)};<br>6(G) = min{d(v)| v∈V(G) }<br>称 △(G)和 6(G)分别为G的最大度和最小度。</li>
+<li>在有向图D中,可类似定义△(D)、6(G)。另外,令<br>△+(G) = max{d+(v)| v∈V(D) }<br>6 +(G) = min{d+(v)| v∈V(D) }<br>△-(G) = max{d-(v)| v∈V(D) }<br>6 -(G) = min{d-(v)| v∈V(D) }<br>分别为D的最大出度、最小出度、最大入度、最 小入度。简记作△、6、 △+、6+ 、 △-、6-。<h1 id="握手定理"><a href="#握手定理" class="headerlink" title="握手定理"></a>握手定理</h1>设F=&lt;V,E&gt;,V={v1,v2,…,vn},|E|=m(m为边数)。则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">\sum_&#123;v\in_V&#125;deg(v) = 2m</span><br></pre></td></tr></table></figure>
+<em>即每条顶点度数之和等于边数2倍。</em></li>
+<li>证明：G中每个边（包括环）均提供两个端点，故在计算各顶点度数之和时，每条边均提供2度，m条边共提供2m度。</li>
+<li>在有向图中，所有结点入度的和等于所有结点 出度的和。<h1 id="非负整数列可简单图化的必要条件"><a href="#非负整数列可简单图化的必要条件" class="headerlink" title="非负整数列可简单图化的必要条件"></a>非负整数列可简单图化的必要条件</h1>对任意n阶无向简单图G,必有△(G)≤n-1<h1 id="路的连通性"><a href="#路的连通性" class="headerlink" title="路的连通性"></a>路的连通性</h1>设G为无向图，G中顶点与边的交替序列 Γ= v0 e1 v1 e2 …el vl 称为v0到vl的<strong>通路</strong>， 其中vr-1,vr 为er的端点，r =1, 2 ,…, l。 v0 ,  vl分别称为Γ的起点与终点，也称 v 0 与 v l<br>是可达的。<br>Γ中边的条数 l 称为它的长度。 若v0=vl，则称通路为回路。 若Γ的所有边各异，则称Γ为简单通路，<br>则称Γ为简单回路。若 Γ的所有边各异且v0=vl，</li>
+<li>定理： 在n阶图G中，若从顶点v0到vl (v0≠vl  )存在通路， 则v0到vl 存在长度小于或等于(n-1)的通路。</li>
+<li>推论：在n阶图G中，若从顶点vi到vj (vi ≠vj )存在通路， 则vi到vj存在长度小于或等于(n-1)的初级通路(路径)。 </li>
+<li>定理：在n阶图G中，若存在从vi到自身的回路， 则一定存在vi到自身长度小于或等于n的回路。</li>
+<li>推论：在n阶图G中，若存在从vi到自身的简单回路， 则 一定存在vi 到自身长度小于或等于n的初级回路。<h1 id="极大路径法"><a href="#极大路径法" class="headerlink" title="极大路径法"></a>极大路径法</h1>设G=&lt;V,E&gt;为n阶无向图，E不是空集，设Γ1为G中的一条路径，若此路径的始点U或终点v与通路外的顶点相邻，就将它们扩到道路中来，继续这一过程，直到最后得到的通路的 两个端点 不与通路外的顶点相邻为止, 设最后得到的路径为Γl+k (长度为l的路径扩大成了长度为l+k的路径), 称Γl+k为“极大路径”, 称使用此种方法证明问题的方法为“扩大路径法”(或最长路径法)<br>Γl+k为“极大路径” (或最长路径法) 则与Γl+k的最后面的两个端点相邻外的点肯定在Γl+k上。<h1 id="完全图的边数"><a href="#完全图的边数" class="headerlink" title="完全图的边数"></a>完全图的边数</h1>无向完全图中任取两个点的组合数Cn2,即无向完全图边数=n(n-1)/2,有向完全图=n(n-1)<h1 id="图的同构"><a href="#图的同构" class="headerlink" title="图的同构"></a>图的同构</h1>设有两个图G1,G2,如果存在双射函数f:V1-&gt;V2,使得(u,v)∈E1当且仅当(f(u),f(v))∈E2(或&lt;u,v&gt;∈E1当且仅当&lt;f(u),f(v)&gt;∈E2),且充重数相同,则称图G1与G2<strong>同构</strong>,记作G1≌G2</li>
+<li>由同构的定义,可以得到两图同构的充要条件:</li>
+</ul>
+<ol>
+<li>结点数相同</li>
+<li>边数相同</li>
+<li>度数列相同<h2 id="自补图"><a href="#自补图" class="headerlink" title="自补图"></a>自补图</h2>若简单图G同构于G的补图,则称G为同构图.<h1 id="图的运算"><a href="#图的运算" class="headerlink" title="图的运算"></a>图的运算</h1></li>
+</ol>
+<h1 id="图的连通性"><a href="#图的连通性" class="headerlink" title="图的连通性"></a>图的连通性</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><blockquote>
+<p>当路径的起点和终点相同时,称其为回路.<br>如果一条路径的所有结点互不相同,则称其为<strong>圈</strong></p>
+</blockquote>
+<blockquote>
+<p>连通:在无向图总若存在结点V1到V2的通路,则称V1,V2是连通的.<br>若图中任意两点均为连通的,则称该图为连通图,规定平凡图均为连通图.</p>
+</blockquote>
+<p>在一个无向图G中，存在一个点集V，从图G中删掉所有属于V的点机器与之相连的边，G不连通。如果有一个边集E，删掉所有属于这个集合的边，G不连通。</p>
+<ul>
+<li>点连通度：最小V的点数</li>
+<li>边连通度：最小E的边数</li>
+<li>割点：点连通度为1时，V的唯一元素</li>
+<li>割边（桥）：边连通度为1时，E的唯一元素</li>
+<li>点双连通：任意两点间，存在两条或以上的路径，且路径上的点互不重复。</li>
+<li>边双连通：任意两点间，存在两条或以上路径，且路径上的边互不重复。（边连通度大于1即可）</li>
+<li>双连通分量：在图G中的子图Ｇ‘，是一个双连通子图，它不是其他双连通子图的真子集，则它是一个双连通分量。</li>
+<li>一个无向图G=&lt;V,E&gt;, 如果它的任何两点均是可 达的,则称图G为连通图，否则称为非连通图或分离图。</li>
+<li>设vj,vi为无向图G中任意两点,若vj与vi是连通 的,则称vj与vi之间长度最短的通路为vj与vi之间 的短程线,并称为vj与vi之间的距离,记作d&lt;vj,vi&gt;, 当vj不可达vi时，规定d&lt;vj,vi&gt;=∞。<ul>
+<li>距离有以下性质： </li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>d&lt;vj,vi&gt;≥0， 当vj=vi时，等号成立。 </li>
+<li>在无向图中还有对称性: d(vj,vi)=d(vi,vj) </li>
+<li>满足三角不等式：d&lt;vi,vj&gt;+d&lt;vj,vk&gt;≥d&lt;vi,vk&gt;<br>D max{d(x,y)}称为图G的直径. </li>
+</ol>
+<ul>
+<li>求割点（tarjain）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#define MAXN 100005</span><br><span class="line"></span><br><span class="line">int head[MAXN];</span><br><span class="line">struct edge&#123;</span><br><span class="line">    int v,next;</span><br><span class="line">&#125;G[MAXN&lt;&lt;1];</span><br><span class="line">int tot = 0;</span><br><span class="line"></span><br><span class="line">int dfn[MAXN],low[MAXN],num = 0;</span><br><span class="line">int ans[MAXN];</span><br><span class="line"></span><br><span class="line">int N,M;</span><br><span class="line"></span><br><span class="line">inline void add(int u,int v)&#123;</span><br><span class="line">    G[++tot].v = v;G[tot].next = head[u];head[u] = tot;</span><br><span class="line">&#125;</span><br><span class="line">void tarjan(int u,int fa)&#123;</span><br><span class="line"></span><br><span class="line">    dfn[u] = low[u] = ++num;</span><br><span class="line">    int count = 0;</span><br><span class="line">    for(register int i=head[u];i;i=G[i].next)&#123;</span><br><span class="line">        int v = G[i].v;</span><br><span class="line">        if(!dfn[v])&#123;</span><br><span class="line">            tarjan(v,u);</span><br><span class="line">            ++count;</span><br><span class="line">            low[u] = std::min(low[u],low[v]);</span><br><span class="line">            if(low[v]&gt;=dfn[u]&amp;&amp;u!=fa)ans[u] = 1;// 如果u不是根节点</span><br><span class="line">        &#125;</span><br><span class="line">        low[u] = std::min(low[u],dfn[v]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(count&gt;=2&amp;&amp;u==fa)ans[u] = 1;//如果u是根节点，且有两个及两个以上的子树</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    </span><br><span class="line">    std::memset(head,0,sizeof(head));</span><br><span class="line">    std::memset(ans,0,sizeof(ans));</span><br><span class="line">    std::memset(dfn,0,sizeof(dfn));</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;N,&amp;M);</span><br><span class="line">    int u,v;</span><br><span class="line">    for(register int i=1;i&lt;=M;++i)&#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;u,&amp;v);</span><br><span class="line">        add(u,v);add(v,u);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for(register int i=1;i&lt;=N;++i)&#123;</span><br><span class="line">        if(!dfn[i])tarjan(i,i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int count = 0;</span><br><span class="line">    for(register int i=1;i&lt;=N;++i)&#123;</span><br><span class="line">        if(ans[i])++count;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,count);</span><br><span class="line">    for(register int i=1;i&lt;=N;++i)&#123;</span><br><span class="line">        if(ans[i])printf(&quot;%d &quot;,i);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
     </article>
@@ -415,9 +506,9 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.yk2.work">Yk2</a>
-            <p>原文链接：<a href="http://www.yk2.work/2019/11/01/ecbcbc-md/">http://www.yk2.work/2019/11/01/ecbcbc-md/</a>
-            <p>发表日期：<a href="http://www.yk2.work/2019/11/01/ecbcbc-md/">十一月 1日 2019, 12:35:11 凌晨</a>
-            <p>更新日期：<a href="http://www.yk2.work/2019/11/01/ecbcbc-md/">November 1st 2019, 12:36:56 am</a>
+            <p>原文链接：<a href="http://www.yk2.work/2019/11/27/tu1/">http://www.yk2.work/2019/11/27/tu1/</a>
+            <p>发表日期：<a href="http://www.yk2.work/2019/11/27/tu1/">十一月 27日 2019, 11:40:49 晚上</a>
+            <p>更新日期：<a href="http://www.yk2.work/2019/11/27/tu1/">November 27th 2019, 11:49:50 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -425,17 +516,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/11/01/des/" title= "DES加密步骤详解">
-                    <div class="nextTitle">DES加密步骤详解</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/11/01/cbcsafety-md/" title= "CBC安全问题">
-                    <div class="prevTitle">CBC安全问题</div>
+                <a href= "/2019/11/25/191125/" title= "19/11/26">
+                    <div class="prevTitle">19/11/26</div>
                 </a>
             
         </li>
@@ -534,7 +620,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#电子密码本-ECB"><span class="toc-number">1.</span> <span class="toc-text">电子密码本(ECB)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#填充"><span class="toc-number">1.1.</span> <span class="toc-text">填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组重放"><span class="toc-number">1.2.</span> <span class="toc-text">分组重放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密码分组连链接模式-CBC"><span class="toc-number">2.</span> <span class="toc-text">密码分组连链接模式(CBC)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误扩散"><span class="toc-number">2.1.</span> <span class="toc-text">错误扩散</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图的定义"><span class="toc-number">1.</span> <span class="toc-text">图的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图的性质"><span class="toc-number">2.</span> <span class="toc-text">图的性质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#节点的度"><span class="toc-number">3.</span> <span class="toc-text">节点的度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#握手定理"><span class="toc-number">4.</span> <span class="toc-text">握手定理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#非负整数列可简单图化的必要条件"><span class="toc-number">5.</span> <span class="toc-text">非负整数列可简单图化的必要条件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#路的连通性"><span class="toc-number">6.</span> <span class="toc-text">路的连通性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#极大路径法"><span class="toc-number">7.</span> <span class="toc-text">极大路径法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完全图的边数"><span class="toc-number">8.</span> <span class="toc-text">完全图的边数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图的同构"><span class="toc-number">9.</span> <span class="toc-text">图的同构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自补图"><span class="toc-number">9.1.</span> <span class="toc-text">自补图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图的运算"><span class="toc-number">10.</span> <span class="toc-text">图的运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图的连通性"><span class="toc-number">11.</span> <span class="toc-text">图的连通性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义："><span class="toc-number">11.1.</span> <span class="toc-text">定义：</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
