@@ -78,8 +78,6 @@
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -203,8 +201,10 @@
 </head>
 
     
+        <body class="home-body">
     
-<header class="header">
+    
+<header class="header index-header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,21 +220,34 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Yk2's Blog.
+            <!-- 文章页  -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
+            
+            
+                Thank you for clicking me in this hurried world
+            
+            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -346,249 +359,6 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/28/tu2/" >
-            
-                <span>图论一</span>
-        </a>
-        <div class="abstract-content">
-            图的连通性定义：
-当路径的起点和终点相同时,称其为回路.如果一条路径的所有结点互不相同,则称其为圈
-
-
-连通:在无向图总若存在结点V1到V2的通路,则称V1,V2是连通的.若图中任意两点均为连通的,则称该图为连通图,规定平凡图均为连通图.
-
-在一个无向图G中，存在一个点集V，从图G中删掉所有属于V的点机器与之相连的边，G不连通。如果有一个边集E，删掉所有属于这个集合的边，G不连通。
-
-点连通度：最小V的点数
-边连通度：最小E的边数
-割点：点连通度为1时，V的唯一元素
-割边（桥）：边连通度为1时，E的唯一元素
-点双连通：任意两点间，存在两条或以上的路径，且路径上的点互不重复。
-边双连通：任...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/27/tu1/" >
-            
-                <span>图论一</span>
-        </a>
-        <div class="abstract-content">
-            图的定义
-无向图（undirected graph）：边是没有方向的；一个无向图G是一个有序二元组&lt;V,E&gt;,记作G=&lt;V,E&gt;,其中V是一个非空集合，V中的元素称为节点或顶点;E是无序积V&amp;V的多重子集（元素可重复出现），称E为G的边集，E中的元素称为无向边或简称边（代表元素间的一种状态）例如社交网络中一个点代表一个人，无方向的边连接两个点。
-
-有向图(directedd graph)：边是有方向的；一个有向图G是一个有序二元组&lt;V,E&gt;,,记作G=&lt;V,E&gt;,齐总V是一个非空的节点集；E是笛卡尔积V×V的多重子集，其元素为有向边...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "离散数学">离散数学</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/25/191125/" >
-            
-                <span>19/11/26</span>
-        </a>
-        <div class="abstract-content">
-            
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Tittle-tattle">Tittle-tattle</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/11/c1/" >
-            
-                <span>c1</span>
-        </a>
-        <div class="abstract-content">
-            数值最大存储
-short int:有符号类型,一般16位.-32767-32767
-
-long int 可能占用比Int更大的存储类型,有符号,一般32位.-2147483647-2147483647
-
-long long int:有符号,一般64位.-9e18-+9e18
-
-
-unsigned int:无符号.0-65534
-整数溢出如果整数太大,超出了整数类型的范围:
-
-unsigned会溢出到起始点0
-
-如果希望把一个较小的常量作为long类型对待,可以使用l(小写的L)或L后缀.例如020L,0X10L
-
-与之类似,用LL代表LONG LONG 类型,u或U来表示unsigned...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C">C</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/des/" >
-            
-                <span>DES加密步骤详解</span>
-        </a>
-        <div class="abstract-content">
-            
-DES是一个分组加密算法.以64为为分组对数据加密.64为一组明文从算法的一段输入,64位密文输出.
-DES是对称算法
-密钥长度为56位(数字长度为64位,但每个第8位都做奇偶校验数)初始置换把明文输入块分为64份.然后排列成下面所示密文(IP)输出:
-
-58,50,42,34,26,18,10,2,60,52,44,36,28,20,12,4,62,54,46,38,30,22,14,6,64,56,48,40,32,24,16,8,57,49,41,33,25,17, 9,1,59,51,43,35,27,19,11,3,61,53,45,37,29,21,13,5,63,55,4...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/ecbcbc-md/" >
-            
-                <span>(ECB,CBC)分组密码的算法类型及模式</span>
-        </a>
-        <div class="abstract-content">
-            电子密码本(ECB)使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为相同的明文分组永远被加密成相同的密文分组,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.    每个明文分组可被独立地进行加密.不必按次序进行.ECB的问题在于:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.    如果密码分析者知道明文A对应密文B,那么无...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/cbcsafety-md/" >
-            
-                <span>CBC安全问题</span>
-        </a>
-        <div class="abstract-content">
-            安全问题CBC比特翻转攻击
-已知明文攻击
-如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
-经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
-加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
-攻击流程简述:
-
-①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
-CBC选择密文攻击
-通过CBC...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/01/phpwxy/" >
             
                 <span>php伪协议实现命令执行</span>
@@ -668,8 +438,89 @@ $ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
     
     <!-- paginator  -->
     
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+    
 </main>
             <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/auther.jpg >
+    <div class="profile-name">Yk2</div>
+    
+    <div class="profile-signature">
+        the 0n1y Five of 0xfa
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:yukaizzz@qq.com@qq.com" target="_blank" rel="noopener" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fishykz" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/QQ.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/347245431?share_medium=android&share_source=copy_link&bbid=XY2FED62DB4F7E324FA9ED94194EF11017031&ts=1572495457266" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //https://blog.sajo.fun target="_black">王八运维</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //http://misty.moe/ target="_black">Misty</a>
+                    </span>
+                
+            
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
             
         </div>
         <footer class="footer footer-unloaded">
