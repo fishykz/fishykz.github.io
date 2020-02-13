@@ -346,95 +346,23 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/des/" >
+        <a class="abstract-title" href = "/2020/02/12/buuctf-re3/" >
             
-                <span>DES加密步骤详解</span>
+                <span>buuctf_re3(base64)</span>
         </a>
         <div class="abstract-content">
-            
-DES是一个分组加密算法.以64为为分组对数据加密.64为一组明文从算法的一段输入,64位密文输出.
-DES是对称算法
-密钥长度为56位(数字长度为64位,但每个第8位都做奇偶校验数)初始置换把明文输入块分为64份.然后排列成下面所示密文(IP)输出:
-
-58,50,42,34,26,18,10,2,60,52,44,36,28,20,12,4,62,54,46,38,30,22,14,6,64,56,48,40,32,24,16,8,57,49,41,33,25,17, 9,1,59,51,43,35,27,19,11,3,61,53,45,37,29,21,13,5,63,55,4...
+            主函数逆出来是这样的:123456789101112131415161718192021222324252627282930313233343536373839__int64 __usercall main_0@&lt;edx:eax&gt;(int a1@&lt;ebx&gt;, int a2@&lt;edi&gt;, int a3@&lt;esi&gt;)&#123;  void *v3; // ecx  int v4; // eax  const char *v5; // eax  size_t v6; // eax  int v7; // edx  __int64 v8; // ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/12</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/ecbcbc-md/" >
-            
-                <span>(ECB,CBC)分组密码的算法类型及模式</span>
-        </a>
-        <div class="abstract-content">
-            电子密码本(ECB)使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为相同的明文分组永远被加密成相同的密文分组,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.    每个明文分组可被独立地进行加密.不必按次序进行.ECB的问题在于:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.    如果密码分析者知道明文A对应密文B,那么无...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/cbcsafety-md/" >
-            
-                <span>CBC安全问题</span>
-        </a>
-        <div class="abstract-content">
-            安全问题CBC比特翻转攻击
-已知明文攻击
-如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
-经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
-加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
-攻击流程简述:
-
-①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
-CBC选择密文攻击
-通过CBC...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
     
 </div>
             
