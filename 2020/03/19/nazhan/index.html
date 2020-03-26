@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>nazhan · Yk2eR0&#39;s Blog</title>
+    <title>OD里各种断点原理和特性 · Yk2eR0&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Yk2eR0&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">nazhan</a>
+                <a href="#" class="post-name">OD里各种断点原理和特性</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            nazhan
+            OD里各种断点原理和特性
             <!-- 404 -->
             
         </h1>
@@ -264,9 +264,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">220</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">226</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,10 +401,11 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>POST /admin/login.php HTTP/1.1<br>Host: 150.109.4.249<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 26<br>Origin: <a href="http://150.109.4.249" target="_blank" rel="noopener">http://150.109.4.249</a><br>Connection: close<br>Referer: <a href="http://150.109.4.249/admin/login.php" target="_blank" rel="noopener">http://150.109.4.249/admin/login.php</a><br>Cookie: PHPSESSID=b6ddhikf0bc4m4i9kulr07abo1<br>Upgrade-Insecure-Requests: 1</p>
-<p>user=admin&amp;pass=123&amp;login=</p>
-<p>POST /houtai/login.php HTTP/1.1<br>Host: 150.109.4.249<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 44<br>Origin: <a href="http://150.109.4.249" target="_blank" rel="noopener">http://150.109.4.249</a><br>Connection: close<br>Referer: <a href="http://150.109.4.249/houtai/login.php" target="_blank" rel="noopener">http://150.109.4.249/houtai/login.php</a><br>Cookie: PHPSESSID=b6ddhikf0bc4m4i9kulr07abo1<br>Upgrade-Insecure-Requests: 1</p>
-<p>user=admin&amp;pass=123&amp;login=%E7%99%BB%E9%99%86</p>
+        <h3 id="硬件断点"><a href="#硬件断点" class="headerlink" title="硬件断点"></a>硬件断点</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h4><pre><code>在寄存器中，有这么一些寄存器，它们用于调试。人们把他们称为调试寄存器，调试寄存器一共有8个名字分别从Dr0-Dr7。所以我们也把调试寄存器简单的称为Drx。
+
+ 对于Dr0-Dr3的四个调试寄存器，他们的作用是存放中断的地址，例如：401000
+ 对于Dr4，Dr5这两个寄存器我们一般不使用他们，保留
+ 对于Dr6，Dr7这两个寄存器的作用是用来记录你在Dr0-Dr3中下断的地址的属性，比如：对这个401000是硬件读还是写，或者是执行；是对字节还是对字，或者是双字。</code></pre><h4 id="特点"><a href="#特点" class="headerlink" title="特点:"></a>特点:</h4><p>1.硬件断点最多有四个,如果多的话第一个就会消失<br>2.硬件断点有byte，word，dword之分<br>3.硬件断点有读写执行之分.</p>
 
     </article>
     <!-- license  -->
@@ -407,13 +414,18 @@ height:50vh;
             <p>原文作者：<a href="http://www.yk2.work">Yk2eR0</a>
             <p>原文链接：<a href="http://www.yk2.work/2020/03/19/nazhan/">http://www.yk2.work/2020/03/19/nazhan/</a>
             <p>发表日期：<a href="http://www.yk2.work/2020/03/19/nazhan/">March 19th 2020, 5:12:33 pm</a>
-            <p>更新日期：<a href="http://www.yk2.work/2020/03/19/nazhan/">March 19th 2020, 7:01:52 pm</a>
+            <p>更新日期：<a href="http://www.yk2.work/2020/03/19/nazhan/">March 19th 2020, 7:37:10 pm</a>
             <p>版权声明：非商业用允许转载</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/03/22/GetDlgItemTextA/" title= "GetDlgItemTextA">
+                    <div class="nextTitle">GetDlgItemTextA</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -519,7 +531,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件断点"><span class="toc-number">1.</span> <span class="toc-text">硬件断点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">1.2.</span> <span class="toc-text">特点:</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -715,9 +727,32 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 18
         </div>
         <!-- search  -->
         
@@ -733,7 +768,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2020/03/19/nazhan/" >nazhan</a>
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2020/03/22/GetDlgItemTextA/" >GetDlgItemTextA</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2020/03/19/nazhan/" >OD里各种断点原理和特性</a>
         </li>
     
     
@@ -802,12 +842,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
@@ -817,12 +857,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
         </li>
     
     </div>
@@ -832,19 +872,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
-    
-        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
+    
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     

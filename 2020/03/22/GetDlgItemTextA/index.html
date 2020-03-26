@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>buuctf_re3(base64) · Yk2eR0&#39;s Blog</title>
+    <title>GetDlgItemTextA · Yk2eR0&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Yk2eR0&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">buuctf_re3(base64)</a>
+                <a href="#" class="post-name">GetDlgItemTextA</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            buuctf_re3(base64)
+            GetDlgItemTextA
             <!-- 404 -->
             
         </h1>
@@ -264,20 +264,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">673</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/02/12</span>
+                    <span class="post-intro-time">2020/03/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,22 +395,15 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="主函数逆出来是这样的"><a href="#主函数逆出来是这样的" class="headerlink" title="主函数逆出来是这样的:"></a>主函数逆出来是这样的:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">__int64 __usercall main_0@&lt;edx:eax&gt;(int a1@&lt;ebx&gt;, int a2@&lt;edi&gt;, int a3@&lt;esi&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  void *v3; // ecx</span><br><span class="line">  int v4; // eax</span><br><span class="line">  const char *v5; // eax</span><br><span class="line">  size_t v6; // eax</span><br><span class="line">  int v7; // edx</span><br><span class="line">  __int64 v8; // ST08_8</span><br><span class="line">  signed int j; // [esp+DCh] [ebp-ACh]</span><br><span class="line">  unsigned int i; // [esp+E8h] [ebp-A0h]</span><br><span class="line">  signed int v12; // [esp+E8h] [ebp-A0h]</span><br><span class="line">  char Dest[108]; // [esp+F4h] [ebp-94h]</span><br><span class="line">  char Str; // [esp+160h] [ebp-28h]</span><br><span class="line">  char v15; // [esp+17Ch] [ebp-Ch]</span><br><span class="line"></span><br><span class="line">  for ( i = 0; (signed int)i &lt; 0144; ++i )      // meiyong</span><br><span class="line">                                                // </span><br><span class="line">  &#123;</span><br><span class="line">    if ( i &gt;= 0144 )</span><br><span class="line">      j____report_rangecheckfailure(a1, a2, a3);</span><br><span class="line">    Dest[i] = 0;</span><br><span class="line">  &#125;</span><br><span class="line">  sub_41132F(&quot;please enter the flag:&quot;);</span><br><span class="line">  sub_411375(v3, &quot;%20s&quot;, &amp;Str);                 // strlen</span><br><span class="line">  v4 = j_strlen(&amp;Str);</span><br><span class="line">  v5 = (const char *)sub_4110BE((int)&amp;Str, v4, (int)&amp;v15);</span><br><span class="line">  strncpy(Dest, v5, 050u);</span><br><span class="line">  v12 = j_strlen(Dest);</span><br><span class="line">  for ( j = 0; j &lt; v12; ++j )</span><br><span class="line">    Dest[j] += j;</span><br><span class="line">  v6 = j_strlen(Dest);</span><br><span class="line">  if ( !strncmp(Dest, Str2, v6) )</span><br><span class="line">    sub_41132F(&quot;rigth flag!\n&quot;);</span><br><span class="line">  else</span><br><span class="line">    sub_41132F(&quot;wrong flag!\n&quot;);</span><br><span class="line">  HIDWORD(v8) = v7;</span><br><span class="line">  LODWORD(v8) = 0;</span><br><span class="line">  return v8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="去掉没用的"><a href="#去掉没用的" class="headerlink" title="去掉没用的:"></a>去掉没用的:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  char Dest[108];</span><br><span class="line">  sub_41132F(&quot;please enter the flag:&quot;);   </span><br><span class="line">  sub_411375(v3, &quot;%20s&quot;, &amp;Str);                 // 两句相当于input</span><br><span class="line">  v4 = strlen(&amp;Str);</span><br><span class="line">  v5 = (const char *)sub_4110BE((int)&amp;Str, v4, (int)&amp;v15);</span><br><span class="line">  strncpy(Dest, v5, 050u);//v5赋值给Dest</span><br><span class="line">  for ( j = 0; j &lt; trlen(Dest); ++j )//循环相当于每个数的ASCII加上它的下标</span><br><span class="line">    Dest[j] += j;</span><br><span class="line">  v6 = j_strlen(Dest);</span><br><span class="line">  if ( !strncmp(Dest, Str2, v6) )//Dest=Str2则正确</span><br><span class="line">    sub_41132F(&quot;rigth flag!\n&quot;);</span><br><span class="line">  else</span><br><span class="line">    sub_41132F(&quot;wrong flag!\n&quot;);</span><br><span class="line">  HIDWORD(v8) = v7;</span><br><span class="line">  LODWORD(v8) = 0;</span><br><span class="line">  return v8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以看出重点在于<code>sub_4110BE</code>这个函数.</li>
-<li>先逆出v5:<br>Str2=”e3nifIH9b_C@n@dH”;<br>脚本跑出 v5=”e2lfbDB2ZV95b3V9”<h3 id="跟进-简化sub-4110BE"><a href="#跟进-简化sub-4110BE" class="headerlink" title="跟进,简化sub_4110BE:"></a>跟进,简化<code>sub_4110BE</code>:</h3>只展示函数逻辑:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">void *__cdecl sub_411AB0(char *a1, unsigned int a2, int *a3)//a1为明输入,a2为a1长度,a3为一块康健,用于存储Dst</span><br><span class="line">&#123;</span><br><span class="line">  v9 = a2 / 3;</span><br><span class="line">  if ( (signed int)(a2 / 3) % 3 )//如果(a2/3)%3不为0则V9++,防止后续申请内存不够</span><br><span class="line">    ++v9;</span><br><span class="line">  v10 = 4 * v9;</span><br><span class="line">  *a3 = v10;</span><br><span class="line">  Dst = malloc(v10 + 1);//Dst的空间为a1的4/3</span><br><span class="line">  if ( !Dst )</span><br><span class="line">    return 0;</span><br><span class="line">  j_memset(Dst, 0, v10 + 1);</span><br><span class="line">  v13 = a1;</span><br><span class="line">  v11 = a2;</span><br><span class="line">  v7 = 0;</span><br><span class="line">  while ( v11 &gt; 0 )</span><br><span class="line">  &#123;</span><br><span class="line">    byte_41A144[2] = 0;</span><br><span class="line">    byte_41A144[1] = 0;</span><br><span class="line">    byte_41A144[0] = 0;</span><br><span class="line">    for ( i = 0; i &lt; 3 &amp;&amp; v11 &gt;= 1; ++i )//读取三位</span><br><span class="line">    &#123;</span><br><span class="line">      byte_41A144[i] = *v13;</span><br><span class="line">      --v11;</span><br><span class="line">      ++v13;</span><br><span class="line">    &#125;</span><br><span class="line">    if ( !i )</span><br><span class="line">      break;</span><br><span class="line">    switch ( i )</span><br><span class="line">    &#123;</span><br><span class="line">      case 1:</span><br><span class="line">        *((_BYTE *)Dst + v7) = aAbcdefghijklmn[(signed int)(unsigned __int8)byte_41A144[0] &gt;&gt; 2];</span><br><span class="line">        v4 = v7 + 1;</span><br><span class="line">        *((_BYTE *)Dst + v4++) = aAbcdefghijklmn[((byte_41A144[1] &amp; 0xF0) &gt;&gt; 4) | 16 * (byte_41A144[0] &amp; 3)];</span><br><span class="line">        *((_BYTE *)Dst + v4++) = aAbcdefghijklmn[64];</span><br><span class="line">        *((_BYTE *)Dst + v4) = aAbcdefghijklmn[64];</span><br><span class="line">        v7 = v4 + 1;</span><br><span class="line">        break;</span><br><span class="line">      case 2:</span><br><span class="line">        *((_BYTE *)Dst + v7) = aAbcdefghijklmn[(signed int)(unsigned __int8)byte_41A144[0] &gt;&gt; 2];</span><br><span class="line">        v5 = v7 + 1;</span><br><span class="line">        *((_BYTE *)Dst + v5++) = aAbcdefghijklmn[((byte_41A144[1] &amp; 0xF0) &gt;&gt; 4) | 16 * (byte_41A144[0] &amp; 3)];</span><br><span class="line">        *((_BYTE *)Dst + v5++) = aAbcdefghijklmn[((byte_41A144[2] &amp; 0xC0) &gt;&gt; 6) | 4 * (byte_41A144[1] &amp; 0xF)];</span><br><span class="line">        *((_BYTE *)Dst + v5) = aAbcdefghijklmn[64];</span><br><span class="line">        v7 = v5 + 1;</span><br><span class="line">        break;</span><br><span class="line">      case 3:</span><br><span class="line">        *((_BYTE *)Dst + v7) = aAbcdefghijklmn[(signed int)(unsigned __int8)byte_41A144[0] &gt;&gt; 2];</span><br><span class="line">        v6 = v7 + 1;</span><br><span class="line">        *((_BYTE *)Dst + v6++) = aAbcdefghijklmn[((byte_41A144[1] &amp; 0xF0) &gt;&gt; 4) | 16 * (byte_41A144[0] &amp; 3)];</span><br><span class="line">        *((_BYTE *)Dst + v6++) = aAbcdefghijklmn[((byte_41A144[2] &amp; 0xC0) &gt;&gt; 6) | 4 * (byte_41A144[1] &amp; 0xF)];</span><br><span class="line">        *((_BYTE *)Dst + v6) = aAbcdefghijklmn[byte_41A144[2] &amp; 0x3F];</span><br><span class="line">        v7 = v6 + 1;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  *((_BYTE *)Dst + v7) = 0;</span><br><span class="line">  return Dst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-Abcdefghijklmn=”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=”<br>base64替换表:”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/“<br>猜测为base64.解码即可得到</li>
-</ul>
-
+        
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.yk2.work">Yk2eR0</a>
-            <p>原文链接：<a href="http://www.yk2.work/2020/02/12/buuctf-re3/">http://www.yk2.work/2020/02/12/buuctf-re3/</a>
-            <p>发表日期：<a href="http://www.yk2.work/2020/02/12/buuctf-re3/">February 12th 2020, 5:50:24 pm</a>
-            <p>更新日期：<a href="http://www.yk2.work/2020/02/12/buuctf-re3/">February 13th 2020, 12:06:22 pm</a>
+            <p>原文链接：<a href="http://www.yk2.work/2020/03/22/GetDlgItemTextA/">http://www.yk2.work/2020/03/22/GetDlgItemTextA/</a>
+            <p>发表日期：<a href="http://www.yk2.work/2020/03/22/GetDlgItemTextA/">March 22nd 2020, 4:52:39 pm</a>
+            <p>更新日期：<a href="http://www.yk2.work/2020/03/22/GetDlgItemTextA/">March 22nd 2020, 4:52:39 pm</a>
             <p>版权声明：非商业用允许转载</p>
         </div>
     
@@ -424,17 +411,12 @@ Abcdefghijklmn=”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/02/13/hongbao3/" title= "ctf.show红包题2">
-                    <div class="nextTitle">ctf.show红包题2</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/12/05/prim/" title= "普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树">
-                    <div class="prevTitle">普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</div>
+                <a href= "/2020/03/19/nazhan/" title= "OD里各种断点原理和特性">
+                    <div class="prevTitle">OD里各种断点原理和特性</div>
                 </a>
             
         </li>
@@ -533,7 +515,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主函数逆出来是这样的"><span class="toc-number">1.</span> <span class="toc-text">主函数逆出来是这样的:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去掉没用的"><span class="toc-number">2.</span> <span class="toc-text">去掉没用的:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟进-简化sub-4110BE"><span class="toc-number">3.</span> <span class="toc-text">跟进,简化sub_4110BE:</span></a></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
