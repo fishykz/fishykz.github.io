@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Yk2eR0">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Yk2eR0">
+    
+    <meta name="keywords" content="Yk2,hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>show内部赛密码1 · Yk2eR0&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yk2eR0&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">show内部赛密码1</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Yk2eR0's Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            show内部赛密码1
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">873</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/04/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyU1RCU1Q2FtbldvNCUyOEYlMjMlMjZXYUo0Y3QrayUyMyslMjFEc0Zja0tVNjVHJTVDUGlZWFM0JTI0RmNqdyU1RGE0Y0V6ayUyNSslMjE5JTVCSVFTYWQlM0M0JTIxJTNBZ283WEMzekUlM0UlM0RCJTVEJTVDMyU1REYuayUyNCslMjFVZkdIazNYJTIxNCUyMWhobEkrUi5ISG4lM0QlMjFVNDUlMjdGKmslMjMqbiUzRkFHR2p3WCUyNjQlMjFRJTNEayUyMytCSlRGJTIxU1BhSzRjRXJpWlhkJTNGOUUlM0RrJTNCWCUyNDRCJTVDTG1wWEMzJTdDRiUyM1NQWm80QiUzQW9wJTVEWCUyMy5ESCUyQ2srWCUyODMlNUQlNUNhbW5XbzQlMjhGJTIzJTI2V2FKNGN0K2slMjMrJTIxRHNHR2pvVTY1RyU1Q1BpWVhTNCUyNEZjJTNDdiU1RGE0Y0V6ayUyNSslMjElM0Y5RFhTYWQlM0M0JTIxJTNBZ283WEM0JTIxRSUzRSUzREIlNUQlNUMzJTVERi5rJTI0KyUyMVAlMkNHSGszWCUyMTQlMjFoaG1uV04uSEhuJTNEJTIxVTQ1JTI3RiUyNmxIKm4lM0ZBR0dqd1glMjY0JTIxUSUzRGslMjMrQkpURiUyMVNQYUs0QkY2aVpYZCUzRjlFJTNEayUzQlglMjU0JTIxJTI0NG1wWEMzJTdDRiUyM1NQJTVEJTVDMnklM0FvcCU1RFglMjMuREglMkNrK1psMyU1RCU1Q2FtbldvNCUyOEYlMjMlMjZXUkQ0Y3QrayUyMyslMjFEc0dHandVNjVHJTVDUGlZWFM0JTI0RmQlM0N2JTVEYTRjRXprJTI1KyUyMTklNURFJTNEU2FkJTNDNCUyMSUzQWdvN1hDMyU3Q0UlM0UlM0RCJTVEJTVDMyU1REYuayUyNCslMjFVZkdIazNYJTIxNCUyMWhobW5XJTVFLkhIbiUzRCUyMVU0NSUyN0YlMjZsR1dvJTNGQUdHandYJTI2NCUyMVElM0RvNytCSlRGJTIxU1BhSzRCUTlpWlhkJTNGOUUlM0RrJTNCWCUyNTQlMjEvS21wWEMzJTdDRiUyM1NQWm41aCUzQW9wJTVEWCUyMy5ESCUyQ2srWm0zJTVEJTVDYW1uV280JTI4RiUyMyUyNldVMzRjdCtrJTIzKyUyMURzRmNrU1U2NUclNUNQaVlYUzQlMjZGJTIxJTI2RyU1RGE0Y0V6ayUyNSslMjE5JTVERFhTYWQlM0M0JTIxJTNBZ283WDM0LkUlM0UlM0RCJTVEJTVDMyU1REYuayUyNFglMjMlMjhlR0hrM1glMjE0JTIxaGhsSSpuLkhIbiUzRCUyMVU0NSUyN0YlMjZsSipuJTNGQUdHandYJTI2NCUyMSU1Q1BmaytCSlRGJTIxU1BhSzRCUTFpWlhkJTNGOUUlM0RrJTNCWCUyNDRCRXptcFhDMyU3Q0YlMjNTUCU1RCU1QzQlMjElM0FvcCU1RFglMjMuREglMkNrK1puMyU1RCU1Q2FtbldvNCUyOEYlMjMlMjZXUkQ0Y3QrayUyMyslMjFEc0dHandVNjVHJTVDUGlZWFM0JTI0RiUyNCUyNkclNURhNGNFemslMjUrJTIxJTNGOURYU2FkJTNDNCUyMSUzQWdvN1hDM3pFJTNFJTNEQiU1RCU1QzMlNURGLmslMjRYJTIzLkJHSGszWCUyMTQlMjFoaG1uV04uSEhuJTNEJTIxVTQ1JTI3RiUyNmslMjZXbyUzRkFHR2p3WCUyNjQlMjFROXNLK0JKVEYlMjFTUGFLNEJROWlaWGQlM0Y5RSUzRGslM0JYJTI0NEIlNUNMbXBYQzMlN0NGJTIzU1AlNUQlNUMyeSUzQW9wJTVEWCUyMy5ESCUyQ2szWCUyMTMlNUQlNUNhbW5XbzQlMjhGJTIzJTI2V1glMjE0Y3QrayUyMyslMjFEc0ZkJTI2T1U2NUclNUNQaVlYUzQlMjRGZCUyNkclNURhNGNFemslMjUrJTIxOSU1RERYU2FkJTNDNCUyMSUzQWdvN1hDM3hFJTNFJTNEQiU1RCU1QzMlNURGLmslMjQrMi4=</span><br></pre></td></tr></table></figure>
+<p>base64解密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3%5D%5CamnWo4%28F%23%26WaJ4ct+k%23+%21DsFckKU65G%5CPiYXS4%24Fcjw%5Da4cEzk%25+%219%5BIQSad%3C4%21%3Ago7XC3zE%3E%3DB%5D%5C3%5DF.k%24+%21UfGHk3X%214%21hhlI+R.HHn%3D%21U45%27F*k%23*n%3FAGGjwX%264%21Q%3Dk%23+BJTF%21SPaK4cEriZXd%3F9E%3Dk%3BX%244B%5CLmpXC3%7CF%23SPZo4B%3Aop%5DX%23.DH%2Ck+X%283%5D%5CamnWo4%28F%23%26WaJ4ct+k%23+%21DsGGjoU65G%5CPiYXS4%24Fc%3Cv%5Da4cEzk%25+%21%3F9DXSad%3C4%21%3Ago7XC4%21E%3E%3DB%5D%5C3%5DF.k%24+%21P%2CGHk3X%214%21hhmnWN.HHn%3D%21U45%27F%26lH*n%3FAGGjwX%264%21Q%3Dk%23+BJTF%21SPaK4BF6iZXd%3F9E%3Dk%3BX%254%21%244mpXC3%7CF%23SP%5D%5C2y%3Aop%5DX%23.DH%2Ck+Zl3%5D%5CamnWo4%28F%23%26WRD4ct+k%23+%21DsGGjwU65G%5CPiYXS4%24Fd%3Cv%5Da4cEzk%25+%219%5DE%3DSad%3C4%21%3Ago7XC3%7CE%3E%3DB%5D%5C3%5DF.k%24+%21UfGHk3X%214%21hhmnW%5E.HHn%3D%21U45%27F%26lGWo%3FAGGjwX%264%21Q%3Do7+BJTF%21SPaK4BQ9iZXd%3F9E%3Dk%3BX%254%21/KmpXC3%7CF%23SPZn5h%3Aop%5DX%23.DH%2Ck+Zm3%5D%5CamnWo4%28F%23%26WU34ct+k%23+%21DsFckSU65G%5CPiYXS4%26F%21%26G%5Da4cEzk%25+%219%5DDXSad%3C4%21%3Ago7X34.E%3E%3DB%5D%5C3%5DF.k%24X%23%28eGHk3X%214%21hhlI*n.HHn%3D%21U45%27F%26lJ*n%3FAGGjwX%264%21%5CPfk+BJTF%21SPaK4BQ1iZXd%3F9E%3Dk%3BX%244BEzmpXC3%7CF%23SP%5D%5C4%21%3Aop%5DX%23.DH%2Ck+Zn3%5D%5CamnWo4%28F%23%26WRD4ct+k%23+%21DsGGjwU65G%5CPiYXS4%24F%24%26G%5Da4cEzk%25+%21%3F9DXSad%3C4%21%3Ago7XC3zE%3E%3DB%5D%5C3%5DF.k%24X%23.BGHk3X%214%21hhmnWN.HHn%3D%21U45%27F%26k%26Wo%3FAGGjwX%264%21Q9sK+BJTF%21SPaK4BQ9iZXd%3F9E%3Dk%3BX%244B%5CLmpXC3%7CF%23SP%5D%5C2y%3Aop%5DX%23.DH%2Ck3X%213%5D%5CamnWo4%28F%23%26WX%214ct+k%23+%21DsFd%26OU65G%5CPiYXS4%24Fd%26G%5Da4cEzk%25+%219%5DDXSad%3C4%21%3Ago7XC3xE%3E%3DB%5D%5C3%5DF.k%24+2.</span><br></pre></td></tr></table></figure>
+<p>escape解密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3]\amnWo4(F#&amp;WaJ4ct+k#+!DsFckKU65G\PiYXS4$Fcjw]a4cEzk%+!9[IQSad&lt;4!:go7XC3zE&gt;=B]\3]F.k$+!UfGHk3X!4!hhlI+R.HHn=!U45&apos;F*k#*n?AGGjwX&amp;4!Q=k#+BJTF!SPaK4cEriZXd?9E=k;X$4B\LmpXC3|F#SPZo4B:op]X#.DH,k+X(3]\amnWo4(F#&amp;WaJ4ct+k#+!DsGGjoU65G\PiYXS4$Fc&lt;v]a4cEzk%+!?9DXSad&lt;4!:go7XC4!E&gt;=B]\3]F.k$+!P,GHk3X!4!hhmnWN.HHn=!U45&apos;F&amp;lH*n?AGGjwX&amp;4!Q=k#+BJTF!SPaK4BF6iZXd?9E=k;X%4!$4mpXC3|F#SP]\2y:op]X#.DH,k+Zl3]\amnWo4(F#&amp;WRD4ct+k#+!DsGGjwU65G\PiYXS4$Fd&lt;v]a4cEzk%+!9]E=Sad&lt;4!:go7XC3|E&gt;=B]\3]F.k$+!UfGHk3X!4!hhmnW^.HHn=!U45&apos;F&amp;lGWo?AGGjwX&amp;4!Q=o7+BJTF!SPaK4BQ9iZXd?9E=k;X%4!/KmpXC3|F#SPZn5h:op]X#.DH,k+Zm3]\amnWo4(F#&amp;WU34ct+k#+!DsFckSU65G\PiYXS4&amp;F!&amp;G]a4cEzk%+!9]DXSad&lt;4!:go7X34.E&gt;=B]\3]F.k$X#(eGHk3X!4!hhlI*n.HHn=!U45&apos;F&amp;lJ*n?AGGjwX&amp;4!\Pfk+BJTF!SPaK4BQ1iZXd?9E=k;X$4BEzmpXC3|F#SP]\4!:op]X#.DH,k+Zn3]\amnWo4(F#&amp;WRD4ct+k#+!DsGGjwU65G\PiYXS4$F$&amp;G]a4cEzk%+!?9DXSad&lt;4!:go7XC3zE&gt;=B]\3]F.k$X#.BGHk3X!4!hhmnWN.HHn=!U45&apos;F&amp;k&amp;Wo?AGGjwX&amp;4!Q9sK+BJTF!SPaK4BQ9iZXd?9E=k;X$4B\LmpXC3|F#SP]\2y:op]X#.DH,k3X!3]\amnWo4(F#&amp;WX!4ct+k#+!DsFd&amp;OU65G\PiYXS4$Fd&amp;G]a4cEzk%+!9]DXSad&lt;4!:go7XC3xE&gt;=B]\3]F.k$+2.</span><br></pre></td></tr></table></figure>
+<p>给了提示,base92  <a href="http://ctf.ssleye.com/base92.html" target="_blank" rel="noopener">http://ctf.ssleye.com/base92.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">257532363446257532363438257532363443257532363438257532363531257532363439257532363446257532363532257532363443257532363530257532363445257532363444257532363438257532363446257532363531257532363441257532363531257532363533257532363438257532363530257532363442257532363443257532363438257532363530257532363530257532363441257532363441257532363532257532363445257532363442257532363532257532363439257532363531257532363441257532363446257532363443257532363531257532363438257532363442257532363442257532363439257532363530257532363441257532363439257532363531257532363442257532363446257532363530257532363441257532363443257532363533257532363443257532363441257532363532257532363438257532363531257532363531257532363532257532363530257532363439257532363439257532363443257532363445257532363530257532363532257532363443257532363443257532363444257532363441257532363530257532363443</span><br></pre></td></tr></table></figure>
+<p>看着像ASCII</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> re.findall(<span class="string">r".&#123;2&#125;"</span>,<span class="string">"上一步结果"</span>):</span><br><span class="line">    print(chr(int(i,<span class="number">16</span>)),end=<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%u264F%u2648%u264C%u2648%u2651%u2649%u264F%u2652%u264C%u2650%u264E%u264D%u2648%u264F%u2651%u264A%u2651%u2653%u2648%u2650%u264B%u264C%u2648%u2650%u2650%u264A%u264A%u2652%u264E%u264B%u2652%u2649%u2651%u264A%u264F%u264C%u2651%u2648%u264B%u264B%u2649%u2650%u264A%u2649%u2651%u264B%u264F%u2650%u264A%u264C%u2653%u264C%u264A%u2652%u2648%u2651%u2651%u2652%u2650%u2649%u2649%u264C%u264E%u2650%u2652%u264C%u264C%u264D%u264A%u2650%u264C</span><br></pre></td></tr></table></figure>
+<p>url解码 <a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/tools/urlencode.aspx</a><br>得到:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">♏♈♌♈♑♉♏♒♌♐♎♍♈♏♑♊♑♓♈♐♋♌♈♐♐♊♊♒♎♋♒♉♑♊♏♌♑♈♋♋♉♐♊♉♑♋♏♐♊♌♓♌♊♒♈♑♑♒♐♉♉♌♎♐♒♌♌♍♊♐♌</span><br></pre></td></tr></table></figure>
+
+<p>白羊座 ♈ U+2648（3月21日 - 4月20日）<br>金牛座 ♉ U+2649（4月21日 - 5月21日）<br>双子座 ♊ U+264A（5月22日 - 6月21日）<br>巨蟹座 ♋ U+264B（6月22日 - 7月22日）<br>狮子座 ♌ U+264C（7月23日 - 8月22日）<br>处女座 ♍ U+264D（8月23日 - 9月22日）<br>天秤座 ♎ U+264E（9月23日 - 10月23日）<br>天蝎座 ♏ U+264F（10月24日 - 11月22日）<br>射手座 ♐ U+2650（11月23日 - 12月21日）<br>摩羯座 ♑ U+2651（12月22日 - 1月20日）<br>水瓶座 ♒ U+2652（1月21日 - 2月19日）<br>双鱼座 ♓ U+2653（2月20日 - 3月20日）<br>转12进制:<br>7040917a486507929b083408822a63a1927490331821937824b42a099a811468a445284<br>12转16: <a href="https://tool.lu/hexconvert/" target="_blank" rel="noopener">https://tool.lu/hexconvert/</a><br>666C61677B495F4C4F56455F3336447D<br>base16: flag{I_LOVE_36D}</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://www.yk2.work">Yk2eR0</a>
+            <p>原文链接：<a href="http://www.yk2.work/2020/04/02/mima2/">http://www.yk2.work/2020/04/02/mima2/</a>
+            <p>发表日期：<a href="http://www.yk2.work/2020/04/02/mima2/">April 2nd 2020, 10:55:08 am</a>
+            <p>更新日期：<a href="http://www.yk2.work/2020/04/02/mima2/">April 2nd 2020, 11:56:08 am</a>
+            <p>版权声明：非商业用允许转载</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/04/02/tuoke1/" title= "tuoke1">
+                    <div class="nextTitle">tuoke1</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/04/02/mima1/" title= "show内部赛杂项1">
+                    <div class="prevTitle">show内部赛杂项1</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:yukaizzz@qq.com" target="_blank" rel="noopener" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fishykz" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/QQ.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/347245431?share_medium=android&share_source=copy_link&bbid=XY2FED62DB4F7E324FA9ED94194EF11017031&ts=1572495457266" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 26
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/binayi/" >静态编译动态编译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Belady/" >FIFO算法的Belady异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/liumima/" >liumima</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/%C2%96RegisterPointerInputTarget/" >RegisterPointerInputTarget</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/tuoke1/" >tuoke1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2020/03/30/digui/" >递归与回溯算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2020/03/22/GetDlgItemTextA/" >GetDlgItemTextA</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/lc503/" >lc503-单调栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/dzph/" >堆栈平衡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2020/03/11/rsa/" >rsa</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2020/02/24/lianbiao/" >力扣-链表</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/buuctf-re3/" >buuctf_re3(base64)</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span><a class="archive-post-title" href= "/2019/12/05/prim/" >普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/28</span><a class="archive-post-title" href= "/2019/11/28/tu2/" >图论二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2019/11/27/tu1/" >图论一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2019/11/25/191125/" >19/11/26</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2019/11/11/c1/" >c1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
+    
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
+    
+        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Yk2eR0"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
