@@ -346,67 +346,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/05/prim/" >
+        <a class="abstract-title" href = "/2020/04/06/%C2%96RegisterPointerInputTarget/" >
             
-                <span>普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</span>
+                <span>RegisterPointerInputTarget</span>
         </a>
         <div class="abstract-content">
-            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135...
+            RegisterPointerInputTarget 功能允许调用者注册一个目标窗口,指定类型的所有指针输入都重定向到该窗口
+句法1234BOOL RegisterPointerInputTarget(  HWND               hwnd,POINTER_INPUT_TYPE pointerType);
+参量hwnd需要被注册为全局变量的窗口
+重定向回导致前景窗口(用户当前工作的窗口)失去焦点.为避免这样,确保这个窗口是仅消息窗口或设置了WS_EX_NOACTIVATE样式
+pointerType要重定向到指定窗口的指针输入的类型。这是POINTER_INPUT_TYPE枚...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/05</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/06</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C">C</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/11/c1/" >
-            
-                <span>c1</span>
-        </a>
-        <div class="abstract-content">
-            数值最大存储
-short int:有符号类型,一般16位.-32767-32767
-
-long int 可能占用比Int更大的存储类型,有符号,一般32位.-2147483647-2147483647
-
-long long int:有符号,一般64位.-9e18-+9e18
-
-
-unsigned int:无符号.0-65534
-整数溢出如果整数太大,超出了整数类型的范围:
-
-unsigned会溢出到起始点0
-
-如果希望把一个较小的常量作为long类型对待,可以使用l(小写的L)或L后缀.例如020L,0X10L
-
-与之类似,用LL代表LONG LONG 类型,u或U来表示unsigned...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C">C</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "msdn">msdn</a>
     
 </div>
             
@@ -692,9 +652,125 @@ unsigned会溢出到起始点0
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 18
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -710,17 +786,57 @@ unsigned会溢出到起始点0
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/binayi/" >静态编译动态编译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Belady/" >FIFO算法的Belady异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/liumima/" >liumima</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/%C2%96RegisterPointerInputTarget/" >RegisterPointerInputTarget</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/tuoke1/" >tuoke1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2020/03/30/digui/" >递归与回溯算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2020/03/22/GetDlgItemTextA/" >GetDlgItemTextA</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2020/03/19/nazhan/" >OD里各种断点原理和特性</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2020/03/17/dui-md/" >dui.md</a>
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/lc503/" >lc503-单调栈</a>
         </li>
     
     
@@ -794,12 +910,12 @@ unsigned会溢出到起始点0
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -812,13 +928,17 @@ unsigned会溢出到起始点0
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+    
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
@@ -828,7 +948,11 @@ unsigned会溢出到起始点0
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
         <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+    
+        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

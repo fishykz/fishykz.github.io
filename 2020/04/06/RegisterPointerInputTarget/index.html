@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>dui.md · Yk2eR0&#39;s Blog</title>
+    <title>RegisterPointerInputTarget · Yk2eR0&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Yk2eR0&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">dui.md</a>
+                <a href="#" class="post-name">RegisterPointerInputTarget</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            dui.md
+            RegisterPointerInputTarget
             <!-- 404 -->
             
         </h1>
@@ -264,14 +264,20 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "msdn">msdn</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">585</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/03/17</span>
+                    <span class="post-intro-time">2020/04/06</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,15 +401,28 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h1 id="RegisterPointerInputTarget-功能"><a href="#RegisterPointerInputTarget-功能" class="headerlink" title="RegisterPointerInputTarget 功能"></a>RegisterPointerInputTarget 功能</h1><p>允许调用者注册一个目标窗口,指定类型的所有指针输入都重定向到该窗口</p>
+<h3 id="句法"><a href="#句法" class="headerlink" title="句法"></a>句法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BOOL <span class="title">RegisterPointerInputTarget</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  HWND               hwnd,</span></span></span><br><span class="line"><span class="function"><span class="params">POINTER_INPUT_TYPE pointerType</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="参量"><a href="#参量" class="headerlink" title="参量"></a>参量</h4><p><strong>hwnd</strong><br>需要被注册为全局变量的窗口</p>
+<p>重定向回导致前景窗口(用户当前工作的窗口)失去焦点.为避免这样,确保这个窗口是仅消息窗口或设置了WS_EX_NOACTIVATE样式</p>
+<p><strong>pointerType</strong><br>要重定向到指定窗口的指针输入的类型。这是POINTER_INPUT_TYPE枚举中的任何有效且受支持的值。请注意，通用PT_POINTER类型和PT_MOUSE类型在此参数中无效。</p>
+<p>返回值<br>成功返回非0.,不成功返回0</p>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>具有UI访问权限的应用程序可以使用此功能来注册其自己的窗口，以接收指定指针输入类型的所有输入。每个桌面在任何给定时间仅允许每种指针输入类型使用一个这样的全局重定向目标窗口。成功注册的第一个窗口将一直有效，直到该窗口被取消注册或销毁为止，此时该角色可用于下一个合格的调用者。</p>
+<p>当注册有效时，指定指针类型的所有输入（无论是来自输入设备还是应用程序注入的）都重定向到注册的窗口。但是，当拥有注册窗口的进程注入指定指针类型的输入时，这种注入不会被重定向，而是会被正常处理。</p>
+<p>希望将同一窗口注册为多种指针输入类型的全局重定向目标的应用程序必须多次调用RegisterPointerInputTarget函数，每种感兴趣的指针输入类型一次。</p>
+<p>如果调用线程没有UI访问权限，则此函数将失败，最后一个错误设置为ERROR_ACCESS_DENIED。</p>
+<p>如果指定的指针输入类型无效，则此函数失败，最后一个错误设置为ERROR_INVALID_PARAMETER。</p>
+<p>如果调用线程不拥有指定的窗口，则此函数将失败，最后一个错误设置为ERROR_ACCESS_DENIED。</p>
+<p>如果指定窗口的桌面已经具有指定指针输入类型的已注册全局重定向目标，则此函数将失败，最后一个错误设置为ERROR_ACCESS_DENIED。</p>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.yk2.work">Yk2eR0</a>
-            <p>原文链接：<a href="http://www.yk2.work/2020/03/17/dui-md/">http://www.yk2.work/2020/03/17/dui-md/</a>
-            <p>发表日期：<a href="http://www.yk2.work/2020/03/17/dui-md/">March 17th 2020, 9:04:08 am</a>
-            <p>更新日期：<a href="http://www.yk2.work/2020/03/17/dui-md/">March 17th 2020, 9:04:08 am</a>
+            <p>原文链接：<a href="http://www.yk2.work/2020/04/06/%C2%96RegisterPointerInputTarget/">http://www.yk2.work/2020/04/06/%C2%96RegisterPointerInputTarget/</a>
+            <p>发表日期：<a href="http://www.yk2.work/2020/04/06/%C2%96RegisterPointerInputTarget/">April 6th 2020, 8:26:41 am</a>
+            <p>更新日期：<a href="http://www.yk2.work/2020/04/06/%C2%96RegisterPointerInputTarget/">April 6th 2020, 9:09:28 am</a>
             <p>版权声明：非商业用允许转载</p>
         </div>
     
@@ -412,16 +431,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/03/19/nazhan/" title= "OD里各种断点原理和特性">
-                    <div class="nextTitle">OD里各种断点原理和特性</div>
+                <a href= "/2020/05/07/liumima/" title= "liumima">
+                    <div class="nextTitle">liumima</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/03/14/dzph/" title= "堆栈平衡">
-                    <div class="prevTitle">堆栈平衡</div>
+                <a href= "/2020/04/02/tuoke1/" title= "tuoke1">
+                    <div class="prevTitle">tuoke1</div>
                 </a>
             
         </li>
@@ -520,7 +539,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RegisterPointerInputTarget-功能"><span class="toc-number">1.</span> <span class="toc-text">RegisterPointerInputTarget 功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#句法"><span class="toc-number">1.0.1.</span> <span class="toc-text">句法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参量"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">参量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备注"><span class="toc-number">1.1.</span> <span class="toc-text">备注</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -735,9 +754,125 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 18
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -753,17 +888,57 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/binayi/" >静态编译动态编译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Belady/" >FIFO算法的Belady异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/liumima/" >liumima</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/%C2%96RegisterPointerInputTarget/" >RegisterPointerInputTarget</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/tuoke1/" >tuoke1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2020/03/30/digui/" >递归与回溯算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2020/03/22/GetDlgItemTextA/" >GetDlgItemTextA</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2020/03/19/nazhan/" >OD里各种断点原理和特性</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2020/03/17/dui-md/" >dui.md</a>
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/lc503/" >lc503-单调栈</a>
         </li>
     
     
@@ -837,12 +1012,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -855,13 +1030,17 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+    
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
@@ -871,7 +1050,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
         <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+    
+        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
