@@ -359,6 +359,39 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/www.yk2er0.fun/2020/03/14/dzph/" >
+            
+                <span>堆栈平衡</span>
+        </a>
+        <div class="abstract-content">
+            
+什么是堆栈平衡?就是ESP不能发生变化①:一个正常程序,每个函数的ESP都不会发生变化.因为无论哪个编译器,生成的程序都是健壮的,保证程序不崩溃②:人为调用的CALL,使他堆栈不变化=堆栈平衡=平栈
+
+****函数call开始 esp=20Sub esp,0x10Mox eax,1****函数call结束–&gt;该程序会崩溃,因为堆栈平衡能改变堆栈的有:push,pop,callesp不能发生变化指的是函数开始和结束时esp的值相等当执行到ret时,栈顶一般存放的是子程序的返回地址
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "re">re</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/www.yk2er0.fun/2020/03/11/rsa/" >
             
                 <span>rsa</span>
@@ -622,44 +655,6 @@ DES是对称算法
         </a>
         <div class="abstract-content">
             电子密码本(ECB)使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为相同的明文分组永远被加密成相同的密文分组,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.    每个明文分组可被独立地进行加密.不必按次序进行.ECB的问题在于:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.    如果密码分析者知道明文A对应密文B,那么无...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/www.yk2er0.fun/2019/11/01/cbcsafety-md/" >
-            
-                <span>CBC安全问题</span>
-        </a>
-        <div class="abstract-content">
-            安全问题CBC比特翻转攻击
-已知明文攻击
-如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
-经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
-加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
-攻击流程简述:
-
-①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
-CBC选择密文攻击
-通过CBC...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1093,9 +1088,24 @@ CBC选择密文攻击
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1108,6 +1118,11 @@ CBC选择密文攻击
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/www.yk2er0.fun/2020/11/20/rop1/" >rop1</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1233,23 +1248,25 @@ CBC选择密文攻击
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+    
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     
