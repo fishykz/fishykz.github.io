@@ -582,30 +582,6 @@ ESA算法简介:选择两个大素数p和q,计算出模数N=pq计算φ=(p-1)(q-1
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/www.yk2er0.fun/2019/11/25/191125/" >
-            
-                <span>19/11/26</span>
-        </a>
-        <div class="abstract-content">
-            
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/www.yk2er0.fun/2019/11/01/des/" >
             
                 <span>DES加密步骤详解</span>
@@ -646,6 +622,44 @@ DES是对称算法
         </a>
         <div class="abstract-content">
             电子密码本(ECB)使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为相同的明文分组永远被加密成相同的密文分组,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.    每个明文分组可被独立地进行加密.不必按次序进行.ECB的问题在于:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.    如果密码分析者知道明文A对应密文B,那么无...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/www.yk2er0.fun/2019/11/01/cbcsafety-md/" >
+            
+                <span>CBC安全问题</span>
+        </a>
+        <div class="abstract-content">
+            安全问题CBC比特翻转攻击
+已知明文攻击
+如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
+经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
+加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
+攻击流程简述:
+
+①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
+CBC选择密文攻击
+通过CBC...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1079,22 +1093,9 @@ DES是对称算法
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 23
+        Total : 22
         </div>
         <!-- search  -->
         
@@ -1200,11 +1201,6 @@ DES是对称算法
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/www.yk2er0.fun/2019/11/27/tu1/" >图论一</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/www.yk2er0.fun/2019/11/25/191125/" >19/11/26</a>
         </li>
     
     
