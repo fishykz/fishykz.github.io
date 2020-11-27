@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Yk2eR0&#39;s Blog</title>
+    <title>nctf2020 · Yk2eR0&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yk2eR0&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">nctf2020</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Yk2eR0's Blog.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            nctf2020
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn Re">Pwn Re</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">357</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/11/25</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,39 +399,70 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/12/buuctf-re3/" >
-            
-                <span>buuctf_re3(base64)</span>
-        </a>
-        <div class="abstract-content">
-            主函数逆出来是这样的:123456789101112131415161718192021222324252627282930313233343536373839__int64 __usercall main_0@&lt;edx:eax&gt;(int a1@&lt;ebx&gt;, int a2@&lt;edi&gt;, int a3@&lt;esi&gt;)&#123;  void *v3; // ecx  int v4; // eax  const char *v5; // eax  size_t v6; // eax  int v7; // edx  __int64 v8; // ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><h2 id="gogogo"><a href="#gogogo" class="headerlink" title="gogogo"></a>gogogo</h2><h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="re1"><a href="#re1" class="headerlink" title="re1"></a>re1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def encode(a1,a2):</span><br><span class="line">    v2 = (~a2 | ~a1) &amp; (~a2 | a1) &amp; (a2 | a1) | (~a2 | ~a1) &amp; (a2 | ~a1) &amp; a2 &amp; a1 | a2 &amp; ~a1 | ~a2 &amp; a1;</span><br><span class="line">    return ((~(32 * v2) | ~(v2 &gt;&gt; 3)) &amp; (~(32 * v2) | (v2 &gt;&gt; 3)) &amp; (32 * v2 | (v2 &gt;&gt; 3)) | (~(32 * v2) | ~(v2 &gt;&gt; 3)) &amp; (</span><br><span class="line">                32 * v2 | ~(v2 &gt;&gt; 3)) &amp; (32 * v2 | (v2 &gt;&gt; 3)))&amp;255</span><br><span class="line"></span><br><span class="line">a1=[198, 106, 192, 39, 235, 202, 101, 2, 97, 202, 104, 39, 107, 226, 192, 224, 0, 128, 34, 39, 225, 161, 2, 39, 99, 75, 168, 227]</span><br><span class="line">#[&apos;0xc6&apos;, &apos;0x6a&apos;, &apos;0xc0&apos;, &apos;0x27&apos;, &apos;0xeb&apos;, &apos;0xca&apos;, &apos;0x65&apos;, &apos;0x2&apos;, &apos;0x61&apos;, &apos;0xca&apos;, &apos;0x68&apos;, &apos;0x27&apos;, &apos;0x6b&apos;, &apos;0xe2&apos;, &apos;0xc0&apos;, &apos;0xe0&apos;, &apos;0x0&apos;, &apos;0x80&apos;, &apos;0x22&apos;, &apos;0x27&apos;, &apos;0xe1&apos;, &apos;0xa1&apos;, &apos;0x2&apos;, &apos;0x27&apos;, &apos;0x63&apos;, &apos;0x4b&apos;, &apos;0xa8&apos;, &apos;0xe3&apos;]</span><br><span class="line">a2=&apos;nctf&apos;</span><br><span class="line">res=&apos;&apos;</span><br><span class="line">b=0</span><br><span class="line">while b&lt;=len(a1):</span><br><span class="line">    for i in range(0x20,0x7f):</span><br><span class="line">        if encode(i,ord(a2[b%4]))==a1[b]:</span><br><span class="line">            res+=chr(i)</span><br><span class="line">            b+=1</span><br><span class="line">            print res</span><br></pre></td></tr></table></figure>
+
+<p>先ida看,字符串引用找到加密处</p>
+<p><img src="/2020/11/25/nctf2020/1.png" alt></p>
+<p>提取异或后的字节:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=[]</span><br><span class="line">for i in range(0x407018,0x407034):</span><br><span class="line">    a.append(Byte(i))</span><br><span class="line">print a</span><br></pre></td></tr></table></figure>
+
+<p>win的字符串逆过来是倒着的.</p>
+<p>开爆.</p>
+<p>当时脑子抽抽了,忘记加密函数返回的是char类型,要多异或255.</p>
+<h2 id="re2"><a href="#re2" class="headerlink" title="re2"></a>re2</h2><p>输入字符串长度为28</p>
+<p>重写一下判断函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">v4 = sub_1270((__int64)&amp;unk_40E0);<span class="meta">#input</span></span><br><span class="line">v6 = <span class="built_in">strlen</span>(word_4020)<span class="number">-1</span>;</span><br><span class="line">v7 = <span class="number">0L</span>L;</span><br><span class="line">      <span class="keyword">while</span> ( v8 != v6 )</span><br><span class="line">      &#123;</span><br><span class="line">        *(_BYTE *)(v4 + v7) ^= byte_40A8[(<span class="keyword">int</span>)v7 % <span class="number">8</span>];</span><br><span class="line">        v8 = v7++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span> ( i = <span class="number">0</span>; *(_BYTE *)(v4[i]) == word_4020[i]; ++i )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">if</span> ( i == v6 )</span><br><span class="line">          right();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>识别sub_1270为base64,写脚本:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
+            <p>原文链接：<a href="https://www.yk2er0.fun/2020/11/25/nctf2020/">https://www.yk2er0.fun/2020/11/25/nctf2020/</a>
+            <p>发表日期：<a href="https://www.yk2er0.fun/2020/11/25/nctf2020/">November 25th 2020, 8:37:31 pm</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2020/11/25/nctf2020/">November 27th 2020, 4:03:37 pm</a>
+            <p>版权声明：非商业用允许转载</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/11/26/VMpwn/" title= "VMpwn">
+                    <div class="nextTitle">VMpwn</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/11/25/pie/" title= "pie">
+                    <div class="prevTitle">pie</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -435,6 +527,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PWN"><span class="toc-number">1.</span> <span class="toc-text">PWN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gogogo"><span class="toc-number">1.1.</span> <span class="toc-text">gogogo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">2.</span> <span class="toc-text">Reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#re1"><span class="toc-number">2.1.</span> <span class="toc-text">re1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#re2"><span class="toc-number">2.2.</span> <span class="toc-text">re2</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1073,6 +1183,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

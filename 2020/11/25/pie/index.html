@@ -264,9 +264,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">125</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,7 +401,12 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h2 id="ASLR和PIE"><a href="#ASLR和PIE" class="headerlink" title="ASLR和PIE"></a>ASLR和PIE</h2><p>这是腾讯一面被问到的问题,还是有必要深入了解下:</p>
+<ul>
+<li>ASLR(Address space layout randomization 地址空间配置随机化):是操作系统的功能选项,作用域ELF装入内存运行时,因此只能随机化stack,heap,libraries的基址;</li>
+<li>PIE(Position Independent Executables 代码部分地址无关化)是编译器功能选项,作用于编译过程.其随机化了ELF装载内存的基址（代码段、plt、got、data等共同的基址).</li>
+</ul>
+
     </article>
     <!-- license  -->
     
@@ -403,13 +414,18 @@ height:50vh;
             <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
             <p>原文链接：<a href="https://www.yk2er0.fun/2020/11/25/pie/">https://www.yk2er0.fun/2020/11/25/pie/</a>
             <p>发表日期：<a href="https://www.yk2er0.fun/2020/11/25/pie/">November 25th 2020, 1:49:43 pm</a>
-            <p>更新日期：<a href="https://www.yk2er0.fun/2020/11/25/pie/">November 25th 2020, 1:49:43 pm</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2020/11/25/pie/">November 25th 2020, 5:16:57 pm</a>
             <p>版权声明：非商业用允许转载</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/11/25/nctf2020/" title= "nctf2020">
+                    <div class="nextTitle">nctf2020</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -515,7 +531,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ASLR和PIE"><span class="toc-number">1.</span> <span class="toc-text">ASLR和PIE</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -861,9 +877,33 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 29
         </div>
         <!-- search  -->
         
@@ -876,6 +916,16 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2020/11/26/VMpwn/" >VMpwn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/nctf2020/" >nctf2020</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1026,31 +1076,33 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
-        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
-        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+        <span class="sidebar-tag-name" data-tags="Pwn Re"><span class="iconfont-archer">&#xe606;</span>Pwn Re</span>
     
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     
         <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     

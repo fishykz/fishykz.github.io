@@ -346,6 +346,68 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/04/02/mima1/" >
+            
+                <span>show内部赛杂项1</span>
+        </a>
+        <div class="abstract-content">
+            拿到txt,发现前四字节为zip文件头.尝试直接写入文件,解压zip,得到一个txt文件:
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "misc">misc</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/30/digui/" >
+            
+                <span>递归与回溯算法</span>
+        </a>
+        <div class="abstract-content">
+            实例力扣17思路
+确定递归边界: 1.输入字符在[0,9]之间且不等于1 assert(input&gt;=’0’&amp;&amp;input&lt;=’9’&amp;&amp;input!=’1’) 2.当递归次数=输入字符串长度时单次搜索完毕 if(index&gt;=digits.size() {res.push_back(str);
+return; } 3.输入空字符串需无返回,而不是返回空字符串 if(!digits.size()) return ;
+先构造一个函数findit,读取一位输入的字符串并把它转化为对应字母(所有情况),并拼接在传入的字符串后面findit(con...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "C/C++">C/C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/03/16/lc503/" >
             
                 <span>lc503-单调栈</span>
@@ -579,80 +641,6 @@ LM HASH生成1.用户的密码被限制为最多14个字符。2.用户的密码�
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "C/C++">C/C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/28/tu2/" >
-            
-                <span>图论二</span>
-        </a>
-        <div class="abstract-content">
-            图的连通性定义：
-当路径的起点和终点相同时,称其为回路.如果一条路径的所有结点互不相同,则称其为圈
-
-
-连通:在无向图总若存在结点V1到V2的通路,则称V1,V2是连通的.若图中任意两点均为连通的,则称该图为连通图,规定平凡图均为连通图.
-
-在一个无向图G中，存在一个点集V，从图G中删掉所有属于V的点机器与之相连的边，G不连通。如果有一个边集E，删掉所有属于这个集合的边，G不连通。
-
-点连通度：最小V的点数
-边连通度：最小E的边数
-割点：点连通度为1时，V的唯一元素
-割边（桥）：边连通度为1时，E的唯一元素
-点双连通：任意两点间，存在两条或以上的路径，且路径上的点互不重复。
-边双连通：任...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "离散数学">离散数学</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/27/tu1/" >
-            
-                <span>图论一</span>
-        </a>
-        <div class="abstract-content">
-            图的定义
-无向图（undirected graph）：边是没有方向的；一个无向图G是一个有序二元组&lt;V,E&gt;,记作G=&lt;V,E&gt;,其中V是一个非空集合，V中的元素称为节点或顶点;E是无序积V&amp;V的多重子集（元素可重复出现），称E为G的边集，E中的元素称为无向边或简称边（代表元素间的一种状态）例如社交网络中一个点代表一个人，无方向的边连接两个点。
-
-有向图(directedd graph)：边是有方向的；一个有向图G是一个有序二元组&lt;V,E&gt;,,记作G=&lt;V,E&gt;,齐总V是一个非空的节点集；E是笛卡尔积V×V的多重子集，其元素为有向边...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "离散数学">离散数学</a>
     
 </div>
             
@@ -1073,9 +1061,33 @@ LM HASH生成1.用户的密码被限制为最多14个字符。2.用户的密码�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 29
         </div>
         <!-- search  -->
         
@@ -1088,6 +1100,16 @@ LM HASH生成1.用户的密码被限制为最多14个字符。2.用户的密码�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2020/11/26/VMpwn/" >VMpwn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/nctf2020/" >nctf2020</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1238,31 +1260,33 @@ LM HASH生成1.用户的密码被限制为最多14个字符。2.用户的密码�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
-        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
-        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+        <span class="sidebar-tag-name" data-tags="Pwn Re"><span class="iconfont-archer">&#xe606;</span>Pwn Re</span>
     
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     
         <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     
