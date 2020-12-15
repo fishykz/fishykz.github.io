@@ -359,6 +359,124 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/13/hongbao3/" >
+            
+                <span>ctf.show红包题2</span>
+        </a>
+        <div class="abstract-content">
+            题目地址:http://game.ctf.show/实际上就是最短路径问题先爬下来路径点,然后python实现最短路径
+12345678910111213141516171819202122232425262728293031323334353637383940414243import networkx as nxfrom networkx.drawing.tests.test_pylab import pltdef Dijkstra(G, start, end):    RG = G.reverse();    dist = &#123;&#125;;    previous = &#...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/12/buuctf-re3/" >
+            
+                <span>buuctf_re3(base64)</span>
+        </a>
+        <div class="abstract-content">
+            主函数逆出来是这样的:123456789101112131415161718192021222324252627282930313233343536373839__int64 __usercall main_0@&lt;edx:eax&gt;(int a1@&lt;ebx&gt;, int a2@&lt;edi&gt;, int a3@&lt;esi&gt;)&#123;  void *v3; // ecx  int v4; // eax  const char *v5; // eax  size_t v6; // eax  int v7; // edx  __int64 v8; // ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/12</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/23/hashcry/" >
+            
+                <span>hashcry</span>
+        </a>
+        <div class="abstract-content">
+            win_hash组成用户名:RID:LM-HASH:NT-HASH例如:ctf:1002:06af9108f2e1fecf144e2e8adef09efd:a7fcb22a88038f35a8f39d503e7f0062
+LM HASH生成1.用户的密码被限制为最多14个字符。2.用户的密码转换为大写。3.系统中用户的密码编码使用了OEM内码页4.密码不足14字节将会用0来补全。5.固定长度的密码被分成两个7byte部分。每部分转换成比特流，在分7bit为一组末尾加0，组成新的编码6.上步骤得到的8byte二组，分别作为DES key为“KGS!@#$%”进行加密。7.将二组DES加密后...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/05/prim/" >
+            
+                <span>普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</span>
+        </a>
+        <div class="abstract-content">
+            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "C/C++">C/C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/28/tu2/" >
             
                 <span>图论二</span>
@@ -564,131 +682,10 @@ DES是对称算法
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/cbcsafety-md/" >
-            
-                <span>CBC安全问题</span>
-        </a>
-        <div class="abstract-content">
-            安全问题CBC比特翻转攻击
-已知明文攻击
-如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
-经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
-加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
-攻击流程简述:
-
-①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
-CBC选择密文攻击
-通过CBC...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/CVE-2018-12613/" >
-            
-                <span>CVE-2018-12613 phpadmin文件包含漏洞</span>
-        </a>
-        <div class="abstract-content">
-            网址:
-
-https://www.phpmyadmin.net/security/PMASA-2018-4/
-
-摘要文件包含和远程执行代码攻击
-描述发现了一个漏洞，攻击者可以在该漏洞中包含（查看并可能执行）服务器上的文件。该漏洞来自代码的一部分，其中页面在phpMyAdmin中重定向和加载，以及对白名单页面的不正确测试。除以下情况外，必须对攻击者进行身份验证：
-
-$ cfg [‘AllowArbitraryServer’] = true：攻击者可以指定他/她已控制的任何主机，并在phpMyAdmin上执行任意代码
-$ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/phpwxy/" >
-            
-                <span>php伪协议实现命令执行</span>
-        </a>
-        <div class="abstract-content">
-            
-单纯的从URL判断的话，URL中path、dir、file、pag、page、archive、p、eng、语言文件等相关关键字眼的时候,可能存在文件包含漏洞常见的文件包含函数:
-include
-require
-include_once
-hightlight_file
-show_sourcce
-readfile
-file_get_contents
-fopen
-file封装协议:
-file://
-php://filter
-php://input
-zip://
-compress.bzip2://
-compress.zlib://
-data://环境概要:php.ini:allow_url_f...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+        <a class="extend prev" rel="prev" href="/page/2/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">NEXT &amp;#62;</a>
     </nav>
     
 </main>
@@ -762,6 +759,10 @@ data://环境概要:php.ini:allow_url_f...
                     </span>
                 
             
+                
+                    <span>
+                        <a href= //http://zhengyua.cn/ target="_black">土豆啊土豆</a>
+                    </span>
                 
             
         </div>
@@ -1204,9 +1205,65 @@ data://环境概要:php.ini:allow_url_f...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 29
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1219,6 +1276,26 @@ data://环境概要:php.ini:allow_url_f...
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/navicat/" >navicat</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/dll-in/" >dll注入</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/Class/" >HackadayU笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href= "/2020/12/03/shell/" >shell指令学习</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1381,21 +1458,23 @@ data://环境概要:php.ini:allow_url_f...
     
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+    
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
@@ -1404,6 +1483,8 @@ data://环境概要:php.ini:allow_url_f...
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     
         <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     
