@@ -346,6 +346,181 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/19/badusb/" >
+            
+                <span>一次badusb攻击实践</span>
+        </a>
+        <div class="abstract-content">
+            
+设备:Digispark开发板
+
+第一步:环境配置
+下载烧录工具Arduino:Arduino    选择其中的”JUST DOWNLOAD”,进行下载
+
+win64下还需要下载驱动:
+ //github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip
+
+配置Arduino:
+ 在[首选项]中”附加开发板管理器网址”上填入
+ http://digistump.com/package_digistump_index.json
+ 
+ 然后转到”工具”菜单,然后转到”开发板管理器”,选择...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透">渗透</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/19/sfsj3/" >
+            
+                <span>算法与数据结构3-树</span>
+        </a>
+        <div class="abstract-content">
+            二叉树的重要性快速排序是二叉树的前序遍历:
+对nums[lo,hi]排序,先找一个分界点p,通过交换元素使得nums[lo…p-1]都小于等于nums[p],且nums[p+1..hi]都大于nums[p],
+
+然后递归地去nums[lo..p-1]和nums[p+1…hi]中寻找新的分界点p,通过交换元素使得nums[lo,,p-1]都小于等于nums[p],且nums[p+1..hi]都大于nums[p],然后递归的去找nums[lo…p-1]和nums[p+!..hi]中寻找新的分界点
+123456void sort(int* nums,int lo,int hi)&#123;  ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/19/dp/" >
+            
+                <span>算法与数据结构2-动态规划</span>
+        </a>
+        <div class="abstract-content">
+            啥事动态规划一般形式是求最值:动态规划是运筹学一种最优化方法.其求解过程中存在重叠子问题,如果暴力琼剧的话效率极其低下,所以需要[DP table]来优化穷举过程,避免不必要的计算.
+动态规划具备最优子结构
+DP的核心思想是穷举求最值,但只有列出正确的状态转移方程才能正确的穷举.
+思路:
+明确状态-&gt;定义DP数组/函数的含义-&gt;明确[选择]-&gt;明确base case
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/17/sfzj1/" >
+            
+                <span>算法与数据结构1-数据结构</span>
+        </a>
+        <div class="abstract-content">
+            数据结构的存储方式
+数组(顺序存储)
+紧凑型连续存储,可以随机访问,通过索引快速找到对应元素,而且相对节约存储空间.数组如果要扩容,需要重新分配一块更大空间,再把数据全部复制过去,时间复杂度O(N)
+如果想在数组中进行插入和删除,每次必须搬移后面的所有数据以保持连续,时间复杂度O(N)
+
+链表(链式存储)
+因为元素不连续,而是靠指针指向下一元素的位置.所以不存在扩容问题.如果知道某一元素的前去和后去,操作指针即可删除该元素或插入新元素,O(1).正式因为存储空间不连续,所以无法根据一个索引推出任一索引,即不能随机访问.由于每个元素必须存储指向前后元素位置的指针,会消耗相对更多的存储空间,...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/17/router-tools/" >
+            
+                <span>router-tools</span>
+        </a>
+        <div class="abstract-content">
+            通过本文介绍
+DVRF:模拟其它CPU架构安装:
+12345678910cd $addrsudo apt-get install libncurses-dev curses-develsudo apt-get install libncurses5-dev patchwget http://buildroot.uclibc.org/downloads/snapshots/buildroot-20201029.tar.bz2chmod 777 buildroot-20201029.tar.bz2tar -jxvf buildroot-20201029.tar.bz2cd buildroot...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/12/04/navicat/" >
             
                 <span>navicat</span>
@@ -484,197 +659,6 @@ read从标准输入中读取一行,并把输入行的每一个字段的值指定
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/11/25/nctf2020/" >
-            
-                <span>nctf2020RE</span>
-        </a>
-        <div class="abstract-content">
-            Reversere1附件:https://www.yk2er0.fun/2020/11/25/nctf2020/re1
-12345678910111213141516def encode(a1,a2):    v2 = (~a2 | ~a1) &amp; (~a2 | a1) &amp; (a2 | a1) | (~a2 | ~a1) &amp; (a2 | ~a1) &amp; a2 &amp; a1 | a2 &amp; ~a1 | ~a2 &amp; a1;    return ((~(32 * v2) | ~(v2 &gt;&gt; 3)) &amp; (~(32 * v2) |...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Re">Re</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/11/25/pie/" >
-            
-                <span>pie</span>
-        </a>
-        <div class="abstract-content">
-            ASLR和PIE这是腾讯一面被问到的问题,还是有必要深入了解下:
-
-ASLR(Address space layout randomization 地址空间配置随机化):是操作系统的功能选项,作用域ELF装入内存运行时,因此只能随机化stack,heap,libraries的基址;
-PIE(Position Independent Executables 代码部分地址无关化)是编译器功能选项,作用于编译过程.其随机化了ELF装载内存的基址（代码段、plt、got、data等共同的基址).
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/11/20/xtdy/" >
-            
-                <span>通用gadgets(__libc_csu_init)利用</span>
-        </a>
-        <div class="abstract-content">
-            系统调用程序向系统内核请求服务,通过使用系统调用的方式:
-32位程序(__stdcall)在执行系统调用后会pop栈的参数到寄存器,所以在调用后依次排布参数即可.
-64位程序传前6个参数直接使用寄存器中存在的值.故在payload中还要插入gadget,将参数放入寄存器中.
-
-
-
-syscall
-系统调用号
-参数1
-参数2
-参数3
-参数4
-参数5
-参数6
-
-
-
-64位
-rax
-rdi
-rsi
-rdx
-r10
-r8
-r9
-
-
-32位
-eax
-ebx(stack)
-ecx(stack)
-edx(stack)
-stack
-stack
-stack
-
-
-(64)sys_read
-0
-size_t ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/14/nxs/" >
-            
-                <span>利用归并算法思想进行的数组逆序数对数计算</span>
-        </a>
-        <div class="abstract-content">
-            1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123;public:int merge(vector&lt;int&gt;&amp; nums, int num, int l, int r, vector&lt;int&gt;&amp; res)&#123;    if (r == l)//边界情况,,此时没有逆序数        return num;    int mid = (l + r) / 2;    num = merge(nums, num, l, mi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/08/binayi/" >
-            
-                <span>静态编译动态编译</span>
-        </a>
-        <div class="abstract-content">
-            　1、动态编译的可执行文件需要附带一个的动态链接库百，在执行时，需要调用其对应动态链接库中的命令。　　所以其优点一方面是缩小了执行文件本身的体积度，另一方面是加快了编译速度，节省了系统资源。问　　缺点一是哪怕是很简单的程序，只用到了链接库中的一两条命令，也需要附带一个相对庞大的链接库；二是如答果其他计算机上没有安装对应的运行库，则用动态编译的可执专行文件就不能运行。　　2、静态编译就是编译器在编译可执行文件的时候，将可执行文件需要调用的对应动态链接库(.so)中的部分提取出来，链接到可执行文件中去，使可执行文件在运行的时候不依赖于动态链接库。所以其优缺点与动属态编译的可执行文件正好互补。 
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "编译原理">编译原理</a>
     
 </div>
             
@@ -1179,9 +1163,92 @@ size_t ...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 38
         </div>
         <!-- search  -->
         
@@ -1194,6 +1261,31 @@ size_t ...
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/sfsj3/" >算法与数据结构3-树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/dp/" >算法与数据结构2-动态规划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/sfzj1/" >算法与数据结构1-数据结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1351,12 +1443,12 @@ size_t ...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -1374,33 +1466,35 @@ size_t ...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+    
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
-    
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
-    
         <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
     
-        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     

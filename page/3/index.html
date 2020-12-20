@@ -359,6 +359,165 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/30/digui/" >
+            
+                <span>递归与回溯算法</span>
+        </a>
+        <div class="abstract-content">
+            实例力扣17思路
+确定递归边界: 1.输入字符在[0,9]之间且不等于1 assert(input&gt;=’0’&amp;&amp;input&lt;=’9’&amp;&amp;input!=’1’) 2.当递归次数=输入字符串长度时单次搜索完毕 if(index&gt;=digits.size() {res.push_back(str);
+return; } 3.输入空字符串需无返回,而不是返回空字符串 if(!digits.size()) return ;
+先构造一个函数findit,读取一位输入的字符串并把它转化为对应字母(所有情况),并拼接在传入的字符串后面findit(con...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "C/C++">C/C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/16/lc503/" >
+            
+                <span>lc503-单调栈</span>
+        </a>
+        <div class="abstract-content">
+            ####作用:    1.就跟单调队列差不多。单调队列主要处理的是一个区间内的最大/小值，而单调栈处理的是寻找以某个值为最小/大值的最大区间    2.线性的时间复杂度，所有的元素只会进栈一次，而且一旦出栈后就不会再进来了    3.只能在栈顶操作    4.单调递减栈可以找到左起第一个比当前数字大的元素####性质:1.单调栈里的元素具有单调性
+2.元素加入栈前，会在栈顶端把破坏栈单调性的元素都删除
+3.使用单调栈可以找到元素向左遍历第一个比他小的元素，也可以找到元素向左遍历第一个比他大的元素。
+4.一般存储的是下标而不是数据####简述:
+1234567for(1=0;i&lt;nu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "C/C++">C/C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/14/dzph/" >
+            
+                <span>堆栈平衡</span>
+        </a>
+        <div class="abstract-content">
+            
+什么是堆栈平衡?就是ESP不能发生变化①:一个正常程序,每个函数的ESP都不会发生变化.因为无论哪个编译器,生成的程序都是健壮的,保证程序不崩溃②:人为调用的CALL,使他堆栈不变化=堆栈平衡=平栈
+
+****函数call开始 esp=20Sub esp,0x10Mox eax,1****函数call结束–&gt;该程序会崩溃,因为堆栈平衡能改变堆栈的有:push,pop,callesp不能发生变化指的是函数开始和结束时esp的值相等当执行到ret时,栈顶一般存放的是子程序的返回地址
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "re">re</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/11/rsa/" >
+            
+                <span>rsa</span>
+        </a>
+        <div class="abstract-content">
+            储备知识:欧拉函数:φ(n)为小于或等于n的正整数中与n沪指的数目若m,n互质,φ(mn)=φ(m)*φ(n)若n为质数则φ(n)=n-1pow(x,y,z):x的y次方再对z求余数
+ESA算法简介:选择两个大素数p和q,计算出模数N=pq计算φ=(p-1)(q-1),然后选择e与φ互质取e的模反数为d,(ed)%φ=1对明文m进行加密:c=pow(m,e,N),C即为密文对密文c进行解密,m=pow(c,d,N),得到的m即为明文
+参数:p和q:大整数的两个因子(factor)N:大整数N,模数(modulus)e和d:互为模反数的两个指数(exponent)c和m:分别为明文和密文,...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/24/lianbiao/" >
+            
+                <span>力扣-链表</span>
+        </a>
+        <div class="abstract-content">
+            例题:160.相交链表
+解法:虽然两链表长度不同,但他们有一段相同结点.当两者前后拼接,从起点到相同结点处的遍历节点数相同123456789101112struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB)&#123;//假设A比B长    if(headA==NULL||headB==NULL)return NULL;    struct ListNode* pA=headA;    struct ListNode* pB=headB;    while(pA!=pB)//...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "c/c++">c/c++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/13/hongbao3/" >
             
                 <span>ctf.show红包题2</span>
@@ -507,175 +666,6 @@ LM HASH生成1.用户的密码被限制为最多14个字符。2.用户的密码�
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "离散数学">离散数学</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/27/tu1/" >
-            
-                <span>图论一</span>
-        </a>
-        <div class="abstract-content">
-            图的定义
-无向图（undirected graph）：边是没有方向的；一个无向图G是一个有序二元组&lt;V,E&gt;,记作G=&lt;V,E&gt;,其中V是一个非空集合，V中的元素称为节点或顶点;E是无序积V&amp;V的多重子集（元素可重复出现），称E为G的边集，E中的元素称为无向边或简称边（代表元素间的一种状态）例如社交网络中一个点代表一个人，无方向的边连接两个点。
-
-有向图(directedd graph)：边是有方向的；一个有向图G是一个有序二元组&lt;V,E&gt;,,记作G=&lt;V,E&gt;,齐总V是一个非空的节点集；E是笛卡尔积V×V的多重子集，其元素为有向边...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "离散数学">离散数学</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/25/191125/" >
-            
-                <span>19/11/26</span>
-        </a>
-        <div class="abstract-content">
-            
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Tittle-tattle">Tittle-tattle</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/11/c1/" >
-            
-                <span>c1</span>
-        </a>
-        <div class="abstract-content">
-            数值最大存储
-short int:有符号类型,一般16位.-32767-32767
-
-long int 可能占用比Int更大的存储类型,有符号,一般32位.-2147483647-2147483647
-
-long long int:有符号,一般64位.-9e18-+9e18
-
-
-unsigned int:无符号.0-65534
-整数溢出如果整数太大,超出了整数类型的范围:
-
-unsigned会溢出到起始点0
-
-如果希望把一个较小的常量作为long类型对待,可以使用l(小写的L)或L后缀.例如020L,0X10L
-
-与之类似,用LL代表LONG LONG 类型,u或U来表示unsigned...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "C/C++">C/C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/des/" >
-            
-                <span>DES加密步骤详解</span>
-        </a>
-        <div class="abstract-content">
-            
-DES是一个分组加密算法.以64为为分组对数据加密.64为一组明文从算法的一段输入,64位密文输出.
-DES是对称算法
-密钥长度为56位(数字长度为64位,但每个第8位都做奇偶校验数)初始置换把明文输入块分为64份.然后排列成下面所示密文(IP)输出:
-
-58,50,42,34,26,18,10,2,60,52,44,36,28,20,12,4,62,54,46,38,30,22,14,6,64,56,48,40,32,24,16,8,57,49,41,33,25,17, 9,1,59,51,43,35,27,19,11,3,61,53,45,37,29,21,13,5,63,55,4...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/01/ecbcbc-md/" >
-            
-                <span>(ECB,CBC)分组密码的算法类型及模式</span>
-        </a>
-        <div class="abstract-content">
-            电子密码本(ECB)使用分组密码最明显的方式:一个铭文分组加密成一个密文分组因为相同的明文分组永远被加密成相同的密文分组,而且理论上制作成一个包含明文和相应密文的密码本是可能的.然而,如果分组的大小为64位,那么密码本就有2^64项–对于预计算和存储来说太大了.    每个明文分组可被独立地进行加密.不必按次序进行.ECB的问题在于:如果密码分析者有很多明文和密文,那他就可在不知道密钥的情况下获得密码本.在实际情况下,消息格式趋于重复,不同的消息可能会有一些位序列是相同的.这些消息在很大程度上是冗余的或者有很长一段字符串是0和space.    如果密码分析者知道明文A对应密文B,那么无...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
     
 </div>
             
@@ -1269,9 +1259,92 @@ DES是对称算法
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 38
         </div>
         <!-- search  -->
         
@@ -1284,6 +1357,31 @@ DES是对称算法
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/sfsj3/" >算法与数据结构3-树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/dp/" >算法与数据结构2-动态规划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/sfzj1/" >算法与数据结构1-数据结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1441,12 +1539,12 @@ DES是对称算法
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -1464,33 +1562,35 @@ DES是对称算法
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+    
         <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
-    
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
-    
         <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
     
-        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     
