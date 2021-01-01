@@ -346,6 +346,78 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/" >
+            
+                <span>算法考试</span>
+        </a>
+        <div class="abstract-content">
+            概论算法的表述方法:- 自然语言
+- 伪代码
+- 流程图算法的两种效率:时间效率和空间效率
+算法的两种特性:简单性和一般性
+求两个正整数m,n的最大公约数gcd(m,n)法一:gcd(m,n)的欧几里得算法1. 如果n=0,返回m的值作为结果,结束;否则进入第二步.
+2. 用n去除m,将余数赋给r
+3. 将n的值赋给m,将r的值赋给n,返回第一步123int gcd(int m,int n)&#123;return  n==0?m:gcd(n,m%n);&#125;
+法二:gcd(m,n)的连续整数检测算法1. 令t=min{m,n}
+2. m除以t,如果余数为0,则进入第三步;否则进入...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/31</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/21/dui/" >
+            
+                <span>堆漏洞总结</span>
+        </a>
+        <div class="abstract-content">
+            https://github.com/SignorMercurio/Heap-Tutorials/blob/master/GLibcHeapInternals/GLibcHeap.md
+什么是堆在程序运行过程中,堆可以提供动态分配的内存,允许程序申请大小未知的内存,从低地址向高地址方向增长.
+堆管理器:ptmalloc2
+malloc:1.当n=0时,返回当前系统允许的堆的最小内存块.2.当n为负数时,由于在大多数系统上，size_t 是无符号数（这一点非常重要），所以程序就会申请很大的内存空间，但通常来说都会失败，因为系统没有那么多的内存可以分配。
+
+
+free:1.当p为空指针时,函...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/12/19/badusb/" >
             
                 <span>一次badusb攻击实践</span>
@@ -497,7 +569,7 @@ DP的核心思想是穷举求最值,但只有列出正确的状态转移方程�
         <div class="abstract-content">
             通过本文介绍
 DVRF:模拟其它CPU架构安装:
-12345678910cd $addrsudo apt-get install libncurses-dev curses-develsudo apt-get install libncurses5-dev patchwget http://buildroot.uclibc.org/downloads/snapshots/buildroot-20201029.tar.bz2chmod 777 buildroot-20201029.tar.bz2tar -jxvf buildroot-20201029.tar.bz2cd buildroot...
+12345678910cd $addrsudo apt-get install libncurses-dev curses-develsudo apt-get install libncurses5-dev patchwget http://buildroot.uclibc.org/downloads/snapshots/buildroot-20201122.tar.bz2chmod 777 buildroot-20201122.tar.bz2tar -jxvf buildroot-20201122.tar.bz2cd buildroot...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -592,73 +664,6 @@ DVRF:模拟其它CPU架构安装:
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/03/shell/" >
-            
-                <span>shell指令学习</span>
-        </a>
-        <div class="abstract-content">
-            靶场:https://www.hackerrank.com/
-Task 1:Let’s EchoWrite a bash script that prints the string “HELLO”.
-1echo HELLO
-
-A Personalized EchoWrite a Bash script which accepts name as input and displays the greeting “Welcome (name)”
-12read NAMEecho "Welcome "$NAME
-
-read从标准输入中读取一行,并把输入行的每一个字段的值指定给后面的变量
-或
-12...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Shell">Shell</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/11/26/VMpwn/" >
-            
-                <span>VMpwn</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
     
 </div>
             
@@ -1246,9 +1251,54 @@ read从标准输入中读取一行,并把输入行的每一个字段的值指定
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 41
         </div>
         <!-- search  -->
         
@@ -1259,8 +1309,37 @@ read从标准输入中读取一行,并把输入行的每一个字段的值指定
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/bfs/" >bfs</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/dfs/" >dfs</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/31</span><a class="archive-post-title" href= "/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/" >算法考试</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1354,12 +1433,12 @@ read从标准输入中读取一行,并把输入行的每一个字段的值指定
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
         </li>
     
     
@@ -1428,11 +1507,6 @@ read从标准输入中读取一行,并把输入行的每一个字段的值指定
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2019/11/25/191125/" >19/11/26</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2019/11/11/c1/" >c1</a>
         </li>
     
@@ -1466,41 +1540,41 @@ read从标准输入中读取一行,并把输入行的每一个字段的值指定
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="Tittle-tattle"><span class="iconfont-archer">&#xe606;</span>Tittle-tattle</span>
-    
-        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
         <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
-    
         <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
-        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
     
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     
         <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     
         <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
+    
+        <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
