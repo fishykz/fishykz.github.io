@@ -430,12 +430,12 @@ height:50vh;
 <h4 id="二分查找算法"><a href="#二分查找算法" class="headerlink" title="二分查找算法:"></a>二分查找算法:</h4><p>前提:数组已排好序</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入数组tar是一个由大到小排序的数组</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">B_search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tar,<span class="keyword">int</span> num,<span class="keyword">int</span> U,<span class="keyword">int</span> L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid=(U/<span class="number">2</span>+L/<span class="number">2</span>);<span class="comment">//防止越界</span></span><br><span class="line">    <span class="keyword">if</span>(tar[mid]&lt;num)</span><br><span class="line">    <span class="keyword">return</span> B_search(tar,num,U,mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> B_search(tar,num,mid,L);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>设有 n 个数据元素，采用折半搜索时，最大比较次数为 log100+1。</li>
+<li>设有 n 个数据元素，采用折半搜索时，最大比较次数为 logn+1。</li>
 </ul>
 <h3 id="算法效率分析"><a href="#算法效率分析" class="headerlink" title="算法效率分析"></a>算法效率分析</h3><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/1.png" alt></p>
 <h5 id="算法的最优-最差和平均效率"><a href="#算法的最优-最差和平均效率" class="headerlink" title="算法的最优,最差和平均效率"></a>算法的最优,最差和平均效率</h5><pre><code>- 最差/优/平均效率是指输入规模为n时,算法在最坏/优/&quot;随机&quot;情况下的效率</code></pre><h5 id="渐进符号"><a href="#渐进符号" class="headerlink" title="渐进符号"></a>渐进符号</h5><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/2.png" alt></p>
 <p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/13.png" alt></p>
-<p>D</p>
+<p>B</p>
 <ul>
 <li>当算法由两个连续执行部分组成时,该算法整体效率由具有较大增长的那部分所决定</li>
 </ul>
@@ -486,6 +486,7 @@ height:50vh;
 <h5 id="凸包"><a href="#凸包" class="headerlink" title="凸包:"></a>凸包:</h5><p>问题:对于平面n个点,找包围它们的最小凸多边形</p>
 <p>蛮力算法:对于每队点p1,p2,判断是否所有其它点都在连接p1p2的直线的同一侧</p>
 <p>对于每个点,都要循环一边其他点,时间O(n^2),记录一个点,空间O(1)</p>
+<p>判断:</p>
 <p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/23.png" alt>)×,O(n^2)</p>
 <h5 id="穷举查找"><a href="#穷举查找" class="headerlink" title="穷举查找"></a>穷举查找</h5><ul>
 <li><p>深度优先查找(DFS)</p>
@@ -546,7 +547,12 @@ height:50vh;
 <ul>
 <li>适合用分治法求解的问题往往也适合用递归算法求解</li>
 </ul>
-<h5 id="合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性"><a href="#合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性" class="headerlink" title="合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性"></a>合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性</h5><p>[归并,快排与二叉树](<a href="https://www.yk2er0.fun/2020/12/19/sfsj3/#快速排序是二叉树的前序遍历">算法与数据结构3-树 · Yk2eR0’s Blog</a>)</p>
+<h5 id="合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性"><a href="#合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性" class="headerlink" title="合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性"></a>合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性</h5><p>[归并,快排与二叉树</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/28.gif" alt="快速排序"></p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/29.gif" alt="归并排序"></p>
+<p>[](<a href="https://www.yk2er0.fun/2020/12/19/sfsj3/#快速排序是二叉树的前序遍历">算法与数据结构3-树 · Yk2eR0’s Blog</a>)</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/27.png" alt></p>
+<p>[9 6 5 6 8 10 7 3 1 2]</p>
 <h6 id="Strassen算法"><a href="#Strassen算法" class="headerlink" title="Strassen算法"></a>Strassen算法</h6><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/16.png" alt></p>
 <p>时间复杂度为O(n^log[7,2]),故选B.Coppersmith-Winograd方法的时间复杂度为n^2.35,暴力法是n^3,记不住就选这俩之间的</p>
 <p>PS:Strassen算法好长我好累</p>
@@ -719,6 +725,8 @@ height:50vh;
 <li>局部最优:当前所有可行选择中最佳的局部选择</li>
 <li>不可取消:选择一旦做出,后面步骤无法更改.</li>
 </ul>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/30.png" alt></p>
+<p>对Si从大到小排序,每次减少对应的ai值,直到婴儿喝饱为止</p>
 <h6 id="背包问题的贪婪策略"><a href="#背包问题的贪婪策略" class="headerlink" title="背包问题的贪婪策略"></a>背包问题的贪婪策略</h6><h6 id="最小生成树的两种经典算法"><a href="#最小生成树的两种经典算法" class="headerlink" title="最小生成树的两种经典算法"></a>最小生成树的两种经典算法</h6><h6 id="加权图的最短路径问题"><a href="#加权图的最短路径问题" class="headerlink" title="加权图的最短路径问题"></a>加权图的最短路径问题</h6><h6 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h6><p>出现概率越大的字符所在层数越小</p>
 <p>在具有相同平均长度的编码中，方差最小者为佳（ 码字长度方差最小)，即高度最小的树</p>
 <p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/21.png" alt></p>
@@ -740,7 +748,7 @@ height:50vh;
             <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
             <p>原文链接：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/</a>
             <p>发表日期：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">December 31st 2020, 9:48:05 pm</a>
-            <p>更新日期：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">January 5th 2021, 1:20:33 am</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">January 8th 2021, 1:45:49 pm</a>
             <p>版权声明：非商业用允许转载</p>
         </div>
     
@@ -870,14 +878,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1657,29 +1657,29 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
         <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
     
-        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="c/c++"><span class="iconfont-archer">&#xe606;</span>c/c++</span>
     
@@ -1687,9 +1687,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
-        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
-    
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
+    
+        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
     
         <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     
