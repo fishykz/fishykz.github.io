@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Yk2eR0">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Yk2eR0">
+    
+    <meta name="keywords" content="Yk2,hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>启动流程 · Yk2eR0&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yk2eR0&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">启动流程</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Yk2eR0's Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            启动流程
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.6k</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/03/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>引导程序在系统之间的细节有所不同,但大致可以分为几个步骤引导程序在系统之间的细节有所不同,但大致可以分为几个步:<br>(1):硬件引导<br>(2):OS引导程序<br>(3):内核启动<br>(4):init脚本和inittab<br>(5):服务启动脚本</p>
+<h4 id="硬件引导"><a href="#硬件引导" class="headerlink" title="硬件引导"></a>硬件引导</h4><p>上电或硬重置后,将控制权交给存储在只读存储器中的程序(通常是PROM).在PC中,我们称其为BIOS.<br>该程序对机器进行自检,查找引导设备和扫描启动设备.然后访问引导设备,加载MBR,加载os引导程序并将控制权转移给os引导程序.</p>
+<h4 id="os引导程序"><a href="#os引导程序" class="headerlink" title="os引导程序"></a>os引导程序</h4><p>pc中,os引导程序位于引导设备的第一个扇区中-MBR(主启动记录).里面除分区表外的剩余空间为主引导程序的代码.在大多数系统中,主引导程序非常受限制.PC MBR(主引导扇区)的大小限制(包括分区表在内共512字节)使得os不能将完整的os加载程序放入mbr.<br>在Linux中，操作系统引导程序通常为lilo或grub。<br>引导程序在系统之间的细节有所不同,但大致可以分为几个步骤引导程序在系统之间的细节有所不同,但大致可以分为几个步:<br>(1):硬件引导<br>(2):OS引导程序<br>(3):内核启动<br>(4):init脚本和inittab<br>(5):服务启动脚本</p>
+<h4 id="硬件引导-1"><a href="#硬件引导-1" class="headerlink" title="硬件引导"></a>硬件引导</h4><p>上电或硬重置后,将控制权交给存储在只读存储器中的程序(通常是PROM).在PC中,我们称其为BIOS.<br>该程序对机器进行自检,查找引导设备和扫描启动设备.然后访问引导设备,加载MBR,加载os引导程序并将控制权转移给os引导程序.</p>
+<h4 id="os引导程序-1"><a href="#os引导程序-1" class="headerlink" title="os引导程序"></a>os引导程序</h4><p>pc中,os引导程序位于引导设备的第一个扇区中-MBR(主启动记录).里面除分区表外的剩余空间为主引导程序的代码.在大多数系统中,主引导程序非常受限制.PC MBR(主引导扇区)的大小限制(包括分区表在内共512字节)使得os不能将完整的os加载程序放入mbr.<br>在Linux中，操作系统引导程序通常为lilo或grub。<br><img src="/2021/03/22/qdlc/grub.png" alt="grub.png"><br>因此大多数os将主引导程序称为辅助OS引导程序.它们都可以作为辅助加载器安装(MBR指向os引导程序的启动地址)，或者作为两部分引导程序启动,加载内核.内核先自解压,从zImage,uImage等格式解压为vmlinux.</p>
+<h4 id="内核启动"><a href="#内核启动" class="headerlink" title="内核启动"></a>内核启动</h4><p>加载内核后,它将通过驱动程序初始化设备,启动kswapd进程并挂在根文件目录(/)<br>这些行为可能会改变一些影响内核的参数(例如:你可以覆盖默认的根文件系统).<br>只有这样内核才能创建第一个（用户态）进程，它的pid为1.该进程执行程序/ sbin / init，并传递未被处理的所有内核参数。在kernel的linux/init/main.c中,start_kernel进行了kernel的相关初始化</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">asmlinkage __visible <span class="keyword">void</span> __init <span class="title">start_kernel</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//here </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	smp_setup_processor_id(); <span class="comment">//smp相关</span></span><br><span class="line">	debug_objects_early_init();</span><br><span class="line">	...</span><br><span class="line">	early_boot_irqs_disabled = <span class="literal">true</span>; <span class="comment">//关闭中断请求,防止初始化被打断</span></span><br><span class="line">	boot_cpu_init();</span><br><span class="line">	page_address_init();               <span class="comment">//页地址初始化</span></span><br><span class="line">	pr_notice(<span class="string">"%s"</span>, linux_banner);     <span class="comment">//显示内核信息</span></span><br><span class="line">	early_security_init();</span><br><span class="line">	setup_arch(&amp;command_line);</span><br><span class="line">	setup_boot_config(command_line);</span><br><span class="line">	setup_command_line(command_line);</span><br><span class="line">	setup_nr_cpu_ids();</span><br><span class="line">	setup_per_cpu_areas();</span><br><span class="line">	smp_prepare_boot_cpu();	<span class="comment">/* arch-specific boot-cpu hooks */</span></span><br><span class="line">	boot_cpu_hotplug_init();</span><br><span class="line">	build_all_zonelists(<span class="literal">NULL</span>);</span><br><span class="line">	page_alloc_init();                <span class="comment">//页alloc初始化</span></span><br><span class="line">	setup_log_buf(<span class="number">0</span>);</span><br><span class="line">	vfs_caches_init_early();</span><br><span class="line">	sort_main_extable();</span><br><span class="line">	trap_init();</span><br><span class="line">	mm_init();</span><br><span class="line">	sched_init(); <span class="comment">//init调度器</span></span><br><span class="line">	preempt_disable(); <span class="comment">//停止中断</span></span><br><span class="line">	<span class="keyword">if</span> (WARN(!irqs_disabled(),</span><br><span class="line">		 <span class="string">"Interrupts were enabled *very* early, fixing it\n"</span>))</span><br><span class="line">		local_irq_disable();</span><br><span class="line">	radix_tree_init();</span><br><span class="line">	housekeeping_init();</span><br><span class="line">	workqueue_init_early();</span><br><span class="line"></span><br><span class="line">	rcu_init();</span><br><span class="line">   console_init(); <span class="comment">//初始化console,可以使用printfk打印了</span></span><br><span class="line">	<span class="comment">/* Trace events are available after this */</span></span><br><span class="line">	trace_init();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (initcall_debug)</span><br><span class="line">		initcall_debug_enable();</span><br><span class="line"></span><br><span class="line">	context_tracking_init();</span><br><span class="line">	<span class="comment">/* init some links before init_ISA_irqs() */</span></span><br><span class="line">	early_irq_init();</span><br><span class="line">	init_IRQ();</span><br><span class="line">	tick_init();</span><br><span class="line">	rcu_init_nohz();</span><br><span class="line">	init_timers();</span><br><span class="line">	hrtimers_init();</span><br><span class="line">	softirq_init();</span><br><span class="line">	timekeeping_init();</span><br><span class="line">	rand_initialize();</span><br><span class="line">	add_latent_entropy();</span><br><span class="line">	add_device_randomness(command_line, <span class="built_in">strlen</span>(command_line));</span><br><span class="line">	boot_init_stack_canary();  <span class="comment">//canary保护init</span></span><br><span class="line">	...<span class="comment">//省略大片init,主要是设备和控制程序的初始化</span></span><br><span class="line"></span><br><span class="line">	arch_call_rest_init();<span class="comment">//最后调用rest_init()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于rest_init:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> __init __weak <span class="title">arch_call_rest_init</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;rest_init();&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">noinline <span class="keyword">void</span> __ref <span class="title">rest_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	pid = kernel_thread(kernel_init, <span class="literal">NULL</span>, CLONE_FS); <span class="comment">//执行/sbin/init,生成pid1</span></span><br><span class="line">	...</span><br><span class="line">	pid = kernel_thread(kthreadd, <span class="literal">NULL</span>, CLONE_FS | CLONE_FILES);</span><br><span class="line">	...</span><br><span class="line">	system_state = SYSTEM_SCHEDULING;</span><br><span class="line"></span><br><span class="line">	complete(&amp;kthreadd_done);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * The boot idle thread must execute schedule()</span></span><br><span class="line"><span class="comment">	 * at least once to get things moving:</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	schedule_preempt_disabled();</span><br><span class="line">	<span class="comment">/* Call into cpu_idle with preempt disabled */</span></span><br><span class="line">	cpu_startup_entry(CPUHP_ONLINE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="init脚本和inittab"><a href="#init脚本和inittab" class="headerlink" title="init脚本和inittab"></a>init脚本和inittab</h4><p>init进程是所有进程的父进程,init进程繁衍出完成通常操作所需的子进程.init依赖/etc/rc.d/rc.sysinit这个脚本对系统进行初始化。而/etc/rc.d/rc.sysinit的作用主要是:<br>    1，激活udev和selinux<br>    2，根据/etc/sysctl.conf文件设定内核参数<br>    3，设定系统时钟<br>    4，键盘的键映射，即识别键盘<br>    5，启用swap分区<br>    6，设定主机名<br>    7，根文件系统检测及重新以读写方式挂载<br>    8，激活RAID和LVM设备<br>    9，启用磁盘配额<br>    10，检测及挂载其他文件系统（挂载/etc/fstab中定义的设备）<br>    11，清除过期的锁和PID文件<br>   inittab是init的配置文件.init启动时会读取/etc/inittab以获取更多参数,该文件定义了应在不同运行级别下运行的文件,根据里面的配置来启动服务</p>
+<h4 id="服务启动脚本"><a href="#服务启动脚本" class="headerlink" title="服务启动脚本"></a>服务启动脚本</h4><p>服务启动脚本分为两种:</p>
+<ol>
+<li>用户自定义的/etc/rc.local:</li>
+</ol>
+<p><strong>写在这里的程序将会在执行完level3启动服务后执行</strong>它们无需登录,在开机后自动执行.也无需再用符号链接链接到rc3.d.<br>常用方法:静态路由的设置,服务器服务的启动</p>
+<ol start="2">
+<li>系统自启动脚本/etc/init.d:<br>每个被系统管理的服务都有一个启动脚本在特定目录(/etc/init.d).命令service和systemd就是使用这些脚本来管理服务.<br>![]<br>/etc/rc[0-6S].d中有每个脚本的符号链接,在inittab中调用.这些文件夹代表不同的优先级.</li>
+</ol>
+<p>rc[0-6S].d会在用户登陆之前读取，这个文件中写入了什么命令，在每次系统启动时都会执行一次。</p>
+<p>主脚本通过排序目录中的链接调用服务脚本.名称以”S”开头的所有链接都将使用参数”start”来调用,以”K”开头的名称将以”stop”来调用.<br>因此大多数os将主引导程序称为辅助OS引导程序.它们都可以作为辅助加载器安装(MBR指向os引导程序的启动地址)，或者作为两部分引导程序启动,加载内核.内核先自解压,从zImage,uImage等格式解压为vmlinux.</p>
+<h4 id="内核启动-1"><a href="#内核启动-1" class="headerlink" title="内核启动"></a>内核启动</h4><p>加载内核后,它将通过驱动程序初始化设备,启动kswapd进程并挂在根文件目录(/)<br>这些行为可能会改变一些影响内核的参数(例如:你可以覆盖默认的根文件系统).<br>只有这样内核才能创建第一个（用户态）进程，它的pid为1.该进程执行程序/ sbin / init，并传递未被处理的所有内核参数。在kernel的linux/init/main.c中,start_kernel进行了kernel的相关初始化</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">asmlinkage __visible <span class="keyword">void</span> __init <span class="title">start_kernel</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//here </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	smp_setup_processor_id(); <span class="comment">//smp相关</span></span><br><span class="line">	debug_objects_early_init();</span><br><span class="line">	...</span><br><span class="line">	early_boot_irqs_disabled = <span class="literal">true</span>; <span class="comment">//关闭中断请求,防止初始化被打断</span></span><br><span class="line">	boot_cpu_init();</span><br><span class="line">	page_address_init();               <span class="comment">//页地址初始化</span></span><br><span class="line">	pr_notice(<span class="string">"%s"</span>, linux_banner);     <span class="comment">//显示内核信息</span></span><br><span class="line">	early_security_init();</span><br><span class="line">	setup_arch(&amp;command_line);</span><br><span class="line">	setup_boot_config(command_line);</span><br><span class="line">	setup_command_line(command_line);</span><br><span class="line">	setup_nr_cpu_ids();</span><br><span class="line">	setup_per_cpu_areas();</span><br><span class="line">	smp_prepare_boot_cpu();	<span class="comment">/* arch-specific boot-cpu hooks */</span></span><br><span class="line">	boot_cpu_hotplug_init();</span><br><span class="line">	build_all_zonelists(<span class="literal">NULL</span>);</span><br><span class="line">	page_alloc_init();                <span class="comment">//页alloc初始化</span></span><br><span class="line">	setup_log_buf(<span class="number">0</span>);</span><br><span class="line">	vfs_caches_init_early();</span><br><span class="line">	sort_main_extable();</span><br><span class="line">	trap_init();</span><br><span class="line">	mm_init();</span><br><span class="line">	sched_init(); <span class="comment">//init调度器</span></span><br><span class="line">	preempt_disable(); <span class="comment">//停止中断</span></span><br><span class="line">	<span class="keyword">if</span> (WARN(!irqs_disabled(),</span><br><span class="line">		 <span class="string">"Interrupts were enabled *very* early, fixing it\n"</span>))</span><br><span class="line">		local_irq_disable();</span><br><span class="line">	radix_tree_init();</span><br><span class="line">	housekeeping_init();</span><br><span class="line">	workqueue_init_early();</span><br><span class="line"></span><br><span class="line">	rcu_init();</span><br><span class="line">   console_init(); <span class="comment">//初始化console,可以使用printfk打印了</span></span><br><span class="line">	<span class="comment">/* Trace events are available after this */</span></span><br><span class="line">	trace_init();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (initcall_debug)</span><br><span class="line">		initcall_debug_enable();</span><br><span class="line"></span><br><span class="line">	context_tracking_init();</span><br><span class="line">	<span class="comment">/* init some links before init_ISA_irqs() */</span></span><br><span class="line">	early_irq_init();</span><br><span class="line">	init_IRQ();</span><br><span class="line">	tick_init();</span><br><span class="line">	rcu_init_nohz();</span><br><span class="line">	init_timers();</span><br><span class="line">	hrtimers_init();</span><br><span class="line">	softirq_init();</span><br><span class="line">	timekeeping_init();</span><br><span class="line">	rand_initialize();</span><br><span class="line">	add_latent_entropy();</span><br><span class="line">	add_device_randomness(command_line, <span class="built_in">strlen</span>(command_line));</span><br><span class="line">	boot_init_stack_canary();  <span class="comment">//canary保护init</span></span><br><span class="line">	...<span class="comment">//省略大片init,主要是设备和控制程序的初始化</span></span><br><span class="line"></span><br><span class="line">	arch_call_rest_init();<span class="comment">//最后调用rest_init()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于rest_init:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> __init __weak <span class="title">arch_call_rest_init</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;rest_init();&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">noinline <span class="keyword">void</span> __ref <span class="title">rest_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	pid = kernel_thread(kernel_init, <span class="literal">NULL</span>, CLONE_FS); <span class="comment">//执行/sbin/init,生成pid1</span></span><br><span class="line">	...</span><br><span class="line">	pid = kernel_thread(kthreadd, <span class="literal">NULL</span>, CLONE_FS | CLONE_FILES);</span><br><span class="line">	...</span><br><span class="line">	system_state = SYSTEM_SCHEDULING;</span><br><span class="line"></span><br><span class="line">	complete(&amp;kthreadd_done);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * The boot idle thread must execute schedule()</span></span><br><span class="line"><span class="comment">	 * at least once to get things moving:</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	schedule_preempt_disabled();</span><br><span class="line">	<span class="comment">/* Call into cpu_idle with preempt disabled */</span></span><br><span class="line">	cpu_startup_entry(CPUHP_ONLINE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="init脚本和inittab-1"><a href="#init脚本和inittab-1" class="headerlink" title="init脚本和inittab"></a>init脚本和inittab</h4><p>init进程是所有进程的父进程,init进程繁衍出完成通常操作所需的子进程.init依赖/etc/rc.d/rc.sysinit这个脚本对系统进行初始化。而/etc/rc.d/rc.sysinit的作用主要是:<br>    1，激活udev和selinux<br>    2，根据/etc/sysctl.conf文件设定内核参数<br>    3，设定系统时钟<br>    4，键盘的键映射，即识别键盘<br>    5，启用swap分区<br>    6，设定主机名<br>    7，根文件系统检测及重新以读写方式挂载<br>    8，激活RAID和LVM设备<br>    9，启用磁盘配额<br>    10，检测及挂载其他文件系统（挂载/etc/fstab中定义的设备）<br>    11，清除过期的锁和PID文件<br>   inittab是init的配置文件.init启动时会读取/etc/inittab以获取更多参数,该文件定义了应在不同运行级别下运行的文件,根据里面的配置来启动服务</p>
+<h4 id="服务启动脚本-1"><a href="#服务启动脚本-1" class="headerlink" title="服务启动脚本"></a>服务启动脚本</h4><p>服务启动有四种方式,其中脚本分为两种:</p>
+<ol>
+<li>用户自定义的service:/etc/rc.local:</li>
+</ol>
+<p><strong>写在这里的程序将会在执行完level3启动服务后执行</strong>它们无需登录,在开机后自动执行.也无需再用符号链接链接到rc3.d.<br>常用方法:静态路由的设置,服务器服务的启动</p>
+<ol start="2">
+<li>系统自启动脚本upstart:/etc/init.d:<br>每个被系统管理的服务都有一个启动脚本在特定目录(/etc/init.d).命令service和systemd就是使用这些脚本来管理服务.<br><img src="/2021/03/22/qdlc/init.png" alt="init.d"><br>/etc/rc[0-6S].d中有每个脚本的符号链接,在inittab中调用.这些文件夹代表不同的优先级.</li>
+</ol>
+<p>rc[0-6S].d会在用户登陆之前读取，这个文件中写入了什么命令，在每次系统启动时都会执行一次。</p>
+<p>主脚本通过排序目录中的链接调用服务脚本.名称以”S”开头的所有链接都将使用参数”start”来调用,以”K”开头的名称将以”stop”来调用.</p>
+<ol start="3">
+<li>cron:由corntab管理</li>
+<li>startup:<br>配置文件在/etc/xdg/autostart，以及~/.config/autostart</li>
+</ol>
+<h2 id="review"><a href="#review" class="headerlink" title="review"></a>review</h2><object data="qdlc/qdgc.pdf" type="application/pdf" width="826px" height="1066px"> 
+    <embed src="qdlc/qdgc.pdf"> 
+     This browser does not support PDFs. Please download the PDF to view it: <a href="qdlc/qdgc.pdf">Download PDF</a>.<p></p> 
+     
+</object> 
+
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
+            <p>原文链接：<a href="https://www.yk2er0.fun/2021/03/22/qdlc/">https://www.yk2er0.fun/2021/03/22/qdlc/</a>
+            <p>发表日期：<a href="https://www.yk2er0.fun/2021/03/22/qdlc/">March 22nd 2021, 9:55:23 am</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2021/03/22/qdlc/">March 25th 2021, 11:22:28 am</a>
+            <p>版权声明：非商业用允许转载</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/03/22/env/" title= "MIPS/ARM动态调试环境搭建">
+                    <div class="nextTitle">MIPS/ARM动态调试环境搭建</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/02/01/jiwang/" title= "jiwang">
+                    <div class="prevTitle">jiwang</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:yukaizzz@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fishykz" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/QQ.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/347245431?share_medium=android&share_source=copy_link&bbid=XY2FED62DB4F7E324FA9ED94194EF11017031&ts=1572495457266" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件引导"><span class="toc-number">1.</span> <span class="toc-text">硬件引导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#os引导程序"><span class="toc-number">2.</span> <span class="toc-text">os引导程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件引导-1"><span class="toc-number">3.</span> <span class="toc-text">硬件引导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#os引导程序-1"><span class="toc-number">4.</span> <span class="toc-text">os引导程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内核启动"><span class="toc-number">5.</span> <span class="toc-text">内核启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#init脚本和inittab"><span class="toc-number">6.</span> <span class="toc-text">init脚本和inittab</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务启动脚本"><span class="toc-number">7.</span> <span class="toc-text">服务启动脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内核启动-1"><span class="toc-number">8.</span> <span class="toc-text">内核启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#init脚本和inittab-1"><span class="toc-number">9.</span> <span class="toc-text">init脚本和inittab</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务启动脚本-1"><span class="toc-number">10.</span> <span class="toc-text">服务启动脚本</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#review"><span class="toc-number"></span> <span class="toc-text">review</span></a>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 49
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span><a class="archive-post-title" href= "/2021/03/24/uart/" >uart</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/%C2%96arm/" >ARM汇编总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/usb-new/" >USB简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/size-t/" >size_t</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/net/" >qemu常用网络命令:SSH代理和SCP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/env/" >MIPS/ARM动态调试环境搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/qdlc/" >启动流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2021/02/01/jiwang/" >jiwang</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/bfs/" >bfs</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/dfs/" >dfs</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/31</span><a class="archive-post-title" href= "/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/" >算法考试</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/sfsj3/" >算法与数据结构3-树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/dp/" >算法与数据结构2-动态规划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/sfzj1/" >算法与数据结构1-数据结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/navicat/" >navicat</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/dll-in/" >dll注入</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/Class/" >HackadayU笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href= "/2020/12/03/shell/" >shell指令学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2020/11/26/VMpwn/" >VMpwn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/nctf2020/" >nctf2020RE</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/pie/" >pie</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2020/11/20/xtdy/" >通用gadgets(__libc_csu_init)利用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/binayi/" >静态编译动态编译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Belady/" >FIFO算法的Belady异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/liumima/" >liumima</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/%C2%96RegisterPointerInputTarget/" >RegisterPointerInputTarget</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2020/03/30/digui/" >递归与回溯算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/lc503/" >lc503-单调栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/dzph/" >堆栈平衡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2020/03/11/rsa/" >rsa</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2020/02/24/lianbiao/" >力扣-链表</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/buuctf-re3/" >buuctf_re3(base64)</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span><a class="archive-post-title" href= "/2019/12/23/hashcry/" >hashcry</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span><a class="archive-post-title" href= "/2019/12/05/prim/" >普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/28</span><a class="archive-post-title" href= "/2019/11/28/tu2/" >图论二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2019/11/27/tu1/" >图论一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2019/11/11/c1/" >c1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
+    
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+    
+        <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="计网"><span class="iconfont-archer">&#xe606;</span>计网</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
+    
+        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+    
+        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
+    
+        <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
+    
+        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Yk2eR0"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

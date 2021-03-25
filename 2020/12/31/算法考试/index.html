@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Yk2eR0">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Yk2eR0">
+    
+    <meta name="keywords" content="Yk2,hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>算法考试 · Yk2eR0&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yk2eR0&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">算法考试</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Yk2eR0's Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            算法考试
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">6.2k</span>阅读时长: <span class="post-count reading-time">24 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/12/31</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h3><h4 id="算法的表述方法"><a href="#算法的表述方法" class="headerlink" title="算法的表述方法:"></a>算法的表述方法:</h4><pre><code>- 自然语言
+- 伪代码
+- 流程图</code></pre><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/12.png" alt></p>
+<p>C</p>
+<p>判断:算法是在有限时间内,对问题求解的一个清晰的指令序列 √</p>
+<p> 一个需要指数级操作次数的算法只可以用来解决小规模问题。√</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/22.png" alt> √</p>
+<h5 id="算法的两种效率"><a href="#算法的两种效率" class="headerlink" title="算法的两种效率:"></a>算法的两种效率:</h5><p>时间效率和空间效率</p>
+<h5 id="算法的两种特性"><a href="#算法的两种特性" class="headerlink" title="算法的两种特性:"></a>算法的两种特性:</h5><p>简单性和一般性</p>
+<h4 id="求两个正整数m-n的最大公约数gcd-m-n"><a href="#求两个正整数m-n的最大公约数gcd-m-n" class="headerlink" title="求两个正整数m,n的最大公约数gcd(m,n)"></a>求两个正整数m,n的最大公约数gcd(m,n)</h4><h5 id="法一-gcd-m-n-的欧几里得算法"><a href="#法一-gcd-m-n-的欧几里得算法" class="headerlink" title="法一:gcd(m,n)的欧几里得算法"></a>法一:gcd(m,n)的欧几里得算法</h5><pre><code>1. 如果n=0,返回m的值作为结果,结束;否则进入第二步.
+2. 用n去除m,将余数赋给r
+3. 将n的值赋给m,将r的值赋给n,返回第一步</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span>  n==<span class="number">0</span>?m:gcd(n,m%n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="法二-gcd-m-n-的连续整数检测算法"><a href="#法二-gcd-m-n-的连续整数检测算法" class="headerlink" title="法二:gcd(m,n)的连续整数检测算法"></a>法二:gcd(m,n)的连续整数检测算法</h5><pre><code>1. 令t=min{m,n}
+2. m除以t,如果余数为0,则进入第三步;否则进入第四步.
+3. n除以t,如果余数为0,则返回t值作为结果;否则进入第四步.
+4. 把t的值减一.返回第二步.</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> t=m&lt;n?m:n;t&gt;<span class="number">0</span>;t--)&#123;</span><br><span class="line">    <span class="keyword">if</span>(m%t==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span>(n%t==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="寻找素数"><a href="#寻找素数" class="headerlink" title="寻找素数"></a>寻找素数</h5><ul>
+<li><p>埃氏筛:求n以内所有质数: 对每个数只筛掉他的倍数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> is_not_Prime[maxsize];<span class="comment">//记录被筛结果</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res=<span class="keyword">new</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">    <span class="keyword">if</span>(maxsize&lt;<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    is_not_Prime[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=maxsize);i++)&#123;<span class="comment">//循环到maxsize</span></span><br><span class="line">        <span class="keyword">if</span>(!is_not_Prime[i]) &#123;<span class="comment">//是质数</span></span><br><span class="line">            res.push_back(i);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i*i;j&lt;=x;j+=i) is_not_Prime[j]=<span class="literal">true</span>;<span class="comment">//标记所有该质数的倍数,从i*i开始是因为i+i从2就开始筛去,比i小的因数都是如此</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>欧拉筛:对每个数只被他的最小素因子筛掉</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> is_not_Prime[maxsize];</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res=<span class="keyword">new</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">   	    is_not_Prime[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=x;++i)&#123;<span class="comment">//从3开始</span></span><br><span class="line">            <span class="keyword">if</span>(!is_not_prime[i]) res.push_back(i);<span class="comment">//是质数,放入质数表</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=res.size();j++)&#123;<span class="comment">//查找质数表中i的质因子</span></span><br><span class="line">                <span class="keyword">if</span>(i*res[j]&gt;n) <span class="keyword">break</span>;</span><br><span class="line">                is_not_prime[i*res[j]]=<span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(i%res[j]==<span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//i 是合数</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="二分查找算法"><a href="#二分查找算法" class="headerlink" title="二分查找算法:"></a>二分查找算法:</h4><p>前提:数组已排好序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入数组tar是一个由大到小排序的数组</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">B_search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tar,<span class="keyword">int</span> num,<span class="keyword">int</span> U,<span class="keyword">int</span> L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid=(U/<span class="number">2</span>+L/<span class="number">2</span>);<span class="comment">//防止越界</span></span><br><span class="line">    <span class="keyword">if</span>(tar[mid]&lt;num)</span><br><span class="line">    <span class="keyword">return</span> B_search(tar,num,U,mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> B_search(tar,num,mid,L);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设有 n 个数据元素，采用折半搜索时，最大比较次数为 logn+1。</li>
+</ul>
+<h3 id="算法效率分析"><a href="#算法效率分析" class="headerlink" title="算法效率分析"></a>算法效率分析</h3><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/1.png" alt></p>
+<h5 id="算法的最优-最差和平均效率"><a href="#算法的最优-最差和平均效率" class="headerlink" title="算法的最优,最差和平均效率"></a>算法的最优,最差和平均效率</h5><pre><code>- 最差/优/平均效率是指输入规模为n时,算法在最坏/优/&quot;随机&quot;情况下的效率</code></pre><h5 id="渐进符号"><a href="#渐进符号" class="headerlink" title="渐进符号"></a>渐进符号</h5><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/2.png" alt></p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/13.png" alt></p>
+<p>B</p>
+<ul>
+<li>当算法由两个连续执行部分组成时,该算法整体效率由具有较大增长的那部分所决定</li>
+</ul>
+<h5 id="递归算法的复杂性分析"><a href="#递归算法的复杂性分析" class="headerlink" title="递归算法的复杂性分析"></a>递归算法的复杂性分析</h5><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/3.png" alt></p>
+<p>带入递归式</p>
+<h5 id="非递归算法的复杂性分析"><a href="#非递归算法的复杂性分析" class="headerlink" title="非递归算法的复杂性分析"></a>非递归算法的复杂性分析</h5><p>查看循环次数和层数来算O(n)</p>
+<h4 id="算法效率的比较"><a href="#算法效率的比较" class="headerlink" title="算法效率的比较"></a>算法效率的比较</h4><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/6.png" alt></p>
+<p>1&lt;log n&lt;n&lt;n*log n&lt;n^2&lt;n^3&lt;2^n&lt;n!</p>
+<p>复杂度比较只看最大的</p>
+<h3 id="蛮力法"><a href="#蛮力法" class="headerlink" title="蛮力法"></a>蛮力法</h3><ul>
+<li>要求:掌握蛮力法的基本思想,掌握<strong>排序</strong>和<strong>查找</strong>问题的蛮力算法</li>
+</ul>
+<h5 id="选择排序和冒泡排序"><a href="#选择排序和冒泡排序" class="headerlink" title="选择排序和冒泡排序"></a>选择排序和冒泡排序</h5><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/11.png" alt></p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/14.png" alt></p>
+<p>B</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/15.png" alt>B解释下最好情况:在顺序排列下,每个元素也要比较一遍,才知道是否为最值</p>
+<p>堆排序:可以理解为二叉树的选择排序,优化了数据类型,所以三种情况都是二叉树的特征复杂度n*log2n</p>
+<ul>
+<li>选择排序: 比较+交换<pre><code>1. 在待排序序列中找到关键字最小的元素
+ 2. 如果最小元素不是待排序序列的第一个元素,将其和第一个元素互换;
+ 3. 从余下的N-1个元素中,找到关键字最小的元素,重复1,2步,直到排序结束.</code></pre></li>
+</ul>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/4.gif" alt></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> size,<span class="keyword">int</span> i)</span></span>&#123;<span class="comment">//查找数组从第i位之后的最小值的下标</span></span><br><span class="line">    <span class="keyword">int</span> num=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++) <span class="keyword">if</span>(num=a[num]&gt;a[j]?j:num);</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> key,tmp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size;i++)&#123;</span><br><span class="line">        key=min(a,size,i);</span><br><span class="line">        <span class="keyword">if</span>(key!=i)&#123;<span class="comment">//换位</span></span><br><span class="line">            tmp=a[i];</span><br><span class="line">            a[i]=a[key];</span><br><span class="line">            a[key]=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//两次循环,时间复杂度O(n^2),没有辅助存储数组,空间复杂度O(1),不是稳定排序算法</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>冒泡排序 : 每对相邻元素进行两两比较,顺序与预定顺序不同则交换</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/5.gif" alt></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">int</span> tmp=a[j];</span><br><span class="line">                a[j]=a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>]=tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//两重循环,时间复杂度O(n^2),空间复杂度O(1),算法稳定</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>稳定性:假定在待排序的记录序列中，存在多个具有相同的关键字 的记录，若经过排序，这些记录的相对次序保持不变，即 在原序列中，ri=rj，且ri在rj之前，而在排序后的序列中 ，ri仍在rj之前，则称这种排序算法是稳定的；否则称为 不稳定的。</p>
+<p><strong><em>快速排序、希尔排序、堆排序、直接选择排序不是稳定的 排序算法，而基数排序、冒泡排序、直接插入排序、折半 插入排序、归并排序是稳定的排序算法。</em></strong></p>
+</li>
+</ul>
+<h5 id="顺序查找和蛮力字符串匹配"><a href="#顺序查找和蛮力字符串匹配" class="headerlink" title="顺序查找和蛮力字符串匹配"></a>顺序查找和蛮力字符串匹配</h5><p>顺序略</p>
+<p>蛮力字符串匹配:</p>
+<p>输入:一个n字符数组T代表一段文本;一段m字符数组P代表一个模式</p>
+<p>输出:查找成功返回匹配子串第一个字符位置,否则返回-1</p>
+<p>如果文本的长度是n，模式的长度是m；最坏情况可能做n-m+1次 模式匹配的尝试，而1次模式匹配尝试在最坏情况下会做m次比较 (最后一个字符不匹配)。所以，最坏情况下的算法效率属于 Θ(nm)。</p>
+<h5 id="最近对和凸包问题的蛮力算法"><a href="#最近对和凸包问题的蛮力算法" class="headerlink" title="最近对和凸包问题的蛮力算法"></a>最近对和凸包问题的蛮力算法</h5><p>问题:在k-维空间中的n个点中，找距离最 近的点对</p>
+<p>蛮力:计算每对点之间的距离,找出并记录最小的那个组合的两个点</p>
+<p>两层循环,一个判断,无数组,时间:O(n^2),空间O(1)</p>
+<h5 id="凸包"><a href="#凸包" class="headerlink" title="凸包:"></a>凸包:</h5><p>问题:对于平面n个点,找包围它们的最小凸多边形</p>
+<p>蛮力算法:对于每队点p1,p2,判断是否所有其它点都在连接p1p2的直线的同一侧</p>
+<p>对于每个点,都要循环一边其他点,时间O(n^2),记录一个点,空间O(1)</p>
+<p>判断:</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/23.png" alt>)×,O(n^2)</p>
+<h5 id="穷举查找"><a href="#穷举查找" class="headerlink" title="穷举查找"></a>穷举查找</h5><ul>
+<li><p>深度优先查找(DFS)</p>
+<p><a href="DFS.html">DFS</a></p>
+<ol>
+<li>访问一个节点A</li>
+<li>若A有未访问相邻节点:<ol>
+<li>访问一个与A相邻的节点B</li>
+<li>以B为起点DFS</li>
+</ol>
+</li>
+<li>否则回退</li>
+</ol>
+</li>
+<li><p>广度优先查找(BFS)</p>
+<p><a href="bfs.html">BFS</a></p>
+<ol>
+<li>访问一个节点A</li>
+<li>若A有未访问相邻节点<ol>
+<li>访问所有与A相邻节点</li>
+<li>以一个相邻起点进行BFS</li>
+</ol>
+</li>
+<li>否则回退</li>
+</ol>
+</li>
+</ul>
+<h3 id="减治法"><a href="#减治法" class="headerlink" title="减治法"></a>减治法</h3><h5 id="一般方法及变种"><a href="#一般方法及变种" class="headerlink" title="一般方法及变种"></a>一般方法及变种</h5><p>减治法可行性:一个问题给定实例的解和同样问题较小实例的解之间存在关系.一旦建立了这种关系,就可以从顶至下递归,也可以从底至上运用</p>
+<h5 id="减常量算法"><a href="#减常量算法" class="headerlink" title="减常量算法:"></a>减常量算法:</h5><h6 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h6><p>将数组所有元素依次和前面已经排好的元素相比较.</p>
+<p>化为n-1个元素排序,递推化为两个元素比较大小</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;size;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&lt;a[i<span class="number">-1</span>])&#123;<span class="comment">//小于,就去找它的位置</span></span><br><span class="line">            <span class="keyword">int</span> j=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">int</span> x=a[i];</span><br><span class="line">            a[i]=a[i<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">while</span>(x&lt;a[j])&#123;</span><br><span class="line">                a[j+<span class="number">1</span>]=a[j--];<span class="comment">//平移剩下数</span></span><br><span class="line">            &#125;</span><br><span class="line">            a[j+<span class="number">1</span>]=x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">return</span> ;</span><br><span class="line">&#125;<span class="comment">//两次循环 O(n^2),O(1),稳定</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="拓扑排序的深度优先查找和广度优先查找"><a href="#拓扑排序的深度优先查找和广度优先查找" class="headerlink" title="拓扑排序的深度优先查找和广度优先查找"></a>拓扑排序的深度优先查找和广度优先查找</h6><p>广度优先查找可以用来检查图的连通性和无环性。存放活结点的数据结构是堆栈.</p>
+<p>在一个有向图中,对所有节点进行排序,要求没有一个节点指向它前面的节点</p>
+<p>搜索限界技术有利于缩小搜索空间。搜索限界技术有利于缩小搜索空间。</p>
+<h6 id="生成组合对象的算法"><a href="#生成组合对象的算法" class="headerlink" title="生成组合对象的算法"></a>生成组合对象的算法</h6><ol>
+<li><p>插入法:</p>
+<p>搜索限界技术有利于缩小搜索空间。<img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/7.png" alt></p>
+<ol start="2">
+<li>Johnson Trotter 法</li>
+</ol>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/8.png" alt></p>
+<ol start="2">
+<li>字典序法</li>
+</ol>
+<p>数字按照字典序一个个排列</p>
+<p>123 132 213 231 312 321</p>
+</li>
+</ol>
+<h5 id="减常因子算法"><a href="#减常因子算法" class="headerlink" title="减常因子算法"></a>减常因子算法</h5><p>这类算法效率往往是对数的</p>
+<h6 id="俄式乘法"><a href="#俄式乘法" class="headerlink" title="俄式乘法"></a>俄式乘法</h6><p>计算整数乘法的俄国农夫法属于减常量策略。× 减常因子</p>
+<h6 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h6><p>就是二分查找</p>
+<h6 id="约瑟夫斯问题"><a href="#约瑟夫斯问题" class="headerlink" title="约瑟夫斯问题"></a>约瑟夫斯问题</h6><p>问题:人们站在一个等待被处决的圈子里。 计数从圆圈中的指定点开始，并沿指定方向围绕圆圈进行。 在跳过指定数量的人之后，处刑下一个人。 对剩下的人重复该过程，从下一个人开始，朝同一方向跳过相同数量的人，直到只剩下一个人，并被释放。问题即，给定人数、起点、方向和要跳过的数字，选择初始圆圈中的位置以避免被处决。</p>
+<h5 id="减可变规模算法"><a href="#减可变规模算法" class="headerlink" title="减可变规模算法"></a>减可变规模算法</h5><h6 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h6><p>欧几里得算法中gcd(m,n)=gcd(n,m mod n)里m,n减少的规模并不固定,所以说减可变规模算法</p>
+<h3 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h3><h5 id="分治法的一般方法"><a href="#分治法的一般方法" class="headerlink" title="分治法的一般方法"></a>分治法的一般方法</h5><p>对于一个规模为n的问题,若该问题问题可以直接解决(规模小时很容易求解)或可以分解为k个规模较小的子问题,这些子问题<strong><em>相互独立</em></strong>且<strong><em>与原问题形式相同</em></strong>,递归的解这些子问题,然后将解合并得到解.这种策略叫做分治法.    </p>
+<ul>
+<li>适合用分治法求解的问题往往也适合用递归算法求解</li>
+</ul>
+<h5 id="合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性"><a href="#合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性" class="headerlink" title="合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性"></a>合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性</h5><p>[归并,快排与二叉树</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/28.gif" alt="快速排序"></p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/29.gif" alt="归并排序"></p>
+<p>[](<a href="https://www.yk2er0.fun/2020/12/19/sfsj3/#快速排序是二叉树的前序遍历">算法与数据结构3-树 · Yk2eR0’s Blog</a>)</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/27.png" alt></p>
+<p>[9 6 5 6 8 10 7 3 1 2]</p>
+<h6 id="Strassen算法"><a href="#Strassen算法" class="headerlink" title="Strassen算法"></a>Strassen算法</h6><p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/16.png" alt></p>
+<p>时间复杂度为O(n^log[7,2]),故选B.Coppersmith-Winograd方法的时间复杂度为n^2.35,暴力法是n^3,记不住就选这俩之间的</p>
+<p>PS:Strassen算法好长我好累</p>
+<ul>
+<li>二维最近对问题:</li>
+</ul>
+<p>用中垂线把元素分为左右两部分,然后分别求出来两边的最短距离d1,d2.取两者中最小的当作d.在中线两边分别取d的距离,记录该距离内点的个数.中线左边有L个元素,中线右边有R个元素.将两边分别按y坐标升序排列,在左边集合每一个点,找右边集合的店,找到与之距离小于d的点,更新最短距离.</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/17.png" alt></p>
+<p>选A</p>
+<ul>
+<li>A:确实</li>
+<li>B:欧几里得算法中gcd(m,n)=gcd(n,m mod n)里m,n减少的规模并不固定,所以说减可变规模算法</li>
+<li>C:最坏O(n)?</li>
+<li>D:出栈顺序是倒序入栈顺序,DFS和BFS都是要再倒叙输出才是拓扑排序的.</li>
+</ul>
+<h6 id="n皇后问题"><a href="#n皇后问题" class="headerlink" title="n皇后问题"></a>n皇后问题</h6><p>N-皇后问题用递归算法求解</p>
+<h3 id="变治法"><a href="#变治法" class="headerlink" title="变治法"></a>变治法</h3><p>要求:掌握变治法的基本思想及其在常见问题中的应用</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/19.png" alt></p>
+<p>ABC都是变治法,D是空间换时间</p>
+<h5 id="变治法思想及其三种主要类型"><a href="#变治法思想及其三种主要类型" class="headerlink" title="变治法思想及其三种主要类型"></a>变治法思想及其三种主要类型</h5><p>本质就是化简问题.</p>
+<h5 id="预排序"><a href="#预排序" class="headerlink" title="预排序"></a>预排序</h5><p>查找问题改变为先排序再二分,如果进行多次查找效率会高</p>
+<h5 id="高斯消去法"><a href="#高斯消去法" class="headerlink" title="高斯消去法"></a>高斯消去法</h5><h5 id="平衡查找树"><a href="#平衡查找树" class="headerlink" title="平衡查找树"></a>平衡查找树</h5><p>① 平均情况下，查找，插入，删除的效率 Θ(logn)</p>
+<p> ② 最差情况下Θ(n)，退化成线性的情况</p>
+<h6 id="AVL-二叉查找树"><a href="#AVL-二叉查找树" class="headerlink" title="AVL:二叉查找树"></a>AVL:二叉查找树</h6><p>二叉查找树的最坏情况是单枝树。</p>
+<h5 id="霍纳法则与二进制幂"><a href="#霍纳法则与二进制幂" class="headerlink" title="霍纳法则与二进制幂"></a>霍纳法则与二进制幂</h5><p>直接计算n次多项式的值的算法,需要n*(n+1)/2次乘法;使用霍纳法则只需要n次</p>
+<p>2x^4-x^3=x^3*(2x-1)</p>
+<p>. 用霍纳法则计算多项式的值，属于预排序。 ×,不属于预排序,属于模式计算</p>
+<h3 id="时空权衡"><a href="#时空权衡" class="headerlink" title="时空权衡"></a>时空权衡</h3><h5 id="时空权衡的方法"><a href="#时空权衡的方法" class="headerlink" title="时空权衡的方法"></a>时空权衡的方法</h5><ul>
+<li>输入增强:计数排序,串匹配算法的改进</li>
+<li>预构造:散列法,B树(平衡多路查找树)</li>
+<li>动态规划</li>
+</ul>
+<h5 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h5><p>时间复杂度O(n)</p>
+<ol>
+<li>找出原数组元素最大值,记为max</li>
+<li>创建一个数组count,其长度为max+1.其元素默认值都为0.</li>
+<li>遍历数组中的元素,以原数组中的元素作为count的索引,以原数组中的元素出现次数作为count数组的元素值.</li>
+<li>创建结果数组result,起始索引index</li>
+<li>遍历count数组中大于0的元素,然后将对应索引作为元素值填充到result数组中去,每处理一次,count对应元素值–.</li>
+</ol>
+<p>用人话说就是,建立一个新的更大哈希表顺序记录这个乱序数组里的值.</p>
+<h5 id="串匹配中的输入增强技术"><a href="#串匹配中的输入增强技术" class="headerlink" title="串匹配中的输入增强技术"></a>串匹配中的输入增强技术</h5><p><a href="https://leetcode-cn.com/problems/implement-strstr/" target="_blank" rel="noopener">力扣20</a></p>
+<p>问题:字符串P是否是字符串S的字串?如果是,出现在S的哪些位置?</p>
+<p>其中称S为主串;P为模式串</p>
+<h6 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute-Force"></a>Brute-Force</h6><p>从前往后比较,遇到不相同字符就返回false.如果两个字符串都结束了,仍没有出现不相同字符,则返回</p>
+<p>true.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2105191895</span><span class="keyword">def</span> is_equal(A,B):</span><br><span class="line">    <span class="keyword">if</span> len(A)!=len(B):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(A)):</span><br><span class="line">        <span class="keyword">if</span> A[i]!=B[i]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">     <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>暴力法就是以主串的每个元素为开头来判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def bruteForce(char *S,char *P)&#123;</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(len(S)-len(P)+<span class="number">1</span>):</span><br><span class="line">    	<span class="keyword">if</span> S[i:i+len(P)]=P:</span><br><span class="line">    		printf(<span class="string">'pos=&#123;i&#125;'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>O(m*n)m次n个的循环</p>
+<p>著名算法-&gt;KMP:</p>
+<p>字符串比较这种问题肯定是memory bound而不是cpu bound。</p>
+<h6 id="KMP"><a href="#KMP" class="headerlink" title="KMP:"></a>KMP:</h6><ul>
+<li><p>部分匹配表:</p>
+<table>
+<thead>
+<tr>
+<th>char</th>
+<th>a</th>
+<th>b</th>
+<th>a</th>
+<th>b</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>a</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>index</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+</tr>
+<tr>
+<td>value</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>PMT值是字符串前缀集合与后缀集合的交集中最长元素的长度.例如”ababa”的PMT值为3,(“aba”),PMT的值仅与自身有关,与主串无关.</p>
+<ul>
+<li>next数组:PMT值所组成的数组叫做next数组.当失配情况发生时,模式左移到P[nexi[x]]位置重新进行匹配,主串不动</li>
+</ul>
+</li>
+</ul>
+<p>当模式与主串发生不匹配时,回退字符数等于next数组该下标的值</p>
+<ul>
+<li>快速求next数组-&gt;用减治法,已知next[x-1],x为当前遍历所形成的字串的长度:</li>
+<li>令now=next[n-1],意义为上次遍历所形成字串的最大PMT.p[now]的意义是自匹配中需校验是否符合的<strong>前缀</strong>的那一位.<ol>
+<li>若p[x]==p[now],则next[x]=next[x-1]+1</li>
+<li>若p[x]!=p[now],则需要回退至<strong>P[x-1]前缀的前缀等于P[x-1]后缀的后缀的情况</strong>再比较p[x]与P[next[前缀的前缀的下标]];又P[x-1]后缀的前缀等于P[x-1]前缀的前缀=next[now-1].即now=next[now-1]<strong>此时需要比较的仍为x,只不过与x比较的元素变了,所以x值不发生改变</strong>.然后接着匹配.当now为0时,停止递归,next[x]=0;</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">s=input().strip()</span><br><span class="line">p=input().strip()</span><br><span class="line">nt=[]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildNt</span><span class="params">()</span>:</span></span><br><span class="line">    nt.append(<span class="number">0</span>)<span class="comment">#next[0]=0</span></span><br><span class="line">    x=<span class="number">1</span> <span class="comment">#从next[1]开始遍历</span></span><br><span class="line">    now=<span class="number">0</span><span class="comment">#now=next[x-1]=next[0]</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> x&lt;len(p):</span><br><span class="line">        <span class="keyword">if</span> p[now]=p[x]: <span class="comment">#如果P[now]=P[x],next[x]=next[x-1]+1</span></span><br><span class="line">            now+=<span class="number">1</span></span><br><span class="line">            x+=<span class="number">1</span></span><br><span class="line">            nt.append(now)</span><br><span class="line">        <span class="keyword">elif</span> now:</span><br><span class="line">            now=nt[now<span class="number">-1</span>]<span class="comment">#缩小now为next[now-1]</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            nt.append(<span class="number">0</span>)</span><br><span class="line">            x+=<span class="number">1</span></span><br><span class="line">            </span><br><span class="line">define search():</span><br><span class="line">    tar=<span class="number">0</span> <span class="comment">#tar:主串中将要匹配的位置</span></span><br><span class="line">    pos=<span class="number">0</span> <span class="comment">#模式串中将要匹配的位置</span></span><br><span class="line">    <span class="keyword">while</span> tar&lt;len(s):</span><br><span class="line">        <span class="keyword">if</span> s[tar]=p[pos]:  <span class="comment">#若两个字符相等,则tar,pos各进一步</span></span><br><span class="line">            tar+=<span class="number">1</span></span><br><span class="line">            pos+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> pos: <span class="comment">#失配且pos!=0,根据next数组移动模式串</span></span><br><span class="line">            pos=nt[pos<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tar+=<span class="number">1</span></span><br><span class="line"><span class="comment">#pos[0]失配了,直接把标尺右移一位.        </span></span><br><span class="line">        <span class="keyword">if</span> pos=len(p): <span class="comment"># pos走到了len(p),匹配成功</span></span><br><span class="line">            print(tar-pos+<span class="number">1</span>)</span><br><span class="line">            pos=nt[pos<span class="number">-1</span>] <span class="comment">#</span></span><br><span class="line">            </span><br><span class="line">buildNt()</span><br><span class="line">search()</span><br><span class="line">print(<span class="string">''</span>.join(map(str,nt)))</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="Horspool算法"><a href="#Horspool算法" class="headerlink" title="Horspool算法:"></a>Horspool算法:</h6><p>horspool算法将主串中匹配窗口的最后一个字符跟模式串中的最后一个字符比较。如果相等，继续从后向前对主串和模式串进行比较，直到完全相等 或者在某个字符处不匹配为止（如下图中的α与σ失配）。如果不匹配，则根据主串匹配窗口中的最后一个字符β在模式串中的下一个出现位置将窗口向右移动。</p>
+<ul>
+<li>预处理:</li>
+</ul>
+<p>最差效率O(mn)</p>
+<h6 id="Boyer-Moore算法"><a href="#Boyer-Moore算法" class="headerlink" title="Boyer-Moore算法:"></a>Boyer-Moore算法:</h6><p>Boyer-Moore算法是一种基于后缀匹配的模式串匹配算法，后缀匹配就是模式串从右到左开始比较，但模式串的移动还是从左到右的。字符串匹配 的关键就是模式串的如何移动才是最高效的，Boyer-Moore为了做到这点定义了两个规则：坏字符规则和好后缀规则，下面图解给出定义：</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/9.png" alt></p>
+<ul>
+<li><p>坏字符规则</p>
+<ol>
+<li>如果坏字符没有出现在模式字符中,则直接将模式串移动到坏字符的下一个字符;yind</li>
+<li>如果坏字符出现在模式串中,则将模式串最靠近好后缀的坏字符与母串的坏字符对齐</li>
+</ol>
+</li>
+<li><p>好后缀规则:</p>
+<ol>
+<li>模式串中有字串匹配上好后缀,此时移动模式串,让该字串和好后缀对齐即可.如果超过一个字串匹配上好后缀,则选择最靠近好后缀的字串对齐.</li>
+<li>模式串中没有字串匹配上好后缀,此时需要寻找模式串的一个最长前缀,并让该前缀和好后缀对齐.</li>
+<li>模式中没有字串匹配上好后缀,并且在模式串中找不到最长前缀,让改前缀等于好后缀的后缀,此时直接移动模式到好后缀的下一字符.</li>
+</ol>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/18.png" alt></p>
+<p>坏字符,好后缀.选D</p>
+</li>
+</ul>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>一般形式是求最值:动态规划是运筹学一种最优化方法.其求解过程中存在<strong><em>重叠子问题\</em></strong>,如果暴力琼剧的话效率极其低下,所以需要[DP table]来优化穷举过程,避免不必要的计算.</p>
+<p>动态规划具备<strong><em>最优子结构\</em></strong></p>
+<p>DP的核心思想是穷举求最值,但只有列出正确的<strong><em>状态转移方程\</em></strong>才能正确的穷举.</p>
+<p>思路:</p>
+<p>明确状态-&gt;定义DP数组/函数的含义-&gt;明确[选择]-&gt;明确base case</p>
+<ul>
+<li>最优性原理:无论过程的初始状态和初始决策是什么,其余的决策都必须相对于初始决策所产生的状态构成一个最优决策序列.</li>
+<li>无后向性:各阶段按照一定的策序排列好之后,对于某个给定的截断状态,它以前各阶段状态无法直接影响它未来的决策,只影响当前这个状态.</li>
+<li>子问题的重叠性:子问题往往<strong>不是相互独立</strong>的,</li>
+</ul>
+<h6 id="warshell"><a href="#warshell" class="headerlink" title="warshell"></a>warshell</h6><p>Warshall 算法可以用于计算有向图的传递闭包。</p>
+<h6 id="最优二叉查找树"><a href="#最优二叉查找树" class="headerlink" title="最优二叉查找树"></a>最优二叉查找树</h6><h6 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h6><p>xky指路了:<a href="https://github.com/tianyicui/pack/blob/master/V2.pdf" target="_blank" rel="noopener">背包九讲</a></p>
+<p>设V[i,j]为前i个物品放到背包容量为j的背包中时最优解的物品总价值.有两种情况:</p>
+<ul>
+<li><p>a.第i个物品不在背包中,则最优解物品总价值为V[i-1,j]</p>
+</li>
+<li><p>b.第i个物品在背包中,则最优解物品总价值为前i-1个物品最优解总价值V[i-1,j-Vi]+第i个物品价值的和,或者说就是前i-1个物品的最优解之和</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/10.png" alt></p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span>::<span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">knapsack</span><span class="params">(<span class="keyword">int</span> count, <span class="keyword">int</span> capacity, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; weight_array, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; value_array, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; result)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= count; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= capacity; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (weight_array[i] &gt; j) <span class="comment">// 当前背包的容量 j 放不下第 i 件商品时</span></span><br><span class="line">			&#123;</span><br><span class="line">				result[i][j] = result[i - <span class="number">1</span>][j]; <span class="comment">// 放弃第 i 件商品，拿第 i - 1 件商品</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">int</span> value1 = result[i - <span class="number">1</span>][j - weight_array[i]] + value_array[i]; <span class="comment">// 拿走第 i - 1件商品</span></span><br><span class="line">				<span class="keyword">int</span> value2 = result[i - <span class="number">1</span>][j]; <span class="comment">// 不拿走第 i - 1 件商品</span></span><br><span class="line">				<span class="keyword">if</span> (value1 &gt; value2)</span><br><span class="line">				&#123;</span><br><span class="line">					result[i][j] = value1;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					result[i][j] = value2;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> count, <span class="keyword">int</span> capacity,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; weight_array, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; value_array,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; result, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; res)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>,i = <span class="number">0</span>; j &lt; capacity&amp;&amp; i &lt; count;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (result[count - i][capacity - j] != result[count - i - <span class="number">1</span>][capacity - j])<span class="comment">//最优解含有capacity-j项</span></span><br><span class="line">			&#123;</span><br><span class="line">				res[count - i] = <span class="number">1</span>;</span><br><span class="line">				j += weight_array[count - i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				res[count - i] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> count, capacity;</span><br><span class="line">		<span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">weight_array</span><span class="params">(<span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">		<span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">value_array</span><span class="params">(<span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入物品个数和背包容量:"</span> &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输入商品数量和背包容量</span></span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; count &gt;&gt; capacity;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入每个背包的价值和重量:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= count; ++i) <span class="comment">// 循环输入每件商品的重量</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> weight, value;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;value ,&amp;weight);</span><br><span class="line">			weight_array.push_back(weight);</span><br><span class="line">			value_array.push_back(value);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">res</span><span class="params">(count+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">		<span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">result</span><span class="params">(count + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(capacity + <span class="number">1</span>, <span class="number">0</span>))</span></span>; <span class="comment">// 结果数组</span></span><br><span class="line">		knapsack(count, capacity, weight_array, value_array, result); <span class="comment">// 调用动态规划算法</span></span><br><span class="line">		reverse(count, capacity, weight_array, value_array, result, res);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"最优解为 : "</span> &lt;&lt; result[count][capacity] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"最优解下物品的选择为"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; res.size(); i++)<span class="built_in">cout</span> &lt;&lt; res[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>0-1背包问题:只选择拿或不拿,最多每个拿一次</li>
+<li>完全背包问题:每种物品都有无限件</li>
+</ul>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/20.png" alt></p>
+<p>0-1背包具有最优子结构,可以用搜索和动规解决.</p>
+<p>背包都不能贪心,都不能分治</p>
+<h6 id="旅行商问题"><a href="#旅行商问题" class="headerlink" title="旅行商问题"></a>旅行商问题</h6><p>实质是一个排列问题</p>
+<h3 id="贪婪"><a href="#贪婪" class="headerlink" title="贪婪"></a>贪婪</h3><h6 id="定义及基本步骤"><a href="#定义及基本步骤" class="headerlink" title="定义及基本步骤"></a>定义及基本步骤</h6><p>从问题的某一个初始解出发,逐步逼近给定的目标,以尽可能地求得更好的解.当达到算法中某一步不能再继续前进时,停止算法,给出近似解.</p>
+<ul>
+<li>可行:满足问题约束</li>
+<li>局部最优:当前所有可行选择中最佳的局部选择</li>
+<li>不可取消:选择一旦做出,后面步骤无法更改.</li>
+</ul>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/30.png" alt></p>
+<p>对Si从大到小排序,每次减少对应的ai值,直到婴儿喝饱为止</p>
+<h6 id="背包问题的贪婪策略"><a href="#背包问题的贪婪策略" class="headerlink" title="背包问题的贪婪策略"></a>背包问题的贪婪策略</h6><h6 id="最小生成树的两种经典算法"><a href="#最小生成树的两种经典算法" class="headerlink" title="最小生成树的两种经典算法"></a>最小生成树的两种经典算法</h6><h6 id="加权图的最短路径问题"><a href="#加权图的最短路径问题" class="headerlink" title="加权图的最短路径问题"></a>加权图的最短路径问题</h6><h6 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h6><p>出现概率越大的字符所在层数越小</p>
+<p>在具有相同平均长度的编码中，方差最小者为佳（ 码字长度方差最小)，即高度最小的树</p>
+<p><img src="/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/21.png" alt></p>
+<p>B</p>
+<p>哈夫曼编码是一种最优的自由前缀变长编码方案。√ 哈夫曼树求得的编码为哈夫曼码,哈夫曼码又称自由前缀码.</p>
+<h3 id="算法能力的极限"><a href="#算法能力的极限" class="headerlink" title="算法能力的极限"></a>算法能力的极限</h3><ul>
+<li>P类问题:所有可以在多项式时间内求解的判定问题构成P类问题.</li>
+<li>判定问题:判断是否有一种能够解决某一类问题的能行算法的研究课题.</li>
+<li>NP类问题:所有的非确定性多项式时间可解的判定问题构成NP类问题.</li>
+<li>非确定性算法:非确定性算法将问题分解成猜测和验证两个截断,算法的猜测阶段是非确定性的,算法的验证阶段是确定性的.它验证猜测阶段给出解的正确行.设算法A是解一个判定问题Q的非确定性算法,如果A的验证阶段能在多项式时间内完成,则称A是一个多项式时间非确定性算法.</li>
+<li>NPC问题:NP中的某些问题的复杂性与整个类的复杂性相关联.这些问题中任何一个如果存在多项式时间的算法,那么所有NP问题都是多项式时间可解的.这些问题被称为NP-完全问题(NPC问题)。</li>
+<li>NP完备:若要证明一问题属于NP完备，必须证它属于NP，并 证明某一已知的NP完备问题可在多项式时间内将它 转换为该问题，则该问题便属于NP完备</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
+            <p>原文链接：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/</a>
+            <p>发表日期：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">December 31st 2020, 9:48:05 pm</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/">January 8th 2021, 1:45:49 pm</a>
+            <p>版权声明：非商业用允许转载</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/01/01/bfs/" title= "bfs">
+                    <div class="nextTitle">bfs</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/12/21/dui/" title= "堆漏洞总结">
+                    <div class="prevTitle">堆漏洞总结</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:yukaizzz@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fishykz" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/QQ.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/347245431?share_medium=android&share_source=copy_link&bbid=XY2FED62DB4F7E324FA9ED94194EF11017031&ts=1572495457266" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概论"><span class="toc-number">1.</span> <span class="toc-text">概论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法的表述方法"><span class="toc-number">1.1.</span> <span class="toc-text">算法的表述方法:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#算法的两种效率"><span class="toc-number">1.1.1.</span> <span class="toc-text">算法的两种效率:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#算法的两种特性"><span class="toc-number">1.1.2.</span> <span class="toc-text">算法的两种特性:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#求两个正整数m-n的最大公约数gcd-m-n"><span class="toc-number">1.2.</span> <span class="toc-text">求两个正整数m,n的最大公约数gcd(m,n)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#法一-gcd-m-n-的欧几里得算法"><span class="toc-number">1.2.1.</span> <span class="toc-text">法一:gcd(m,n)的欧几里得算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#法二-gcd-m-n-的连续整数检测算法"><span class="toc-number">1.2.2.</span> <span class="toc-text">法二:gcd(m,n)的连续整数检测算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#寻找素数"><span class="toc-number">1.2.3.</span> <span class="toc-text">寻找素数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二分查找算法"><span class="toc-number">1.3.</span> <span class="toc-text">二分查找算法:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法效率分析"><span class="toc-number">2.</span> <span class="toc-text">算法效率分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#算法的最优-最差和平均效率"><span class="toc-number">2.0.1.</span> <span class="toc-text">算法的最优,最差和平均效率</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#渐进符号"><span class="toc-number">2.0.2.</span> <span class="toc-text">渐进符号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#递归算法的复杂性分析"><span class="toc-number">2.0.3.</span> <span class="toc-text">递归算法的复杂性分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#非递归算法的复杂性分析"><span class="toc-number">2.0.4.</span> <span class="toc-text">非递归算法的复杂性分析</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算法效率的比较"><span class="toc-number">2.1.</span> <span class="toc-text">算法效率的比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#蛮力法"><span class="toc-number">3.</span> <span class="toc-text">蛮力法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选择排序和冒泡排序"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序和冒泡排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#顺序查找和蛮力字符串匹配"><span class="toc-number">3.0.2.</span> <span class="toc-text">顺序查找和蛮力字符串匹配</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#最近对和凸包问题的蛮力算法"><span class="toc-number">3.0.3.</span> <span class="toc-text">最近对和凸包问题的蛮力算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#凸包"><span class="toc-number">3.0.4.</span> <span class="toc-text">凸包:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#穷举查找"><span class="toc-number">3.0.5.</span> <span class="toc-text">穷举查找</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减治法"><span class="toc-number">4.</span> <span class="toc-text">减治法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般方法及变种"><span class="toc-number">4.0.1.</span> <span class="toc-text">一般方法及变种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#减常量算法"><span class="toc-number">4.0.2.</span> <span class="toc-text">减常量算法:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#插入排序"><span class="toc-number">4.0.2.1.</span> <span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#拓扑排序的深度优先查找和广度优先查找"><span class="toc-number">4.0.2.2.</span> <span class="toc-text">拓扑排序的深度优先查找和广度优先查找</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成组合对象的算法"><span class="toc-number">4.0.2.3.</span> <span class="toc-text">生成组合对象的算法</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#减常因子算法"><span class="toc-number">4.0.3.</span> <span class="toc-text">减常因子算法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#俄式乘法"><span class="toc-number">4.0.3.1.</span> <span class="toc-text">俄式乘法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#折半查找"><span class="toc-number">4.0.3.2.</span> <span class="toc-text">折半查找</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#约瑟夫斯问题"><span class="toc-number">4.0.3.3.</span> <span class="toc-text">约瑟夫斯问题</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#减可变规模算法"><span class="toc-number">4.0.4.</span> <span class="toc-text">减可变规模算法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#欧几里得算法"><span class="toc-number">4.0.4.1.</span> <span class="toc-text">欧几里得算法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分治法"><span class="toc-number">5.</span> <span class="toc-text">分治法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#分治法的一般方法"><span class="toc-number">5.0.1.</span> <span class="toc-text">分治法的一般方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合并排序-amp-amp-快速排序-amp-amp-二叉树遍历及其相关特性"><span class="toc-number">5.0.2.</span> <span class="toc-text">合并排序&amp;&amp;快速排序&amp;&amp;二叉树遍历及其相关特性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Strassen算法"><span class="toc-number">5.0.2.1.</span> <span class="toc-text">Strassen算法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#n皇后问题"><span class="toc-number">5.0.2.2.</span> <span class="toc-text">n皇后问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变治法"><span class="toc-number">6.</span> <span class="toc-text">变治法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#变治法思想及其三种主要类型"><span class="toc-number">6.0.1.</span> <span class="toc-text">变治法思想及其三种主要类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#预排序"><span class="toc-number">6.0.2.</span> <span class="toc-text">预排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#高斯消去法"><span class="toc-number">6.0.3.</span> <span class="toc-text">高斯消去法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#平衡查找树"><span class="toc-number">6.0.4.</span> <span class="toc-text">平衡查找树</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#AVL-二叉查找树"><span class="toc-number">6.0.4.1.</span> <span class="toc-text">AVL:二叉查找树</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#霍纳法则与二进制幂"><span class="toc-number">6.0.5.</span> <span class="toc-text">霍纳法则与二进制幂</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时空权衡"><span class="toc-number">7.</span> <span class="toc-text">时空权衡</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#时空权衡的方法"><span class="toc-number">7.0.1.</span> <span class="toc-text">时空权衡的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#计数排序"><span class="toc-number">7.0.2.</span> <span class="toc-text">计数排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#串匹配中的输入增强技术"><span class="toc-number">7.0.3.</span> <span class="toc-text">串匹配中的输入增强技术</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Brute-Force"><span class="toc-number">7.0.3.1.</span> <span class="toc-text">Brute-Force</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#KMP"><span class="toc-number">7.0.3.2.</span> <span class="toc-text">KMP:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Horspool算法"><span class="toc-number">7.0.3.3.</span> <span class="toc-text">Horspool算法:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Boyer-Moore算法"><span class="toc-number">7.0.3.4.</span> <span class="toc-text">Boyer-Moore算法:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-number">8.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#warshell"><span class="toc-number">8.0.0.1.</span> <span class="toc-text">warshell</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#最优二叉查找树"><span class="toc-number">8.0.0.2.</span> <span class="toc-text">最优二叉查找树</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#背包问题"><span class="toc-number">8.0.0.3.</span> <span class="toc-text">背包问题</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#旅行商问题"><span class="toc-number">8.0.0.4.</span> <span class="toc-text">旅行商问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贪婪"><span class="toc-number">9.</span> <span class="toc-text">贪婪</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#定义及基本步骤"><span class="toc-number">9.0.0.1.</span> <span class="toc-text">定义及基本步骤</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#背包问题的贪婪策略"><span class="toc-number">9.0.0.2.</span> <span class="toc-text">背包问题的贪婪策略</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#最小生成树的两种经典算法"><span class="toc-number">9.0.0.3.</span> <span class="toc-text">最小生成树的两种经典算法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#加权图的最短路径问题"><span class="toc-number">9.0.0.4.</span> <span class="toc-text">加权图的最短路径问题</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#哈夫曼树"><span class="toc-number">9.0.0.5.</span> <span class="toc-text">哈夫曼树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法能力的极限"><span class="toc-number">10.</span> <span class="toc-text">算法能力的极限</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 49
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span><a class="archive-post-title" href= "/2021/03/24/uart/" >uart</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/%C2%96arm/" >ARM汇编总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/usb-new/" >USB简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/size-t/" >size_t</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/net/" >qemu常用网络命令:SSH代理和SCP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/env/" >MIPS/ARM动态调试环境搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/qdlc/" >启动流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2021/02/01/jiwang/" >jiwang</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/bfs/" >bfs</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/dfs/" >dfs</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/31</span><a class="archive-post-title" href= "/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/" >算法考试</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/sfsj3/" >算法与数据结构3-树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/dp/" >算法与数据结构2-动态规划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/sfzj1/" >算法与数据结构1-数据结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/navicat/" >navicat</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/dll-in/" >dll注入</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/Class/" >HackadayU笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href= "/2020/12/03/shell/" >shell指令学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2020/11/26/VMpwn/" >VMpwn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/nctf2020/" >nctf2020RE</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/pie/" >pie</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2020/11/20/xtdy/" >通用gadgets(__libc_csu_init)利用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/binayi/" >静态编译动态编译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Belady/" >FIFO算法的Belady异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/liumima/" >liumima</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/%C2%96RegisterPointerInputTarget/" >RegisterPointerInputTarget</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2020/03/30/digui/" >递归与回溯算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/lc503/" >lc503-单调栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/dzph/" >堆栈平衡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2020/03/11/rsa/" >rsa</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2020/02/24/lianbiao/" >力扣-链表</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/buuctf-re3/" >buuctf_re3(base64)</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span><a class="archive-post-title" href= "/2019/12/23/hashcry/" >hashcry</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span><a class="archive-post-title" href= "/2019/12/05/prim/" >普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/28</span><a class="archive-post-title" href= "/2019/11/28/tu2/" >图论二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2019/11/27/tu1/" >图论一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2019/11/11/c1/" >c1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
+    
+        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
+    
+        <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="计网"><span class="iconfont-archer">&#xe606;</span>计网</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
+    
+        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+    
+        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
+    
+        <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
+    
+        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Yk2eR0"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
