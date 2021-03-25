@@ -277,7 +277,7 @@ height:50vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/03/22</span>
+                    <span class="post-intro-time">2021/01/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -405,7 +405,7 @@ height:50vh;
 <h4 id="硬件引导"><a href="#硬件引导" class="headerlink" title="硬件引导"></a>硬件引导</h4><p>上电或硬重置后,将控制权交给存储在只读存储器中的程序(通常是PROM).在PC中,我们称其为BIOS.<br>该程序对机器进行自检,查找引导设备和扫描启动设备.然后访问引导设备,加载MBR,加载os引导程序并将控制权转移给os引导程序.</p>
 <h4 id="os引导程序"><a href="#os引导程序" class="headerlink" title="os引导程序"></a>os引导程序</h4><p>pc中,os引导程序位于引导设备的第一个扇区中-MBR(主启动记录).里面除分区表外的剩余空间为主引导程序的代码.在大多数系统中,主引导程序非常受限制.PC MBR(主引导扇区)的大小限制(包括分区表在内共512字节)使得os不能将完整的os加载程序放入mbr.<br>在Linux中，操作系统引导程序通常为lilo或grub。<br>引导程序在系统之间的细节有所不同,但大致可以分为几个步骤引导程序在系统之间的细节有所不同,但大致可以分为几个步:<br>(1):硬件引导<br>(2):OS引导程序<br>(3):内核启动<br>(4):init脚本和inittab<br>(5):服务启动脚本</p>
 <h4 id="硬件引导-1"><a href="#硬件引导-1" class="headerlink" title="硬件引导"></a>硬件引导</h4><p>上电或硬重置后,将控制权交给存储在只读存储器中的程序(通常是PROM).在PC中,我们称其为BIOS.<br>该程序对机器进行自检,查找引导设备和扫描启动设备.然后访问引导设备,加载MBR,加载os引导程序并将控制权转移给os引导程序.</p>
-<h4 id="os引导程序-1"><a href="#os引导程序-1" class="headerlink" title="os引导程序"></a>os引导程序</h4><p>pc中,os引导程序位于引导设备的第一个扇区中-MBR(主启动记录).里面除分区表外的剩余空间为主引导程序的代码.在大多数系统中,主引导程序非常受限制.PC MBR(主引导扇区)的大小限制(包括分区表在内共512字节)使得os不能将完整的os加载程序放入mbr.<br>在Linux中，操作系统引导程序通常为lilo或grub。<br><img src="/2021/03/22/qdlc/grub.png" alt="grub.png"><br>因此大多数os将主引导程序称为辅助OS引导程序.它们都可以作为辅助加载器安装(MBR指向os引导程序的启动地址)，或者作为两部分引导程序启动,加载内核.内核先自解压,从zImage,uImage等格式解压为vmlinux.</p>
+<h4 id="os引导程序-1"><a href="#os引导程序-1" class="headerlink" title="os引导程序"></a>os引导程序</h4><p>pc中,os引导程序位于引导设备的第一个扇区中-MBR(主启动记录).里面除分区表外的剩余空间为主引导程序的代码.在大多数系统中,主引导程序非常受限制.PC MBR(主引导扇区)的大小限制(包括分区表在内共512字节)使得os不能将完整的os加载程序放入mbr.<br>在Linux中，操作系统引导程序通常为lilo或grub。<br><img src="/2021/01/22/qdlc/grub.png" alt="grub.png"><br>因此大多数os将主引导程序称为辅助OS引导程序.它们都可以作为辅助加载器安装(MBR指向os引导程序的启动地址)，或者作为两部分引导程序启动,加载内核.内核先自解压,从zImage,uImage等格式解压为vmlinux.</p>
 <h4 id="内核启动"><a href="#内核启动" class="headerlink" title="内核启动"></a>内核启动</h4><p>加载内核后,它将通过驱动程序初始化设备,启动kswapd进程并挂在根文件目录(/)<br>这些行为可能会改变一些影响内核的参数(例如:你可以覆盖默认的根文件系统).<br>只有这样内核才能创建第一个（用户态）进程，它的pid为1.该进程执行程序/ sbin / init，并传递未被处理的所有内核参数。在kernel的linux/init/main.c中,start_kernel进行了kernel的相关初始化</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">asmlinkage __visible <span class="keyword">void</span> __init <span class="title">start_kernel</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//here </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	smp_setup_processor_id(); <span class="comment">//smp相关</span></span><br><span class="line">	debug_objects_early_init();</span><br><span class="line">	...</span><br><span class="line">	early_boot_irqs_disabled = <span class="literal">true</span>; <span class="comment">//关闭中断请求,防止初始化被打断</span></span><br><span class="line">	boot_cpu_init();</span><br><span class="line">	page_address_init();               <span class="comment">//页地址初始化</span></span><br><span class="line">	pr_notice(<span class="string">"%s"</span>, linux_banner);     <span class="comment">//显示内核信息</span></span><br><span class="line">	early_security_init();</span><br><span class="line">	setup_arch(&amp;command_line);</span><br><span class="line">	setup_boot_config(command_line);</span><br><span class="line">	setup_command_line(command_line);</span><br><span class="line">	setup_nr_cpu_ids();</span><br><span class="line">	setup_per_cpu_areas();</span><br><span class="line">	smp_prepare_boot_cpu();	<span class="comment">/* arch-specific boot-cpu hooks */</span></span><br><span class="line">	boot_cpu_hotplug_init();</span><br><span class="line">	build_all_zonelists(<span class="literal">NULL</span>);</span><br><span class="line">	page_alloc_init();                <span class="comment">//页alloc初始化</span></span><br><span class="line">	setup_log_buf(<span class="number">0</span>);</span><br><span class="line">	vfs_caches_init_early();</span><br><span class="line">	sort_main_extable();</span><br><span class="line">	trap_init();</span><br><span class="line">	mm_init();</span><br><span class="line">	sched_init(); <span class="comment">//init调度器</span></span><br><span class="line">	preempt_disable(); <span class="comment">//停止中断</span></span><br><span class="line">	<span class="keyword">if</span> (WARN(!irqs_disabled(),</span><br><span class="line">		 <span class="string">"Interrupts were enabled *very* early, fixing it\n"</span>))</span><br><span class="line">		local_irq_disable();</span><br><span class="line">	radix_tree_init();</span><br><span class="line">	housekeeping_init();</span><br><span class="line">	workqueue_init_early();</span><br><span class="line"></span><br><span class="line">	rcu_init();</span><br><span class="line">   console_init(); <span class="comment">//初始化console,可以使用printfk打印了</span></span><br><span class="line">	<span class="comment">/* Trace events are available after this */</span></span><br><span class="line">	trace_init();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (initcall_debug)</span><br><span class="line">		initcall_debug_enable();</span><br><span class="line"></span><br><span class="line">	context_tracking_init();</span><br><span class="line">	<span class="comment">/* init some links before init_ISA_irqs() */</span></span><br><span class="line">	early_irq_init();</span><br><span class="line">	init_IRQ();</span><br><span class="line">	tick_init();</span><br><span class="line">	rcu_init_nohz();</span><br><span class="line">	init_timers();</span><br><span class="line">	hrtimers_init();</span><br><span class="line">	softirq_init();</span><br><span class="line">	timekeeping_init();</span><br><span class="line">	rand_initialize();</span><br><span class="line">	add_latent_entropy();</span><br><span class="line">	add_device_randomness(command_line, <span class="built_in">strlen</span>(command_line));</span><br><span class="line">	boot_init_stack_canary();  <span class="comment">//canary保护init</span></span><br><span class="line">	...<span class="comment">//省略大片init,主要是设备和控制程序的初始化</span></span><br><span class="line"></span><br><span class="line">	arch_call_rest_init();<span class="comment">//最后调用rest_init()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>关于rest_init:</p>
@@ -436,7 +436,7 @@ height:50vh;
 </ol>
 <p><strong>写在这里的程序将会在执行完level3启动服务后执行</strong>它们无需登录,在开机后自动执行.也无需再用符号链接链接到rc3.d.<br>常用方法:静态路由的设置,服务器服务的启动</p>
 <ol start="2">
-<li>系统自启动脚本upstart:/etc/init.d:<br>每个被系统管理的服务都有一个启动脚本在特定目录(/etc/init.d).命令service和systemd就是使用这些脚本来管理服务.<br><img src="/2021/03/22/qdlc/init.png" alt="init.d"><br>/etc/rc[0-6S].d中有每个脚本的符号链接,在inittab中调用.这些文件夹代表不同的优先级.</li>
+<li>系统自启动脚本upstart:/etc/init.d:<br>每个被系统管理的服务都有一个启动脚本在特定目录(/etc/init.d).命令service和systemd就是使用这些脚本来管理服务.<br><img src="/2021/01/22/qdlc/init.png" alt="init.d"><br>/etc/rc[0-6S].d中有每个脚本的符号链接,在inittab中调用.这些文件夹代表不同的优先级.</li>
 </ol>
 <p>rc[0-6S].d会在用户登陆之前读取，这个文件中写入了什么命令，在每次系统启动时都会执行一次。</p>
 <p>主脚本通过排序目录中的链接调用服务脚本.名称以”S”开头的所有链接都将使用参数”start”来调用,以”K”开头的名称将以”stop”来调用.</p>
@@ -456,9 +456,9 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
-            <p>原文链接：<a href="https://www.yk2er0.fun/2021/03/22/qdlc/">https://www.yk2er0.fun/2021/03/22/qdlc/</a>
-            <p>发表日期：<a href="https://www.yk2er0.fun/2021/03/22/qdlc/">March 22nd 2021, 9:55:23 am</a>
-            <p>更新日期：<a href="https://www.yk2er0.fun/2021/03/22/qdlc/">March 25th 2021, 11:22:28 am</a>
+            <p>原文链接：<a href="https://www.yk2er0.fun/2021/01/22/qdlc/">https://www.yk2er0.fun/2021/01/22/qdlc/</a>
+            <p>发表日期：<a href="https://www.yk2er0.fun/2021/01/22/qdlc/">January 22nd 2021, 9:55:23 am</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2021/01/22/qdlc/">March 25th 2021, 11:40:45 am</a>
             <p>版权声明：非商业用允许转载</p>
         </div>
     
@@ -467,16 +467,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/03/22/env/" title= "MIPS/ARM动态调试环境搭建">
-                    <div class="nextTitle">MIPS/ARM动态调试环境搭建</div>
+                <a href= "/2021/02/01/jiwang/" title= "jiwang">
+                    <div class="nextTitle">jiwang</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/02/01/jiwang/" title= "jiwang">
-                    <div class="prevTitle">jiwang</div>
+                <a href= "/2021/01/01/dfs/" title= "dfs">
+                    <div class="prevTitle">dfs</div>
                 </a>
             
         </li>
@@ -1263,6 +1263,10 @@ top:50vh;
     
     
     
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 49
@@ -1286,12 +1290,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/%C2%96arm/" >ARM汇编总结</a>
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/usb-new/" >USB简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/usb-new/" >USB简介</a>
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/%C2%96arm/" >ARM汇编总结</a>
         </li>
     
     
@@ -1311,12 +1315,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/qdlc/" >启动流程</a>
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2021/02/01/jiwang/" >jiwang</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2021/02/01/jiwang/" >jiwang</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/qdlc/" >启动流程</a>
         </li>
     
     
@@ -1524,12 +1528,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
@@ -1549,37 +1553,37 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
     
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
-    
         <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
     
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
-    
         <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
     
-        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
     
         <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
     
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+    
         <span class="sidebar-tag-name" data-tags="计网"><span class="iconfont-archer">&#xe606;</span>计网</span>
     
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
-        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
-    
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     
@@ -1587,11 +1591,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
     
-        <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
+        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     
         <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
     
-        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
+        <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
