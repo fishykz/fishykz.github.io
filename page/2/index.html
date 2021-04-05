@@ -245,7 +245,7 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                Thank you for clicking me in this hurried world
+                奇跡を待つより捨て身の努力よ
             
             <!-- 文章页  -->
             
@@ -359,302 +359,6 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/22/qdlc/" >
-            
-                <span>启动流程</span>
-        </a>
-        <div class="abstract-content">
-            引导程序在系统之间的细节有所不同,但大致可以分为几个步骤引导程序在系统之间的细节有所不同,但大致可以分为几个步:(1):硬件引导(2):OS引导程序(3):内核启动(4):init脚本和inittab(5):服务启动脚本
-硬件引导上电或硬重置后,将控制权交给存储在只读存储器中的程序(通常是PROM).在PC中,我们称其为BIOS.该程序对机器进行自检,查找引导设备和扫描启动设备.然后访问引导设备,加载MBR,加载os引导程序并将控制权转移给os引导程序.
-os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(主启动记录).里面除分区表外的剩余空间为主引导程序的代码.在大多数...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/01/dfs/" >
-            
-                <span>dfs</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/01/bfs/" >
-            
-                <span>bfs</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/" >
-            
-                <span>算法考试</span>
-        </a>
-        <div class="abstract-content">
-            概论算法的表述方法:- 自然语言
-- 伪代码
-- 流程图
-C
-判断:算法是在有限时间内,对问题求解的一个清晰的指令序列 √
- 一个需要指数级操作次数的算法只可以用来解决小规模问题。√
- √
-算法的两种效率:时间效率和空间效率
-算法的两种特性:简单性和一般性
-求两个正整数m,n的最大公约数gcd(m,n)法一:gcd(m,n)的欧几里得算法1. 如果n=0,返回m的值作为结果,结束;否则进入第二步.
-2. 用n去除m,将余数赋给r
-3. 将n的值赋给m,将r的值赋给n,返回第一步123int gcd(int m,int n)&#123;return  n==0?m:gcd(n,m%n);&...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/21/dui/" >
-            
-                <span>堆漏洞总结</span>
-        </a>
-        <div class="abstract-content">
-            https://github.com/SignorMercurio/Heap-Tutorials/blob/master/GLibcHeapInternals/GLibcHeap.md
-什么是堆在程序运行过程中,堆可以提供动态分配的内存,允许程序申请大小未知的内存,从低地址向高地址方向增长.
-堆管理器:ptmalloc2
-malloc:1.当n=0时,返回当前系统允许的堆的最小内存块.2.当n为负数时,由于在大多数系统上，size_t 是无符号数（这一点非常重要），所以程序就会申请很大的内存空间，但通常来说都会失败，因为系统没有那么多的内存可以分配。
-
-
-free:1.当p为空指针时,函...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/19/badusb/" >
-            
-                <span>一次badusb攻击实践</span>
-        </a>
-        <div class="abstract-content">
-            
-设备:Digispark开发板
-
-第一步:环境配置
-下载烧录工具Arduino:Arduino    选择其中的”JUST DOWNLOAD”,进行下载
-
-win64下还需要下载驱动:
- //github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip
-
-配置Arduino:
- 在[首选项]中”附加开发板管理器网址”上填入
- http://digistump.com/package_digistump_index.json
- 
- 然后转到”工具”菜单,然后转到”开发板管理器”,选择...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透">渗透</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/19/sfsj3/" >
-            
-                <span>算法与数据结构3-树</span>
-        </a>
-        <div class="abstract-content">
-            二叉树的重要性快速排序是二叉树的前序遍历:
-对nums[lo,hi]排序,先找一个分界点p,通过交换元素使得nums[lo…p-1]都小于等于nums[p],且nums[p+1..hi]都大于nums[p],
-
-然后递归地去nums[lo..p-1]和nums[p+1…hi]中寻找新的分界点p,通过交换元素使得nums[lo,,p-1]都小于等于nums[p],且nums[p+1..hi]都大于nums[p],然后递归的去找nums[lo…p-1]和nums[p+!..hi]中寻找新的分界点
-123456void sort(int* nums,int lo,int hi)&#123;  ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/19/dp/" >
-            
-                <span>算法与数据结构2-动态规划</span>
-        </a>
-        <div class="abstract-content">
-            啥事动态规划一般形式是求最值:动态规划是运筹学一种最优化方法.其求解过程中存在重叠子问题,如果暴力琼剧的话效率极其低下,所以需要[DP table]来优化穷举过程,避免不必要的计算.
-动态规划具备最优子结构
-DP的核心思想是穷举求最值,但只有列出正确的状态转移方程才能正确的穷举.
-思路:
-明确状态-&gt;定义DP数组/函数的含义-&gt;明确[选择]-&gt;明确base case
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/17/sfzj1/" >
-            
-                <span>算法与数据结构1-数据结构</span>
-        </a>
-        <div class="abstract-content">
-            数据结构的存储方式
-数组(顺序存储)
-紧凑型连续存储,可以随机访问,通过索引快速找到对应元素,而且相对节约存储空间.数组如果要扩容,需要重新分配一块更大空间,再把数据全部复制过去,时间复杂度O(N)
-如果想在数组中进行插入和删除,每次必须搬移后面的所有数据以保持连续,时间复杂度O(N)
-
-链表(链式存储)
-因为元素不连续,而是靠指针指向下一元素的位置.所以不存在扩容问题.如果知道某一元素的前去和后去,操作指针即可删除该元素或插入新元素,O(1).正式因为存储空间不连续,所以无法根据一个索引推出任一索引,即不能随机访问.由于每个元素必须存储指向前后元素位置的指针,会消耗相对更多的存储空间,...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/17</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2020/12/17/router-tools/" >
             
                 <span>router-tools</span>
@@ -680,10 +384,330 @@ DVRF:模拟其它CPU架构安装:
         </div>
     </article>
     
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/04/runit/" >
+            
+                <span>runit</span>
+        </a>
+        <div class="abstract-content">
+            1234567pwndbg&gt; checksec[*] '/home/yk2/ctf/runit/pwn'    Arch:     i386-32-little    RELRO:    Partial RELRO    Stack:    No canary found    NX:       NX enabled    PIE:      No PIE (0x8048000)
+
+虽然NX开了,但给了read,直接ret2shellcode
+12345678910111213141516171819202122232425262728from pwn import *from ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/03/shell/" >
+            
+                <span>shell指令学习</span>
+        </a>
+        <div class="abstract-content">
+            靶场:https://www.hackerrank.com/
+Task 1:Let’s EchoWrite a bash script that prints the string “HELLO”.
+1echo HELLO
+
+A Personalized EchoWrite a Bash script which accepts name as input and displays the greeting “Welcome (name)”
+12read NAMEecho "Welcome "$NAME
+
+read从标准输入中读取一行,并把输入行的每一个字段的值指定给后面的变量
+或
+12...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Shell">Shell</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/11/25/nctf2020/" >
+            
+                <span>nctf2020RE</span>
+        </a>
+        <div class="abstract-content">
+            Reversere1附件:https://www.yk2er0.fun/2020/11/25/nctf2020/re1
+12345678910111213141516def encode(a1,a2):    v2 &#x3D; (~a2 | ~a1) &amp; (~a2 | a1) &amp; (a2 | a1) | (~a2 | ~a1) &amp; (a2 | ~a1) &amp; a2 &amp; a1 | a2 &amp; ~a1 | ~a2 &amp; a1;    return ((~(32 * v2) | ~(v2 &gt;&gt; 3)) &amp; (~(32 * ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Re">Re</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/11/20/xtdy/" >
+            
+                <span>通用gadgets(__libc_csu_init)利用</span>
+        </a>
+        <div class="abstract-content">
+            系统调用程序向系统内核请求服务,通过使用系统调用的方式:
+32位程序(__stdcall)在执行系统调用后会pop栈的参数到寄存器,所以在调用后依次排布参数即可.
+64位程序传前6个参数直接使用寄存器中存在的值.故在payload中还要插入gadget,将参数放入寄存器中.
+
+
+
+syscall
+系统调用号
+参数1
+参数2
+参数3
+参数4
+参数5
+参数6
+
+
+
+64位
+rax
+rdi
+rsi
+rdx
+r10
+r8
+r9
+
+
+32位
+eax
+ebx(stack)
+ecx(stack)
+edx(stack)
+stack
+stack
+stack
+
+
+(64)sys_read
+0
+size_t ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/07/01/3dsctf/" >
+            
+                <span>get_started_3dsctf_2016</span>
+        </a>
+        <div class="abstract-content">
+            这题蛮有意思,静态编译的,有许多函数可以直接利用,但远程打不通.解决方法是利用mprotect函数修改bss段为可执行
+123456789unsigned int __cdecl mprotect(void *addr, size_t len, int prot)//prot为权限标志数,rwx为7&#123;  unsigned int result; // eax  result = dl_sysinfo(len, prot);  if ( result &gt;= 0xFFFFF001 )    result = _syscall_error();  return result;&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/05/14/nxs/" >
+            
+                <span>利用归并算法思想进行的数组逆序数对数计算</span>
+        </a>
+        <div class="abstract-content">
+            1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123;public:int merge(vector&lt;int&gt;&amp; nums, int num, int l, int r, vector&lt;int&gt;&amp; res)&#123;    if (r == l)//边界情况,,此时没有逆序数        return num;    int mid = (l + r) / 2;    num = merge(nums, num, l, mi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/13/hongbao3/" >
+            
+                <span>ctf.show红包题2</span>
+        </a>
+        <div class="abstract-content">
+            题目地址:http://game.ctf.show/实际上就是最短路径问题先爬下来路径点,然后python实现最短路径
+12345678910111213141516171819202122232425262728293031323334353637383940414243import networkx as nxfrom networkx.drawing.tests.test_pylab import pltdef Dijkstra(G, start, end):    RG = G.reverse();    dist = &#123;&#125;;    previous = &#...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/12/buuctf-re3/" >
+            
+                <span>buuctf_re3(base64)</span>
+        </a>
+        <div class="abstract-content">
+            主函数逆出来是这样的:123456789101112131415161718192021222324252627282930313233343536373839__int64 __usercall main_0@&lt;edx:eax&gt;(int a1@&lt;ebx&gt;, int a2@&lt;edi&gt;, int a3@&lt;esi&gt;)&#123;  void *v3; &#x2F;&#x2F; ecx  int v4; &#x2F;&#x2F; eax  const char *v5; &#x2F;&#x2F; eax  size_t v6; &#x2F;&#x...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/12</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "reverse">reverse</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/01/des/" >
+            
+                <span>DES加密步骤详解</span>
+        </a>
+        <div class="abstract-content">
+            
+DES是一个分组加密算法.以64为为分组对数据加密.64为一组明文从算法的一段输入,64位密文输出.
+DES是对称算法
+密钥长度为56位(数字长度为64位,但每个第8位都做奇偶校验数)初始置换把明文输入块分为64份.然后排列成下面所示密文(IP)输出:
+
+58,50,42,34,26,18,10,2,60,52,44,36,28,20,12,4,62,54,46,38,30,22,14,6,64,56,48,40,32,24,16,8,57,49,41,33,25,17, 9,1,59,51,43,35,27,19,11,3,61,53,45,37,29,21,13,5,63,55,4...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">NEXT &amp;#62;</a>
+        <a class="extend prev" rel="prev" href="/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &amp;#62;</a>
     </nav>
     
 </main>
@@ -796,6 +820,24 @@ DVRF:模拟其它CPU架构安装:
                 
                     <span>
                         <a href= //blog.csdn.net/tqydyqt target="_black">古月</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //www.tearorca.top/ target="_black">H4lo</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //www.tearorca.top// target="_black">tearorca</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //nocbtm.github.io/ target="_black">nocbtm</a>
                     </span>
                 
             
@@ -1179,453 +1221,9 @@ DVRF:模拟其它CPU架构安装:
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 53
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -1646,17 +1244,7 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/04</span><a class="archive-post-title" href= "/2021/04/04/runit/" >runit</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2021/03/25/hanjie/" >hanjie</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/24</span><a class="archive-post-title" href= "/2021/03/24/uart/" >uart</a>
         </li>
     
     
@@ -1676,32 +1264,17 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/net/" >qemu常用网络命令:SSH代理和SCP</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/net/" >qemu常用网络命令:SSH代理和SCP</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2021/03/22/env/" >MIPS/ARM动态调试环境搭建</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2021/02/01/jiwang/" >jiwang</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/env/" >MIPS/ARM动态调试环境搭建</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/qdlc/" >启动流程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/bfs/" >bfs</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2021/01/01/dfs/" >dfs</a>
         </li>
     
     
@@ -1715,11 +1288,6 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/31</span><a class="archive-post-title" href= "/2020/12/31/%E7%AE%97%E6%B3%95%E8%80%83%E8%AF%95/" >算法考试</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
         </li>
     
@@ -1730,37 +1298,12 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/sfsj3/" >算法与数据结构3-树</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/dp/" >算法与数据结构2-动态规划</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/sfzj1/" >算法与数据结构1-数据结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/navicat/" >navicat</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/dll-in/" >dll注入</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/Class/" >HackadayU笔记</a>
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/runit/" >runit</a>
         </li>
     
     
@@ -1770,17 +1313,7 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2020/11/26/VMpwn/" >VMpwn</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/nctf2020/" >nctf2020RE</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/pie/" >pie</a>
         </li>
     
     
@@ -1796,61 +1329,6 @@ DVRF:模拟其它CPU架构安装:
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/binayi/" >静态编译动态编译</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Belady/" >FIFO算法的Belady异常</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/liumima/" >liumima</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/%C2%96RegisterPointerInputTarget/" >RegisterPointerInputTarget</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima1/" >show内部赛杂项1</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2020/04/02/mima2/" >show内部赛密码1</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2020/03/30/digui/" >递归与回溯算法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/lc503/" >lc503-单调栈</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2020/03/14/dzph/" >堆栈平衡</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2020/03/11/rsa/" >rsa</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2020/02/24/lianbiao/" >力扣-链表</a>
         </li>
     
     
@@ -1874,41 +1352,6 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/23</span><a class="archive-post-title" href= "/2019/12/23/hashcry/" >hashcry</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/05</span><a class="archive-post-title" href= "/2019/12/05/prim/" >普里姆(Prim)算法和克鲁斯卡(Kruskal)算法计算生成树</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/28</span><a class="archive-post-title" href= "/2019/11/28/tu2/" >图论二</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2019/11/27/tu1/" >图论一</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2019/11/11/c1/" >c1</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
@@ -1919,7 +1362,22 @@ DVRF:模拟其它CPU架构安装:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/phpwxy/" >php伪协议实现命令执行</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2019/05/08/Belady/" >FIFO算法的Belady异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2019/03/11/rsa/" >rsa</a>
         </li>
     
     </div>
@@ -1927,51 +1385,37 @@ DVRF:模拟其它CPU架构安装:
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
     
-        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="Windows"><span class="iconfont-archer">&#xe606;</span>Windows</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
-    
-        <span class="sidebar-tag-name" data-tags="re"><span class="iconfont-archer">&#xe606;</span>re</span>
-    
-        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
-    
-        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
         <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
     
-        <span class="sidebar-tag-name" data-tags="编译原理"><span class="iconfont-archer">&#xe606;</span>编译原理</span>
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="计网"><span class="iconfont-archer">&#xe606;</span>计网</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
+        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
+    
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     
-        <span class="sidebar-tag-name" data-tags="离散数学"><span class="iconfont-archer">&#xe606;</span>离散数学</span>
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
     
         <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
-    
-        <span class="sidebar-tag-name" data-tags="msdn"><span class="iconfont-archer">&#xe606;</span>msdn</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
