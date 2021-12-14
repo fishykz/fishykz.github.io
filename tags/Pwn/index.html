@@ -346,29 +346,227 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/21/dui/" >
+        <a class="abstract-title" href = "/2021/04/17/%C2%960ctf-2017-babyheap/" >
             
-                <span>堆漏洞总结</span>
+                <span>0ctf_2017_babyheap</span>
         </a>
         <div class="abstract-content">
-            https://github.com/SignorMercurio/Heap-Tutorials/blob/master/GLibcHeapInternals/GLibcHeap.md
-什么是堆在程序运行过程中,堆可以提供动态分配的内存,允许程序申请大小未知的内存,从低地址向高地址方向增长.
-堆管理器:ptmalloc2
-malloc:1.当n=0时,返回当前系统允许的堆的最小内存块.2.当n为负数时,由于在大多数系统上，size_t 是无符号数（这一点非常重要），所以程序就会申请很大的内存空间，但通常来说都会失败，因为系统没有那么多的内存可以分配。
+            功能分析在一个随机生成的地址通过mmap初始化了一个长度为16的数组,
+结构体:{inuse(DW);size(QW);Content(QW)}
+Allocatecllocate一个小于4096的任意大小区域,
+Fill将一个小于99999999长度的任意值写入指定id的content区,此处没有判定是否小于size
+Free清空整个结构体的指针和该结构体指针
+Dump打印指定id的content,打印长度是按照结构体数组中size位记录的值
+malloc_hook劫持find_fake_fast 0x7fd82a4b1b10 0x7f
 
-
-free:1.当p为空指针时,函...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/21</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/17</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2021/04/16/b00ks/" >
+            
+                <span>b00ks</span>
+        </a>
+        <div class="abstract-content">
+            
+环境:ub16.04 x64 glibc2.23
+
+菜单题,先看下保护:
+123456gdb-peda$ checksecCANARY    : disabledFORTIFY   : disabledNX        : ENABLEDPIE       : ENABLEDRELRO     : FULL
+
+要先泄露偏移;不能覆写got表
+PAYLOAD12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/17/router-tools/" >
+            
+                <span>router-tools</span>
+        </a>
+        <div class="abstract-content">
+            通过本文介绍
+DVRF:模拟其它CPU架构安装:
+12345678910cd $addrsudo apt-get install libncurses-dev curses-develsudo apt-get install libncurses5-dev patchwget http://buildroot.uclibc.org/downloads/snapshots/buildroot-20201122.tar.bz2chmod 777 buildroot-20201122.tar.bz2tar -jxvf buildroot-20201122.tar.bz2cd buildroot...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/04/runit/" >
+            
+                <span>runit</span>
+        </a>
+        <div class="abstract-content">
+            1234567pwndbg&gt; checksec[*] '/home/yk2/ctf/runit/pwn'    Arch:     i386-32-little    RELRO:    Partial RELRO    Stack:    No canary found    NX:       NX enabled    PIE:      No PIE (0x8048000)
+
+虽然NX开了,但给了read,直接ret2shellcode
+12345678910111213141516171819202122232425262728from pwn import *from ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/11/20/xtdy/" >
+            
+                <span>通用gadgets(__libc_csu_init)利用</span>
+        </a>
+        <div class="abstract-content">
+            系统调用程序向系统内核请求服务,通过使用系统调用的方式:
+32位程序(__stdcall)在执行系统调用后会pop栈的参数到寄存器,所以在调用后依次排布参数即可.
+64位程序传前6个参数直接使用寄存器中存在的值.故在payload中还要插入gadget,将参数放入寄存器中.
+
+
+
+syscall
+系统调用号
+参数1
+参数2
+参数3
+参数4
+参数5
+参数6
+
+
+
+64位
+rax
+rdi
+rsi
+rdx
+r10
+r8
+r9
+
+
+32位
+eax
+ebx(stack)
+ecx(stack)
+edx(stack)
+stack
+stack
+stack
+
+
+(64)sys_read
+0
+size_t ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/07/01/3dsctf/" >
+            
+                <span>get_started_3dsctf_2016</span>
+        </a>
+        <div class="abstract-content">
+            这题蛮有意思,静态编译的,有许多函数可以直接利用,但远程打不通.解决方法是利用mprotect函数修改bss段为可执行
+123456789unsigned int __cdecl mprotect(void *addr, size_t len, int prot)//prot为权限标志数,rwx为7&#123;  unsigned int result; // eax  result = dl_sysinfo(len, prot);  if ( result &gt;= 0xFFFFF001 )    result = _syscall_error();  return result;&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
     
 </div>
             
@@ -418,6 +616,10 @@ free:1.当p为空指针时,函...
     
         
     
+        
+            
+                <a href="/assets/tree.html" class="iconfont-archer others" target="_blank" title=others></a>
+            
         
     
         
@@ -695,56 +897,9 @@ free:1.当p为空指针时,函...
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 21
         </div>
         <!-- search  -->
         
@@ -760,7 +915,12 @@ free:1.当p为空指针时,函...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2021/03/25/hanjie/" >hanjie</a>
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2021/04/17/%C2%960ctf-2017-babyheap/" >0ctf_2017_babyheap</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/16</span><a class="archive-post-title" href= "/2021/04/16/b00ks/" >b00ks</a>
         </li>
     
     
@@ -804,16 +964,6 @@ free:1.当p为空指针时,函...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
         </li>
     
@@ -844,11 +994,6 @@ free:1.当p为空指针时,函...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
         </li>
     
@@ -873,22 +1018,17 @@ free:1.当p为空指针时,函...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2019/05/08/Belady/" >FIFO算法的Belady异常</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -901,125 +1041,25 @@ free:1.当p为空指针时,函...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
         <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
-    
-        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
-    
         <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
-    
-        <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
-    
-        <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #787878; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: true
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tags-list"></div>
-</div>
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-    </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var siteMeta = {
-        root: "/",
-        author: "Yk2eR0"
-    }
-</script>
-    <!-- CDN failover -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ === 'undefined')
-        {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
-        }
-    </script>
-    <script src="/scripts/main.js"></script>
-    <!-- algolia -->
-    
-    <!-- busuanzi  -->
-    
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    <!-- CNZZ  -->
-    
-    </div>
-    <!-- async load share.js -->
-     
-    </body>
-</html>
-
-
-s="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
-    
-        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
-    
-        <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
-        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
     
         <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
-        <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     

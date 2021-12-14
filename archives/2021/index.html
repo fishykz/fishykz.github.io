@@ -346,31 +346,66 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/03/25/hanjie/" >
+        <a class="abstract-title" href = "/2021/04/17/%C2%960ctf-2017-babyheap/" >
             
-                <span>hanjie</span>
+                <span>0ctf_2017_babyheap</span>
         </a>
         <div class="abstract-content">
-            设备:电烙铁,高温海绵/除锡铜丝球,助焊剂,别用膏状的,会短路,排风装置
-电烙铁一般340-360.260练手
-热风枪:
-无铅 300-350°,有铅280度就行了
-先在flash周围焊点先点上加铅锡加铅,降低熔点,以免温度要求过高损坏周围器件
-加热待取芯片前要先加热周围.
-板子热的时候不要上电,会损坏电路
-飞线连接flash引脚,再焊上排针,插入编程器
+            功能分析在一个随机生成的地址通过mmap初始化了一个长度为16的数组,
+结构体:{inuse(DW);size(QW);Content(QW)}
+Allocatecllocate一个小于4096的任意大小区域,
+Fill将一个小于99999999长度的任意值写入指定id的content区,此处没有判定是否小于size
+Free清空整个结构体的指针和该结构体指针
+Dump打印指定id的content,打印长度是按照结构体数组中size位记录的值
+malloc_hook劫持find_fake_fast 0x7fd82a4b1b10 0x7f
 
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/03/25</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/17</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "IOT">IOT</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2021/04/16/b00ks/" >
+            
+                <span>b00ks</span>
+        </a>
+        <div class="abstract-content">
+            
+环境:ub16.04 x64 glibc2.23
+
+菜单题,先看下保护:
+123456gdb-peda$ checksecCANARY    : disabledFORTIFY   : disabledNX        : ENABLEDPIE       : ENABLEDRELRO     : FULL
+
+要先泄露偏移;不能覆写got表
+PAYLOAD12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
     
 </div>
             
@@ -643,6 +678,10 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
     
         
     
+        
+            
+                <a href="/assets/tree.html" class="iconfont-archer others" target="_blank" title=others></a>
+            
         
     
         
@@ -920,56 +959,9 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 21
         </div>
         <!-- search  -->
         
@@ -985,7 +977,12 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2021/03/25/hanjie/" >hanjie</a>
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2021/04/17/%C2%960ctf-2017-babyheap/" >0ctf_2017_babyheap</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/16</span><a class="archive-post-title" href= "/2021/04/16/b00ks/" >b00ks</a>
         </li>
     
     
@@ -1029,16 +1026,6 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
         </li>
     
@@ -1069,11 +1056,6 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
         </li>
     
@@ -1098,22 +1080,17 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2019/05/08/Belady/" >FIFO算法的Belady异常</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -1126,33 +1103,25 @@ os引导程序pc中,os引导程序位于引导设备的第一个扇区中-MBR(�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
         <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
-    
-        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
-    
         <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     

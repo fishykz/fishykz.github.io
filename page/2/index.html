@@ -359,38 +359,6 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/04/runit/" >
-            
-                <span>runit</span>
-        </a>
-        <div class="abstract-content">
-            1234567pwndbg&gt; checksec[*] '/home/yk2/ctf/runit/pwn'    Arch:     i386-32-little    RELRO:    Partial RELRO    Stack:    No canary found    NX:       NX enabled    PIE:      No PIE (0x8048000)
-
-虽然NX开了,但给了read,直接ret2shellcode
-12345678910111213141516171819202122232425262728from pwn import *from ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Pwn">Pwn</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2020/12/03/shell/" >
             
                 <span>shell指令学习</span>
@@ -557,35 +525,6 @@ size_t ...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/14/nxs/" >
-            
-                <span>利用归并算法思想进行的数组逆序数对数计算</span>
-        </a>
-        <div class="abstract-content">
-            1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123;public:int merge(vector&lt;int&gt;&amp; nums, int num, int l, int r, vector&lt;int&gt;&amp; res)&#123;    if (r == l)//边界情况,,此时没有逆序数        return num;    int mid = (l + r) / 2;    num = merge(nums, num, l, mi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/13/hongbao3/" >
             
                 <span>ctf.show红包题2</span>
@@ -702,6 +641,81 @@ DES是对称算法
         </div>
     </article>
     
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/01/cbcsafety-md/" >
+            
+                <span>CBC安全问题</span>
+        </a>
+        <div class="abstract-content">
+            安全问题CBC比特翻转攻击
+已知明文攻击
+如果我们有一组明密文,就可以做到通过修改密文,使密文解密出来的特定位置字符变成我们想要的字符.
+经常和web一起出[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传
+加密流程简述:f()为加密函数,g()为解密函数①:明文1^iv=C1②:f(C1)=密文1③:密文1^明文2=C2④:f(C2)=密文2
+攻击流程简述:
+
+①:g(密文2)=C2②:C2^密文1=明文1③:明文1-&gt;所需明文a④:f(明文a^密文1)=所需密文a由于CBC中每一组明文都是按位异或和加密.故可选取对应位进行操作.
+CBC选择密文攻击
+通过CBC...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/01/CVE-2018-12613/" >
+            
+                <span>CVE-2018-12613 phpadmin文件包含漏洞</span>
+        </a>
+        <div class="abstract-content">
+            网址:
+
+https://www.phpmyadmin.net/security/PMASA-2018-4/
+
+摘要文件包含和远程执行代码攻击
+描述发现了一个漏洞，攻击者可以在该漏洞中包含（查看并可能执行）服务器上的文件。该漏洞来自代码的一部分，其中页面在phpMyAdmin中重定向和加载，以及对白名单页面的不正确测试。除以下情况外，必须对攻击者进行身份验证：
+
+$ cfg [‘AllowArbitraryServer’] = true：攻击者可以指定他/她已控制的任何主机，并在phpMyAdmin上执行任意代码
+$ cfg [‘ServerDefault’] = 0：这绕过登录并运行易...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -750,6 +764,10 @@ DES是对称算法
     
         
     
+        
+            
+                <a href="/assets/tree.html" class="iconfont-archer others" target="_blank" title=others></a>
+            
         
     
         
@@ -886,6 +904,10 @@ DES是对称算法
     
         
     
+        
+            
+                <a href="/assets/tree.html" class="iconfont-archer others" target="_blank" title=others></a>
+            
         
     
         
@@ -1163,56 +1185,9 @@ DES是对称算法
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 21
         </div>
         <!-- search  -->
         
@@ -1228,7 +1203,12 @@ DES是对称算法
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2021/03/25/hanjie/" >hanjie</a>
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2021/04/17/%C2%960ctf-2017-babyheap/" >0ctf_2017_babyheap</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/16</span><a class="archive-post-title" href= "/2021/04/16/b00ks/" >b00ks</a>
         </li>
     
     
@@ -1272,16 +1252,6 @@ DES是对称算法
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2020/12/21/dui/" >堆漏洞总结</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2020/12/19/badusb/" >一次badusb攻击实践</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/router-tools/" >router-tools</a>
         </li>
     
@@ -1312,11 +1282,6 @@ DES是对称算法
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/nxs/" >利用归并算法思想进行的数组逆序数对数计算</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">02/13</span><a class="archive-post-title" href= "/2020/02/13/hongbao3/" >ctf.show红包题2</a>
         </li>
     
@@ -1341,22 +1306,17 @@ DES是对称算法
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/cbcsafety-md/" >CBC安全问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/ecbcbc-md/" >(ECB,CBC)分组密码的算法类型及模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2019/05/08/Belady/" >FIFO算法的Belady异常</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/des/" >DES加密步骤详解</a>
         </li>
     
     
@@ -1369,33 +1329,25 @@ DES是对称算法
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
-    
         <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透"><span class="iconfont-archer">&#xe606;</span>渗透</span>
-    
-        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="reverse"><span class="iconfont-archer">&#xe606;</span>reverse</span>
     
-        <span class="sidebar-tag-name" data-tags="IOT"><span class="iconfont-archer">&#xe606;</span>IOT</span>
-    
         <span class="sidebar-tag-name" data-tags="IOT Pwn"><span class="iconfont-archer">&#xe606;</span>IOT Pwn</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Re"><span class="iconfont-archer">&#xe606;</span>Re</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="通信"><span class="iconfont-archer">&#xe606;</span>通信</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
     
